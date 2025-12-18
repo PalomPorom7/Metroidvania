@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://d16oevymn1f1e"]
+[gd_scene load_steps=6 format=3 uid="uid://d16oevymn1f1e"]
+
+[ext_resource type="PackedScene" uid="uid://c4bxjxcgtvxyv" path="res://Scenes/Characters/kitty.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bptxtqgu8sl73" path="res://Scripts/player.gd" id="2_e2o6t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_88gup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
+size = Vector2(128, 128)
+
+[sub_resource type="QuadMesh" id="QuadMesh_feb5d"]
+size = Vector2(128, 128)
 
 [node name="Game" type="Node2D"]
 process_mode = 3
@@ -13,9 +22,28 @@ process_mode = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnvironment/CurrentLevel"]
 shape = SubResource("WorldBoundaryShape2D_88gup")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="WorldEnvironment"]
+[node name="StaticBody2D" type="StaticBody2D" parent="WorldEnvironment/CurrentLevel"]
+position = Vector2(256, -64)
+scale = Vector2(2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnvironment/CurrentLevel/StaticBody2D"]
+shape = SubResource("RectangleShape2D_e2o6t")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="WorldEnvironment/CurrentLevel/StaticBody2D"]
+mesh = SubResource("QuadMesh_feb5d")
+
+[node name="Kitty" parent="WorldEnvironment" instance=ExtResource("1_80nbo")]
+_gravity_multiplier = 4.0
+_terminal_velocity = 4096.0
+
+[node name="Player" type="Timer" parent="WorldEnvironment/Kitty" node_paths=PackedStringArray("character")]
+wait_time = 0.25
+one_shot = true
+script = ExtResource("2_e2o6t")
+character = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="WorldEnvironment"]
+position = Vector2(0, -360)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

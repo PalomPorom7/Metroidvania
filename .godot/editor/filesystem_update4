@@ -1,1 +1,4 @@
 res://game.tscn
+res://Scripts/player.gd
+res://Scripts/character.gd
+res://Scenes/Characters/kitty.tscn

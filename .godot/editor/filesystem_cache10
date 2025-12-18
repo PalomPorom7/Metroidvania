@@ -1,4 +1,11 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1764788174
+::res://::1766075854
+game.tscn::PackedScene::9049026017747633324::1766075384::0::1::::<><><>0<>0<><>::uid://c4bxjxcgtvxyv::::res://Scenes/Characters/kitty.tscn<>uid://bptxtqgu8sl73::::res://Scripts/player.gd
 icon.svg::CompressedTexture2D::8585082902123709665::1764348609::1764367363::1::::<><><>0<>0<>5e97e2f28fd96d8d238c5c309a912da2<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex::
-room.tscn::PackedScene::9049026017747633324::1764435073::0::1::::<><><>0<>0<><>::uid://cxtvwxr1igaaa::::res://spin.gd<>uid://dukxccvsmgrmv::::res://icon.svg
+README.md::TextFile::-1::1764793005::0::1::::<><><>0<>0<><>::
+::res://Scenes/::1765311655
+::res://Scenes/Characters/::1765311833
+kitty.tscn::PackedScene::6811795985047491641::1765311833::0::1::::<><><>0<>0<><>::uid://cnabtvk7aqowv::::res://Scripts/character.gd<>uid://dukxccvsmgrmv::::res://icon.svg
+::res://Scripts/::1766075384
+character.gd::GDScript::5685392101650559161::1766075384::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player.gd::GDScript::3479907787104501928::1765811678::0::1::::<>Node<><>0<>0<><>::
