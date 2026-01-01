@@ -43,7 +43,8 @@ script = ExtResource("2_e2o6t")
 character = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="WorldEnvironment"]
-position = Vector2(0, -360)
+position = Vector2(0, -90)
+zoom = Vector2(4, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

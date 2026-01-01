@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 
+@onready var _sprite: Sprite2D = $Sprite2D
+
+
 @export_category("Locomotion")
 @export var _walk_speed: float = 256
 @export var _run_speed: float = 512
@@ -22,6 +25,10 @@ var direction: float
 var _was_on_floor: bool
 var _is_on_floor: bool
 var is_jumping: bool
+
+
+func face_left(left: bool = true) -> void:
+	_sprite.flip_h = left
 
 
 func walk() -> void:
@@ -73,6 +80,11 @@ func _air_physics(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	# Face direction
+	if direction < 0:
+		face_left()
+	elif direction > 0:
+		face_left(false)
 	_was_on_floor = _is_on_floor
 	_is_on_floor = is_on_floor()
 	if _was_on_floor and not _is_on_floor and velocity.y >= 0:
