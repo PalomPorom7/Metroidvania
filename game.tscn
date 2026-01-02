@@ -1,18 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://d16oevymn1f1e"]
+[gd_scene load_steps=4 format=3 uid="uid://d16oevymn1f1e"]
 
 [ext_resource type="PackedScene" uid="uid://c4bxjxcgtvxyv" path="res://Scenes/Characters/kitty.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bptxtqgu8sl73" path="res://Scripts/player.gd" id="2_e2o6t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_88gup"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
-size = Vector2(128, 128)
-
-[sub_resource type="QuadMesh" id="QuadMesh_feb5d"]
-size = Vector2(128, 128)
-
 [node name="Game" type="Node2D"]
+_import_path = NodePath("")
+unique_name_in_owner = false
 process_mode = 3
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+position = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+skew = 0.0
+script = null
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 process_mode = 1
@@ -21,16 +43,6 @@ process_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnvironment/CurrentLevel"]
 shape = SubResource("WorldBoundaryShape2D_88gup")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="WorldEnvironment/CurrentLevel"]
-position = Vector2(256, -64)
-scale = Vector2(2, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnvironment/CurrentLevel/StaticBody2D"]
-shape = SubResource("RectangleShape2D_e2o6t")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="WorldEnvironment/CurrentLevel/StaticBody2D"]
-mesh = SubResource("QuadMesh_feb5d")
 
 [node name="Kitty" parent="WorldEnvironment" instance=ExtResource("1_80nbo")]
 

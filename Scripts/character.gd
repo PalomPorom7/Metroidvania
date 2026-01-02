@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 
 @onready var _sprite: Sprite2D = $Sprite2D
+@onready var _jump_sfx: AudioStreamPlayer2D = $Jump
+@onready var _land_sfx: AudioStreamPlayer2D = $Land
 
 
 @export_category("Locomotion")
@@ -44,6 +46,7 @@ func jump() -> bool:
 		#if _coyote and not _coyote.is_stopped():
 			#print("Coyote jump successful!")
 		velocity.y = _jump_force
+		_jump_sfx.play_random()
 		is_jumping = true
 		return true
 	return false
@@ -79,17 +82,24 @@ func _air_physics(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, _deceleration * _air_brakes * delta)
 
 
+func _on_landed() -> void:
+	_land_sfx.play_random()
+
+
 func _physics_process(delta: float) -> void:
 	# Face direction
 	if direction < 0:
 		face_left()
 	elif direction > 0:
 		face_left(false)
+	# Check if the character walked off of a ledge or landed
 	_was_on_floor = _is_on_floor
 	_is_on_floor = is_on_floor()
 	if _was_on_floor and not _is_on_floor and velocity.y >= 0:
 		_coyote.start()
 		#print("Walked off of a ledge!")
+	elif not _was_on_floor and _is_on_floor:
+		_on_landed()
 	if _is_on_floor:
 		_ground_physics(delta)
 	else:
