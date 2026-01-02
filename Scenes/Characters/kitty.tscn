@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4bxjxcgtvxyv"]
+[gd_scene load_steps=12 format=3 uid="uid://c4bxjxcgtvxyv"]
 
 [ext_resource type="Script" uid="uid://cnabtvk7aqowv" path="res://Scripts/character.gd" id="1_4d7gs"]
 [ext_resource type="Texture2D" uid="uid://c0kyuoboi64uw" path="res://Assets/Sprites/Kitty/Cat-Default.png" id="2_4d7gs"]
@@ -10,6 +10,133 @@ height = 28.0
 [sub_resource type="AtlasTexture" id="AtlasTexture_3j1hx"]
 atlas = ExtResource("2_4d7gs")
 region = Rect2(0, 0, 32, 36)
+
+[sub_resource type="Animation" id="Animation_4d7gs"]
+resource_name = "idle"
+length = 0.58334166
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 36), Rect2(32, 0, 32, 36), Rect2(64, 0, 32, 36), Rect2(96, 0, 32, 36), Rect2(128, 0, 32, 36), Rect2(160, 0, 32, 36), Rect2(192, 0, 32, 36)]
+}
+
+[sub_resource type="Animation" id="Animation_8h8s0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_3j1hx")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 36)]
+}
+
+[sub_resource type="Animation" id="Animation_3j1hx"]
+resource_name = "walk"
+length = 0.66667503
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5, 0.5833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 108, 32, 36), Rect2(32, 108, 32, 36), Rect2(64, 108, 32, 36), Rect2(96, 108, 32, 36), Rect2(128, 108, 32, 36), Rect2(160, 108, 32, 36), Rect2(192, 108, 32, 36), Rect2(224, 108, 32, 36)]
+}
+
+[sub_resource type="Animation" id="Animation_wo4o5"]
+resource_name = "run"
+length = 0.33333752
+loop_mode = 1
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.041666668, 0.083333336, 0.125, 0.16666667, 0.20833333, 0.25, 0.29166666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 108, 32, 36), Rect2(32, 108, 32, 36), Rect2(64, 108, 32, 36), Rect2(96, 108, 32, 36), Rect2(128, 108, 32, 36), Rect2(160, 108, 32, 36), Rect2(192, 108, 32, 36), Rect2(224, 108, 32, 36)]
+}
+
+[sub_resource type="Animation" id="Animation_kdfac"]
+resource_name = "jump"
+length = 0.083341666
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(0, 144, 32, 36)]
+}
+
+[sub_resource type="Animation" id="Animation_te1kl"]
+resource_name = "fall"
+length = 0.083341666
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(0, 180, 32, 36)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cngrh"]
+_data = {
+&"RESET": SubResource("Animation_8h8s0"),
+&"fall": SubResource("Animation_te1kl"),
+&"idle": SubResource("Animation_4d7gs"),
+&"jump": SubResource("Animation_kdfac"),
+&"run": SubResource("Animation_wo4o5"),
+&"walk": SubResource("Animation_3j1hx")
+}
 
 [node name="Kitty" type="CharacterBody2D"]
 script = ExtResource("1_4d7gs")
@@ -30,6 +157,9 @@ position = Vector2(0, -18)
 texture = SubResource("AtlasTexture_3j1hx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cngrh")
+}
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../AnimationPlayer")
