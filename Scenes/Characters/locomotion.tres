@@ -1,0 +1,39 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=9 format=3 uid="uid://b3arg8hd30d1r"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4d7gs"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8h8s0"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3j1hx"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wo4o5"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kdfac"]
+advance_mode = 2
+advance_expression = "velocity.x != 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_te1kl"]
+advance_mode = 2
+advance_expression = "abs(velocity.x) > _walk_speed"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cngrh"]
+advance_mode = 2
+advance_expression = "abs(velocity.x) <= _walk_speed"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dxk2g"]
+advance_mode = 2
+advance_expression = "velocity.x == 0"
+
+[resource]
+states/idle/node = SubResource("AnimationNodeAnimation_4d7gs")
+states/idle/position = Vector2(380, 100)
+states/run/node = SubResource("AnimationNodeAnimation_8h8s0")
+states/run/position = Vector2(722, 100)
+states/walk/node = SubResource("AnimationNodeAnimation_3j1hx")
+states/walk/position = Vector2(552, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_wo4o5"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_kdfac"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_te1kl"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_cngrh"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_dxk2g")]
+graph_offset = Vector2(-249, -151)

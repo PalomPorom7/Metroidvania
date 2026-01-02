@@ -33,8 +33,6 @@ shape = SubResource("RectangleShape2D_e2o6t")
 mesh = SubResource("QuadMesh_feb5d")
 
 [node name="Kitty" parent="WorldEnvironment" instance=ExtResource("1_80nbo")]
-_gravity_multiplier = 4.0
-_terminal_velocity = 4096.0
 
 [node name="Player" type="Timer" parent="WorldEnvironment/Kitty" node_paths=PackedStringArray("character")]
 wait_time = 0.25
