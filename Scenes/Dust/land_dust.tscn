@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://dljnglf8hoe0r"]
+
+[ext_resource type="Texture2D" uid="uid://d10t3ipfivdem" path="res://Assets/Sprites/Dust/landdust-64x32.png" id="1_376dn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lbxh"]
+atlas = ExtResource("1_376dn")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o6xp"]
+atlas = ExtResource("1_376dn")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsaws"]
+atlas = ExtResource("1_376dn")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_802gv"]
+atlas = ExtResource("1_376dn")
+region = Rect2(64, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vunwp"]
+atlas = ExtResource("1_376dn")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke7yv"]
+atlas = ExtResource("1_376dn")
+region = Rect2(64, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pea0f"]
+atlas = ExtResource("1_376dn")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t46wx"]
+atlas = ExtResource("1_376dn")
+region = Rect2(64, 96, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5o8xj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lbxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o6xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsaws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_802gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vunwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke7yv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pea0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t46wx")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="LandDust" type="AnimatedSprite2D"]
+modulate = Color(1, 1, 1, 0.5019608)
+sprite_frames = SubResource("SpriteFrames_5o8xj")
+autoplay = "default"
+frame = 8
+frame_progress = 1.0
+offset = Vector2(0, -16)

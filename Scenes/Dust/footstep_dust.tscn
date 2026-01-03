@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://8eonf1t4ytft"]
+
+[ext_resource type="Texture2D" uid="uid://d2ufi1vkaowfd" path="res://Assets/Sprites/Dust/footsteps-8x8.png" id="1_nlups"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe63s"]
+atlas = ExtResource("1_nlups")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1koum"]
+atlas = ExtResource("1_nlups")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dchqa"]
+atlas = ExtResource("1_nlups")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afmss"]
+atlas = ExtResource("1_nlups")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgaoo"]
+atlas = ExtResource("1_nlups")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5o8xj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe63s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1koum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dchqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afmss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgaoo")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="FootstepDust" type="AnimatedSprite2D"]
+modulate = Color(1, 1, 1, 0.5019608)
+sprite_frames = SubResource("SpriteFrames_5o8xj")
+autoplay = "default"
+frame = 5
+frame_progress = 1.0
+offset = Vector2(0, -4)
