@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c4bxjxcgtvxyv"]
+[gd_scene load_steps=31 format=3 uid="uid://c4bxjxcgtvxyv"]
 
 [ext_resource type="Script" uid="uid://cnabtvk7aqowv" path="res://Scripts/character.gd" id="1_4d7gs"]
 [ext_resource type="Texture2D" uid="uid://c0kyuoboi64uw" path="res://Assets/Sprites/Kitty/Cat-Default.png" id="2_4d7gs"]
@@ -10,6 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://dt5fowicqpqs4" path="res://Assets/SFX/sfx_footstep2.wav" id="7_7n1hr"]
 [ext_resource type="AudioStream" uid="uid://1a7oib0vy8aa" path="res://Assets/SFX/sfx_footstep3.wav" id="8_wluej"]
 [ext_resource type="AudioStream" uid="uid://baexs3vo7yxqw" path="res://Assets/SFX/sfx_footstep4.wav" id="9_wa61m"]
+[ext_resource type="Script" uid="uid://clm75mcgfds6w" path="res://Scripts/voice.gd" id="11_wa61m"]
+[ext_resource type="AudioStream" uid="uid://bxgi3q3qm1se6" path="res://Assets/SFX/Voice/Meow-Fast02.wav" id="12_ugghv"]
+[ext_resource type="AudioStream" uid="uid://bn7bu77odvosb" path="res://Assets/SFX/Voice/Meow-Fast.wav" id="13_mc7f2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8h8s0"]
 radius = 6.0
@@ -245,19 +248,30 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="Footstep" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_wo4o5")
+bus = &"SFX"
 script = ExtResource("5_te1kl")
 _sounds = Array[AudioStream]([ExtResource("6_xidd3"), ExtResource("7_7n1hr"), ExtResource("8_wluej"), ExtResource("9_wa61m")])
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_wo4o5")
+bus = &"SFX"
 script = ExtResource("5_te1kl")
 
 [node name="Land" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_kdfac")
+bus = &"SFX"
 script = ExtResource("5_te1kl")
+
+[node name="Voice" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -18)
+bus = &"Voice"
+script = ExtResource("11_wa61m")
+_jump_effort = Array[AudioStream]([ExtResource("12_ugghv"), ExtResource("13_mc7f2")])
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 
 [node name="Coyote" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[connection signal="jumped" from="." to="Voice" method="play_jump_effort" unbinds=2]
