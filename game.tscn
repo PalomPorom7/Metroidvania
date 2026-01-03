@@ -1,43 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://d16oevymn1f1e"]
+[gd_scene load_steps=8 format=3 uid="uid://d16oevymn1f1e"]
 
 [ext_resource type="PackedScene" uid="uid://c4bxjxcgtvxyv" path="res://Scenes/Characters/kitty.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://nnp4201xfi2e" path="res://Scripts/world.gd" id="1_feb5d"]
 [ext_resource type="Script" uid="uid://bptxtqgu8sl73" path="res://Scripts/player.gd" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://8eonf1t4ytft" path="res://Scenes/Dust/footstep_dust.tscn" id="2_ryrav"]
+[ext_resource type="PackedScene" uid="uid://dlff4r3edrjnh" path="res://Scenes/Dust/jump_dust.tscn" id="3_eow3j"]
+[ext_resource type="PackedScene" uid="uid://dljnglf8hoe0r" path="res://Scenes/Dust/land_dust.tscn" id="4_j5wjh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_88gup"]
 
 [node name="Game" type="Node2D"]
-_import_path = NodePath("")
-unique_name_in_owner = false
 process_mode = 3
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-visible = true
-modulate = Color(1, 1, 1, 1)
-self_modulate = Color(1, 1, 1, 1)
-show_behind_parent = false
-top_level = false
-clip_children = 0
-light_mask = 1
-visibility_layer = 1
-z_index = 0
-z_as_relative = true
-y_sort_enabled = false
-texture_filter = 0
-texture_repeat = 0
-material = null
-use_parent_material = false
-position = Vector2(0, 0)
-rotation = 0.0
-scale = Vector2(1, 1)
-skew = 0.0
-script = null
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 process_mode = 1
+script = ExtResource("1_feb5d")
+_footstep_dust = ExtResource("2_ryrav")
+_jump_dust = ExtResource("3_eow3j")
+_land_dust = ExtResource("4_j5wjh")
 
 [node name="CurrentLevel" type="StaticBody2D" parent="WorldEnvironment"]
 
@@ -81,3 +61,7 @@ offset_left = 28.0
 offset_top = 588.0
 offset_right = 68.0
 offset_bottom = 628.0
+
+[connection signal="jumped" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_jump_dust"]
+[connection signal="landed" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_land_dust"]
+[connection signal="stepped" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_footstep_dust"]

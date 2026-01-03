@@ -1,7 +1,13 @@
 extends CharacterBody2D
 
 
+signal stepped(position: Vector2, flipped: bool)
+signal jumped(position: Vector2, flipped: bool)
+signal landed(position: Vector2, flipped: bool)
+
+
 @onready var _sprite: Sprite2D = $Sprite2D
+@onready var _footstep_sfx: AudioStreamPlayer2D = $Footstep
 @onready var _jump_sfx: AudioStreamPlayer2D = $Jump
 @onready var _land_sfx: AudioStreamPlayer2D = $Land
 
@@ -47,6 +53,7 @@ func jump() -> bool:
 			#print("Coyote jump successful!")
 		velocity.y = _jump_force
 		_jump_sfx.play_random()
+		jumped.emit(position, _sprite.flip_h)
 		is_jumping = true
 		return true
 	return false
@@ -84,6 +91,12 @@ func _air_physics(delta: float) -> void:
 
 func _on_landed() -> void:
 	_land_sfx.play_random()
+	landed.emit(position, _sprite.flip_h)
+
+
+func _on_stepped() -> void:
+	stepped.emit(position, _sprite.flip_h)
+	_footstep_sfx.play_random()
 
 
 func _physics_process(delta: float) -> void:

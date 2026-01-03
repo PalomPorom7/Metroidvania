@@ -1,5 +1,5 @@
-res://Scenes/Characters/kitty.tscn
+res://game.tscn
 res://Scenes/Characters/locomotion.tres
-res://Scenes/Dust/jump_dust.tscn
-res://Scenes/Dust/land_dust.tscn
-res://Scenes/Dust/footstep_dust.tscn
+res://Scripts/character.gd
+res://Scripts/world.gd
+res://Scenes/Characters/kitty.tscn
