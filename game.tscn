@@ -38,6 +38,9 @@ unique_name_in_owner = true
 offset = Vector2(64, -64)
 zoom = Vector2(2, 2)
 script = ExtResource("8_j5wjh")
+_look_ahead_trans = 4
+_look_ahead_ease = 2
+_look_ahead_duration = 2.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

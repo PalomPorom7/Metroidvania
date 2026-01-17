@@ -1,6 +1,7 @@
-extends CharacterBody2D
+class_name Character extends CharacterBody2D
 
 
+signal changed_direction(direction: float)
 signal stepped(position: Vector2, flipped: bool)
 signal jumped(position: Vector2, flipped: bool)
 signal landed(position: Vector2, flipped: bool)
@@ -19,6 +20,7 @@ signal landed(position: Vector2, flipped: bool)
 @export var _acceleration: float = 512
 @export var _deceleration: float = 2048
 var direction: float
+var _is_facing_left: bool
 
 
 @export_category("Jumping")
@@ -37,6 +39,8 @@ var is_jumping: bool
 
 func face_left(left: bool = true) -> void:
 	_sprite.flip_h = left
+	_is_facing_left = left
+	changed_direction.emit(direction)
 
 
 func walk() -> void:
@@ -101,10 +105,10 @@ func _on_stepped() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Face direction
-	if direction < 0:
-		face_left()
-	elif direction > 0:
+	if _is_facing_left and direction > 0:
 		face_left(false)
+	elif not _is_facing_left and direction < 0:
+		face_left()
 	# Check if the character walked off of a ledge or landed
 	_was_on_floor = _is_on_floor
 	_is_on_floor = is_on_floor()
