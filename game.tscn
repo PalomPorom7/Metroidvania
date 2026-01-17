@@ -6,8 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8eonf1t4ytft" path="res://Scenes/Dust/footstep_dust.tscn" id="2_ryrav"]
 [ext_resource type="PackedScene" uid="uid://dlff4r3edrjnh" path="res://Scenes/Dust/jump_dust.tscn" id="3_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dljnglf8hoe0r" path="res://Scenes/Dust/land_dust.tscn" id="4_j5wjh"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_88gup"]
+[ext_resource type="PackedScene" uid="uid://cwpwh3s01ijwl" path="res://Scenes/Rooms/Forest/start_room.tscn" id="5_eow3j"]
 
 [node name="Game" type="Node2D"]
 process_mode = 3
@@ -19,10 +18,7 @@ _footstep_dust = ExtResource("2_ryrav")
 _jump_dust = ExtResource("3_eow3j")
 _land_dust = ExtResource("4_j5wjh")
 
-[node name="CurrentLevel" type="StaticBody2D" parent="WorldEnvironment"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnvironment/CurrentLevel"]
-shape = SubResource("WorldBoundaryShape2D_88gup")
+[node name="CurrentLevel" parent="WorldEnvironment" instance=ExtResource("5_eow3j")]
 
 [node name="Kitty" parent="WorldEnvironment" instance=ExtResource("1_80nbo")]
 
@@ -33,7 +29,6 @@ script = ExtResource("2_e2o6t")
 character = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="WorldEnvironment"]
-position = Vector2(0, -90)
 zoom = Vector2(4, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
