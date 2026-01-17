@@ -1,15 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://d16oevymn1f1e"]
+[gd_scene load_steps=10 format=3 uid="uid://d16oevymn1f1e"]
 
 [ext_resource type="PackedScene" uid="uid://c4bxjxcgtvxyv" path="res://Scenes/Characters/kitty.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://nnp4201xfi2e" path="res://Scripts/world.gd" id="1_feb5d"]
+[ext_resource type="Script" uid="uid://4bl0viq2b4v6" path="res://Scripts/Managers/game_manager.gd" id="1_vef74"]
 [ext_resource type="Script" uid="uid://bptxtqgu8sl73" path="res://Scripts/player.gd" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://8eonf1t4ytft" path="res://Scenes/Dust/footstep_dust.tscn" id="2_ryrav"]
 [ext_resource type="PackedScene" uid="uid://dlff4r3edrjnh" path="res://Scenes/Dust/jump_dust.tscn" id="3_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dljnglf8hoe0r" path="res://Scenes/Dust/land_dust.tscn" id="4_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://cwpwh3s01ijwl" path="res://Scenes/Rooms/Forest/start_room.tscn" id="5_eow3j"]
+[ext_resource type="Script" uid="uid://c14oilynetvb3" path="res://Scripts/camera_follow.gd" id="8_j5wjh"]
 
 [node name="Game" type="Node2D"]
 process_mode = 3
+script = ExtResource("1_vef74")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 process_mode = 1
@@ -21,15 +24,20 @@ _land_dust = ExtResource("4_j5wjh")
 [node name="CurrentLevel" parent="WorldEnvironment" instance=ExtResource("5_eow3j")]
 
 [node name="Kitty" parent="WorldEnvironment" instance=ExtResource("1_80nbo")]
+unique_name_in_owner = true
 
 [node name="Player" type="Timer" parent="WorldEnvironment/Kitty" node_paths=PackedStringArray("character")]
+unique_name_in_owner = true
 wait_time = 0.25
 one_shot = true
 script = ExtResource("2_e2o6t")
 character = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="WorldEnvironment"]
-zoom = Vector2(4, 4)
+unique_name_in_owner = true
+offset = Vector2(64, -64)
+zoom = Vector2(2, 2)
+script = ExtResource("8_j5wjh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

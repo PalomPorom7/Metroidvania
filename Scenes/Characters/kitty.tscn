@@ -268,8 +268,6 @@ bus = &"Voice"
 script = ExtResource("11_wa61m")
 _jump_effort = Array[AudioStream]([ExtResource("12_ugghv"), ExtResource("13_mc7f2")])
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-
 [node name="Coyote" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true

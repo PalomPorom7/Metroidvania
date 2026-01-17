@@ -3,8 +3,24 @@ extends Timer
 
 @export var character: CharacterBody2D
 var _buffered_input: Callable
+var _is_enabled: bool
+
+
+func enable() -> void:
+	_is_enabled = true
+	if Input.is_action_pressed("run"):
+		character.run()
+
+
+func disable() -> void:
+	_is_enabled = false
+	character.direction = 0
+	character.walk()
+
 
 func _input(event: InputEvent) -> void:
+	if not _is_enabled:
+		return
 	if event.is_action_pressed("jump"):
 		if not character.jump():
 			_buffered_input = character.jump
@@ -20,6 +36,8 @@ func _input(event: InputEvent) -> void:
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
+	if not _is_enabled:
+		return
 	character.direction = Input.get_axis("move_left", "move_right")
 	if not is_stopped():
 		if _buffered_input.call():
