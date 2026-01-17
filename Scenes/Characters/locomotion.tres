@@ -1,7 +1,13 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=9 format=3 uid="uid://b3arg8hd30d1r"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=15 format=3 uid="uid://b3arg8hd30d1r"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4d7gs"]
 animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jaanq"]
+animation = &"look_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hf2q8"]
+animation = &"look_up"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8h8s0"]
 animation = &"run"
@@ -28,12 +34,32 @@ advance_expression = "abs(velocity.x) <= _walk_speed"
 advance_mode = 2
 advance_expression = "velocity.x == 0"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5manc"]
+advance_mode = 2
+advance_expression = "look_direction < 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_00th5"]
+advance_mode = 2
+advance_expression = "look_direction > 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8n0ok"]
+advance_mode = 2
+advance_expression = "look_direction == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hgnyv"]
+advance_mode = 2
+advance_expression = "look_direction == 0"
+
 [resource]
 states/idle/node = SubResource("AnimationNodeAnimation_4d7gs")
 states/idle/position = Vector2(380, 100)
+states/look_down/node = SubResource("AnimationNodeAnimation_jaanq")
+states/look_down/position = Vector2(380, 219)
+states/look_up/node = SubResource("AnimationNodeAnimation_hf2q8")
+states/look_up/position = Vector2(380, -21)
 states/run/node = SubResource("AnimationNodeAnimation_8h8s0")
 states/run/position = Vector2(722, 100)
 states/walk/node = SubResource("AnimationNodeAnimation_3j1hx")
 states/walk/position = Vector2(552, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_wo4o5"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_kdfac"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_te1kl"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_cngrh"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_dxk2g")]
-graph_offset = Vector2(-249, -151)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_wo4o5"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_kdfac"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_te1kl"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_cngrh"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_dxk2g"), "idle", "look_up", SubResource("AnimationNodeStateMachineTransition_5manc"), "idle", "look_down", SubResource("AnimationNodeStateMachineTransition_00th5"), "look_down", "idle", SubResource("AnimationNodeStateMachineTransition_8n0ok"), "look_up", "idle", SubResource("AnimationNodeStateMachineTransition_hgnyv")]
+graph_offset = Vector2(-265, -98)

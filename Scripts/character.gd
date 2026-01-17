@@ -19,7 +19,8 @@ signal landed(position: Vector2, flipped: bool)
 @onready var _move_speed: float = _walk_speed
 @export var _acceleration: float = 512
 @export var _deceleration: float = 2048
-var direction: float
+var look_direction: float
+var move_direction: float
 var _is_facing_left: bool
 
 
@@ -40,7 +41,7 @@ var is_jumping: bool
 func face_left(left: bool = true) -> void:
 	_sprite.flip_h = left
 	_is_facing_left = left
-	changed_direction.emit(direction)
+	changed_direction.emit(move_direction)
 
 
 func walk() -> void:
@@ -69,13 +70,13 @@ func cancel_jump() -> void:
 
 
 func _ground_physics(delta: float) -> void:
-	if direction:
-		# acceleration from stand still or moving in the same direction
-		if velocity.x == 0 or sign(velocity.x) == sign(direction):
-			velocity.x = move_toward(velocity.x, direction * _move_speed, _acceleration * delta)
+	if move_direction:
+		# acceleration from stand still or moving in the same move_direction
+		if velocity.x == 0 or sign(velocity.x) == sign(move_direction):
+			velocity.x = move_toward(velocity.x, move_direction * _move_speed, _acceleration * delta)
 		# decelerate to turn around
 		else:
-			velocity.x = move_toward(velocity.x, direction * _move_speed, _deceleration * delta)
+			velocity.x = move_toward(velocity.x, move_direction * _move_speed, _deceleration * delta)
 	# decelerate to stop
 	else:
 		velocity.x = move_toward(velocity.x, 0, _deceleration * delta)
@@ -86,8 +87,8 @@ func _air_physics(delta: float) -> void:
 	velocity.y += _gravity * delta
 	velocity.y = min(velocity.y, _terminal_velocity)
 	# air control
-	if direction:
-		velocity.x = move_toward(velocity.x, direction * _move_speed, _acceleration * _air_control * delta)
+	if move_direction:
+		velocity.x = move_toward(velocity.x, move_direction * _move_speed, _acceleration * _air_control * delta)
 	# air brakes
 	else:
 		velocity.x = move_toward(velocity.x, 0, _deceleration * _air_brakes * delta)
@@ -104,10 +105,10 @@ func _on_stepped() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	# Face direction
-	if _is_facing_left and direction > 0:
+	# Face move_direction
+	if _is_facing_left and move_direction > 0:
 		face_left(false)
-	elif not _is_facing_left and direction < 0:
+	elif not _is_facing_left and move_direction < 0:
 		face_left()
 	# Check if the character walked off of a ledge or landed
 	_was_on_floor = _is_on_floor

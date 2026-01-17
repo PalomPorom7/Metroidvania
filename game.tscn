@@ -33,6 +33,9 @@ one_shot = true
 script = ExtResource("2_e2o6t")
 character = NodePath("..")
 
+[node name="LookHold" type="Timer" parent="WorldEnvironment/Kitty/Player"]
+one_shot = true
+
 [node name="Camera2D" type="Camera2D" parent="WorldEnvironment"]
 unique_name_in_owner = true
 offset = Vector2(64, -64)
@@ -41,6 +44,9 @@ script = ExtResource("8_j5wjh")
 _look_ahead_trans = 4
 _look_ahead_ease = 2
 _look_ahead_duration = 2.0
+_look_up_down_trans = 4
+_look_up_down_ease = 1
+_look_up_down_duration = 0.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -71,3 +77,4 @@ offset_bottom = 628.0
 [connection signal="jumped" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_jump_dust"]
 [connection signal="landed" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_land_dust"]
 [connection signal="stepped" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_footstep_dust"]
+[connection signal="timeout" from="WorldEnvironment/Kitty/Player/LookHold" to="WorldEnvironment/Kitty/Player" method="_on_look_hold_timeout"]

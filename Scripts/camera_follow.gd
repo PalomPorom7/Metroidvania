@@ -11,6 +11,13 @@ var _subject: Node2D
 var _look_ahead_tween: Tween
 
 
+@export var _maximum_look_distance: float = 128
+@export var _look_up_down_trans: Tween.TransitionType
+@export var _look_up_down_ease: Tween.EaseType
+@export var _look_up_down_duration: float = 1
+var _look_up_down_tween: Tween
+
+
 func follow(subject: Node2D) -> void:
 	# Already following subject, so no change
 	if subject == _subject:
@@ -23,6 +30,13 @@ func follow(subject: Node2D) -> void:
 	# React to subject changing direction if it is a Character
 	if _subject and _subject is Character:
 		_subject.changed_direction.connect(_on_subject_changed_direction)
+
+
+func look(direction: float) -> void:
+	if _look_up_down_tween:
+		_look_up_down_tween.kill()
+	_look_up_down_tween = create_tween().set_trans(_look_up_down_trans).set_ease(_look_up_down_ease)
+	_look_up_down_tween.tween_property(self, "offset:y", _maximum_look_distance * sign(direction) if direction else _default_offset.y, _look_up_down_duration)
 
 
 func _on_subject_changed_direction(direction: float) -> void:
