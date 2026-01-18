@@ -1,7 +1,7 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1768687881
+::res://::1768745474
 default_bus_layout.tres::AudioBusLayout::8136350821215637055::1767473355::0::1::::<><><>0<>0<><>::
-game.tscn::PackedScene::9049026017747633324::1768674462::0::1::::<><><>0<>0<><>::uid://c4bxjxcgtvxyv::::res://Scenes/Characters/kitty.tscn<>uid://nnp4201xfi2e::::res://Scripts/world.gd<>uid://4bl0viq2b4v6::::res://Scripts/Managers/game_manager.gd<>uid://bptxtqgu8sl73::::res://Scripts/player.gd<>uid://8eonf1t4ytft::::res://Scenes/Dust/footstep_dust.tscn<>uid://dlff4r3edrjnh::::res://Scenes/Dust/jump_dust.tscn<>uid://dljnglf8hoe0r::::res://Scenes/Dust/land_dust.tscn<>uid://cwpwh3s01ijwl::::res://Scenes/Rooms/Forest/start_room.tscn<>uid://c14oilynetvb3::::res://Scripts/camera_follow.gd
+game.tscn::PackedScene::9049026017747633324::1768689946::0::1::::<><><>0<>0<><>::uid://c4bxjxcgtvxyv::::res://Scenes/Characters/kitty.tscn<>uid://nnp4201xfi2e::::res://Scripts/world.gd<>uid://4bl0viq2b4v6::::res://Scripts/Managers/game_manager.gd<>uid://bptxtqgu8sl73::::res://Scripts/player.gd<>uid://8eonf1t4ytft::::res://Scenes/Dust/footstep_dust.tscn<>uid://dlff4r3edrjnh::::res://Scenes/Dust/jump_dust.tscn<>uid://dljnglf8hoe0r::::res://Scenes/Dust/land_dust.tscn<>uid://cwpwh3s01ijwl::::res://Scenes/Rooms/Forest/start_room.tscn<>uid://c14oilynetvb3::::res://Scripts/camera_follow.gd
 icon.svg::CompressedTexture2D::8585082902123709665::1764348609::1764367363::1::::<><><>0<>0<>5e97e2f28fd96d8d238c5c309a912da2<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex::
 README.md::TextFile::-1::1764793005::0::1::::<><><>0<>0<><>::
 ::res://Assets/::1767456754
@@ -31,9 +31,9 @@ Forest-Terrain-32x32.png::CompressedTexture2D::7772035689077498542::1768659769::
 ::res://Assets/Sprites/Kitty/::1767295089
 Cat-Default.png::CompressedTexture2D::6549699897101848234::1767295083::1767295089::1::::<><><>0<>0<>5f6ab7f007e3b9410efd7e8cb15a2537<>res://.godot/imported/Cat-Default.png-474130c36b2eec7aad2173b11c47cbc7.ctex::
 ::res://Scenes/::1768659793
-::res://Scenes/Characters/::1768673820
-kitty.tscn::PackedScene::6811795985047491641::1768669739::0::1::::<><><>0<>0<><>::uid://cnabtvk7aqowv::::res://Scripts/character.gd<>uid://c0kyuoboi64uw::::res://Assets/Sprites/Kitty/Cat-Default.png<>uid://b3arg8hd30d1r::::res://Scenes/Characters/locomotion.tres<>uid://bonuwook64xa6::::res://Assets/SFX/sfx_jump.wav<>uid://dgyw3npnh72n4::::res://Assets/SFX/sfx_land.wav<>uid://su4s6eugejr4::::res://Scripts/sfx_randomizer.gd<>uid://byaykv2p7scia::::res://Assets/SFX/sfx_footstep1.wav<>uid://dt5fowicqpqs4::::res://Assets/SFX/sfx_footstep2.wav<>uid://1a7oib0vy8aa::::res://Assets/SFX/sfx_footstep3.wav<>uid://baexs3vo7yxqw::::res://Assets/SFX/sfx_footstep4.wav<>uid://clm75mcgfds6w::::res://Scripts/voice.gd<>uid://bxgi3q3qm1se6::::res://Assets/SFX/Voice/Meow-Fast02.wav<>uid://bn7bu77odvosb::::res://Assets/SFX/Voice/Meow-Fast.wav
-locomotion.tres::AnimationNodeStateMachine::4352752953457363385::1768673820::0::1::::<><><>0<>0<><>::
+::res://Scenes/Characters/::1768688541
+kitty.tscn::PackedScene::6811795985047491641::1768688541::0::1::::<><><>0<>0<><>::uid://cnabtvk7aqowv::::res://Scripts/character.gd<>uid://c0kyuoboi64uw::::res://Assets/Sprites/Kitty/Cat-Default.png<>uid://b3arg8hd30d1r::::res://Scenes/Characters/locomotion.tres<>uid://bonuwook64xa6::::res://Assets/SFX/sfx_jump.wav<>uid://dgyw3npnh72n4::::res://Assets/SFX/sfx_land.wav<>uid://su4s6eugejr4::::res://Scripts/sfx_randomizer.gd<>uid://byaykv2p7scia::::res://Assets/SFX/sfx_footstep1.wav<>uid://dt5fowicqpqs4::::res://Assets/SFX/sfx_footstep2.wav<>uid://1a7oib0vy8aa::::res://Assets/SFX/sfx_footstep3.wav<>uid://baexs3vo7yxqw::::res://Assets/SFX/sfx_footstep4.wav<>uid://clm75mcgfds6w::::res://Scripts/voice.gd<>uid://bxgi3q3qm1se6::::res://Assets/SFX/Voice/Meow-Fast02.wav<>uid://bn7bu77odvosb::::res://Assets/SFX/Voice/Meow-Fast.wav
+locomotion.tres::AnimationNodeStateMachine::4352752953457363385::1768688541::0::1::::<><><>0<>0<><>::
 ::res://Scenes/Dust/::1767457745
 footstep_dust.tscn::PackedScene::2325362907975459705::1767457745::0::1::::<><><>0<>0<><>::uid://d2ufi1vkaowfd::::res://Assets/Sprites/Dust/footsteps-8x8.png
 jump_dust.tscn::PackedScene::7942017529192938397::1767457622::0::1::::<><><>0<>0<><>::uid://biw11nyou0oc0::::res://Assets/Sprites/Dust/jumpcloud-32x32.png
@@ -41,10 +41,10 @@ land_dust.tscn::PackedScene::7950719353543743539::1767457699::0::1::::<><><>0<>0
 ::res://Scenes/Rooms/::1768659795
 ::res://Scenes/Rooms/Forest/::1768664895
 start_room.tscn::PackedScene::6349311367763247131::1768664895::0::1::::<><><>0<>0<><>::uid://diy3j65gj7kyg::::res://Assets/Sprites/Forest/Forest-Terrain-32x32.png
-::res://Scripts/::1768674401
-camera_follow.gd::GDScript::6658483196521681802::1768674401::0::1::::<>Camera2D<><>0<>0<><>::
-character.gd::GDScript::5685392101650559161::1768673820::0::1::::Character<>CharacterBody2D<><>0<>0<><>::
-player.gd::GDScript::3479907787104501928::1768670952::0::1::::<>Timer<><>0<>0<><>::
+::res://Scripts/::1768689929
+camera_follow.gd::GDScript::6658483196521681802::1768689058::0::1::::<>Camera2D<><>0<>0<><>::
+character.gd::GDScript::5685392101650559161::1768688359::0::1::::Character<>CharacterBody2D<><>0<>0<><>::
+player.gd::GDScript::3479907787104501928::1768689929::0::1::::<>Timer<><>0<>0<><>::
 sfx_randomizer.gd::GDScript::1306481312966260867::1767379157::0::1::::<>AudioStreamPlayer2D<><>0<>0<><>::
 voice.gd::GDScript::5571688331688193956::1767471059::0::1::::<>AudioStreamPlayer2D<><>0<>0<><>::
 world.gd::GDScript::940255878974764754::1767461992::0::1::::<>WorldEnvironment<><>0<>0<><>::

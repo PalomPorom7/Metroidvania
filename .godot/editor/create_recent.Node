@@ -1,5 +1,6 @@
-Timer
 CollisionShape2D
+Area2D
+Timer
 StaticBody2D
 TileMapLayer
 Node2D
@@ -11,4 +12,3 @@ AudioStreamPlayer2D
 AnimationTree
 AnimationPlayer
 Sprite2D
-Control

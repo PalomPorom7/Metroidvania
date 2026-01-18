@@ -54,8 +54,6 @@ func run() -> void:
 
 func jump() -> bool:
 	if _is_on_floor or _coyote and not _coyote.is_stopped():
-		#if _coyote and not _coyote.is_stopped():
-			#print("Coyote jump successful!")
 		velocity.y = _jump_force
 		_jump_sfx.play_random()
 		jumped.emit(position, _sprite.flip_h)

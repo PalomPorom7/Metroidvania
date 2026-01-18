@@ -1,7 +1,11 @@
 extends Camera2D
 
 
+@onready var _half_viewport_size: Vector2 = get_viewport().size / zoom.x / 2.0
 @onready var _default_offset: Vector2 = offset
+var _min: Vector2
+var _max: Vector2
+var _is_bound: bool
 var _subject: Node2D
 
 
@@ -16,6 +20,12 @@ var _look_ahead_tween: Tween
 @export var _look_up_down_ease: Tween.EaseType
 @export var _look_up_down_duration: float = 1
 var _look_up_down_tween: Tween
+
+
+func set_bounds(top_left: Vector2, bottom_right: Vector2) -> void:
+	_min = top_left + _half_viewport_size
+	_max = bottom_right - _half_viewport_size
+	_is_bound = true
 
 
 func follow(subject: Node2D) -> void:
@@ -49,3 +59,6 @@ func _on_subject_changed_direction(direction: float) -> void:
 func _process(_delta: float) -> void:
 	if _subject:
 		position = _subject.global_position
+	if _is_bound:
+		position.x = clampf(position.x, _min.x - offset.x, _max.x - offset.x)
+		position.y = clampf(position.y, _min.y - offset.y, _max.y - offset.y)

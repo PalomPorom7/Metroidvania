@@ -31,7 +31,6 @@ func _input(event: InputEvent) -> void:
 		if not character.jump():
 			_buffered_input = character.jump
 			start()
-			#print("start input buffer")
 	elif event.is_action_released("jump"):
 		character.cancel_jump()
 	if event.is_action_pressed("run"):
@@ -41,7 +40,6 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_look_hold_timeout() -> void:
-	#print("Start looking")
 	_camera.look(_look_direction)
 	_is_looking = true
 
@@ -54,23 +52,19 @@ func _process(delta: float) -> void:
 	# Stop looking and reset camera
 	if _is_looking:
 		if not _look_direction:
-			#print("Stop looking")
 			_camera.look(0)
 			_is_looking = false
 	# Started holding look direction input, so start timer
 	elif _look_direction:
 		if _look_hold.is_stopped():
-			#print("Start timer")
 			_look_hold.start()
 	# Stopped holding look direction input before timer finished, so cancel timer
 	elif not _look_hold.is_stopped():
-		#print("Cancel timer")
 		_look_hold.stop()
+	# Tell character to look and move
 	character.look_direction = _look_direction
 	character.move_direction = Input.get_axis("move_left", "move_right")
+	# Try to execute buffered input
 	if not is_stopped():
 		if _buffered_input.call():
 			stop()
-			#print("buffered input succeeded")
-		#else:
-			#print("buffered input failed")
