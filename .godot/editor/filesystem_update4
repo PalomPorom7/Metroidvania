@@ -1,8 +1,4 @@
-res://game.tscn
-res://Scenes/Characters/locomotion.tres
-res://Scripts/player.gd
-res://Scripts/character.gd
 res://Scenes/Rooms/Forest/start_room.tscn
+res://Scenes/Characters/locomotion.tres
 res://Scripts/room.gd
-res://Scripts/Managers/game_manager.gd
-res://Scripts/camera_follow.gd
+res://game.tscn

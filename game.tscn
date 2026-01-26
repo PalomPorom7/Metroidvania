@@ -39,7 +39,7 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="WorldEnvironment"]
 unique_name_in_owner = true
 offset = Vector2(64, -64)
-zoom = Vector2(2, 2)
+zoom = Vector2(0.5, 0.5)
 script = ExtResource("8_j5wjh")
 _look_ahead_trans = 4
 _look_ahead_ease = 2
