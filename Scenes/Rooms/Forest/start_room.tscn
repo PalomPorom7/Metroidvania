@@ -482,10 +482,11 @@ position = Vector2(0, -80)
 shape = SubResource("RectangleShape2D_dd8l6")
 
 [node name="Sky" type="Sprite2D" parent="."]
-position = Vector2(-4.161194, -150.50414)
+position = Vector2(0, -170)
 rotation = 1.5707964
-scale = Vector2(1.4530927, 1054.6776)
 texture = SubResource("GradientTexture1D_0wux6")
+region_enabled = true
+region_rect = Rect2(0, 0, 384, 1088)
 
 [node name="Clouds" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 1)
@@ -495,13 +496,13 @@ autoscroll = Vector2(1, 0)
 
 [node name="ForestParalax1" type="Sprite2D" parent="Clouds"]
 texture_repeat = 2
-position = Vector2(512, 0)
+position = Vector2(512, -128)
 texture = ExtResource("2_tl3a5")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 512)
 
 [node name="Forest" type="Parallax2D" parent="."]
-modulate = Color(0.32999998, 0.5756668, 1, 1)
+modulate = Color(0.32999998, 0.7208334, 1, 1)
 scroll_scale = Vector2(0.333, 1)
 scroll_offset = Vector2(-512, 0)
 repeat_size = Vector2(1024, 0)
@@ -514,7 +515,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1024, 512)
 
 [node name="Hills" type="Parallax2D" parent="."]
-modulate = Color(0.66999996, 0.791, 1, 1)
+modulate = Color(0.66999996, 0.8625001, 1, 1)
 scroll_scale = Vector2(0.667, 1)
 scroll_offset = Vector2(-512, 0)
 repeat_size = Vector2(1024, 0)
