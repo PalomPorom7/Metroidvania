@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://caxyh1supbwlf"]
+
+[ext_resource type="PackedScene" uid="uid://cwpwh3s01ijwl" path="res://Scenes/Rooms/Forest/start_room.tscn" id="1_f47cm"]
+[ext_resource type="PackedScene" uid="uid://bjrbmkydvtclo" path="res://Scenes/Rooms/Forest/second_room.tscn" id="2_wj5m4"]
+
+[node name="Forest" type="Node2D"]
+
+[node name="StartRoom" parent="." instance=ExtResource("1_f47cm")]
+
+[node name="SecondRoom" parent="." instance=ExtResource("2_wj5m4")]
+position = Vector2(1056, 0)

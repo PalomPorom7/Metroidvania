@@ -1,9 +1,16 @@
 class_name Room extends Area2D
 
 
+signal room_entered(room: Room)
+
+
 @export var _contents_scene: PackedScene
 @onready var _shape_node: CollisionShape2D = $CollisionShape2D
 var _contents_node: Node2D
+
+
+func _ready() -> void:
+	room_entered.connect($/root/Game.on_player_entered_room)
 
 
 func load_contents() -> void:
@@ -27,5 +34,6 @@ func get_bottom_right() -> Vector2:
 
 
 func _on_body_entered(_body: Node2D) -> void:
-	load_contents()
+	room_entered.emit(self)
+	#load_contents()
 	#print(_body)

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8eonf1t4ytft" path="res://Scenes/Dust/footstep_dust.tscn" id="2_ryrav"]
 [ext_resource type="PackedScene" uid="uid://dlff4r3edrjnh" path="res://Scenes/Dust/jump_dust.tscn" id="3_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dljnglf8hoe0r" path="res://Scenes/Dust/land_dust.tscn" id="4_j5wjh"]
-[ext_resource type="PackedScene" uid="uid://cwpwh3s01ijwl" path="res://Scenes/Rooms/Forest/start_room.tscn" id="5_eow3j"]
+[ext_resource type="PackedScene" uid="uid://caxyh1supbwlf" path="res://Scenes/Rooms/forest.tscn" id="6_h4fw4"]
 [ext_resource type="Script" uid="uid://c14oilynetvb3" path="res://Scripts/camera_follow.gd" id="8_j5wjh"]
 
 [node name="Game" type="Node2D"]
@@ -21,7 +21,7 @@ _footstep_dust = ExtResource("2_ryrav")
 _jump_dust = ExtResource("3_eow3j")
 _land_dust = ExtResource("4_j5wjh")
 
-[node name="CurrentLevel" parent="WorldEnvironment" instance=ExtResource("5_eow3j")]
+[node name="Forest" parent="WorldEnvironment" instance=ExtResource("6_h4fw4")]
 
 [node name="Kitty" parent="WorldEnvironment" instance=ExtResource("1_80nbo")]
 unique_name_in_owner = true

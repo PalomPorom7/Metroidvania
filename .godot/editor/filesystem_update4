@@ -1,5 +1,8 @@
-res://Scenes/Rooms/Forest/start_room.tscn
+res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
+res://Scenes/Rooms/Forest/Contents/second_room_contents.tscn
 res://Scenes/Characters/locomotion.tres
-res://Scripts/room.gd
-res://Scenes/Characters/kitty.tscn
+res://Scenes/Rooms/Forest/second_room.tscn
+res://Scenes/Rooms/forest.tscn
 res://Scenes/game.tscn
+res://Scripts/Managers/game_manager.gd
+res://Scripts/room.gd

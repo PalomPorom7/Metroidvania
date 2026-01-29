@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjrbmkydvtclo"]
+
+[ext_resource type="Script" uid="uid://dsk0pts58d63" path="res://Scripts/room.gd" id="1_hcx62"]
+[ext_resource type="PackedScene" uid="uid://jmnpnbetu3lx" path="res://Scenes/Rooms/Forest/Contents/second_room_contents.tscn" id="2_hcx62"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd8l6"]
+size = Vector2(1024, 544)
+
+[node name="SecondRoom" type="Area2D"]
+collision_mask = 256
+script = ExtResource("1_hcx62")
+_contents_scene = ExtResource("2_hcx62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -112)
+shape = SubResource("RectangleShape2D_dd8l6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
