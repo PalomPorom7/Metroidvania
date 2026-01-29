@@ -258,6 +258,7 @@ transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTran
 graph_offset = Vector2(-330, -154)
 
 [node name="Kitty" type="CharacterBody2D"]
+collision_layer = 256
 script = ExtResource("1_4d7gs")
 _walk_speed = 64.0
 _run_speed = 128.0
