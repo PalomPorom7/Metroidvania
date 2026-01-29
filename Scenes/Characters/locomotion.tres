@@ -36,19 +36,19 @@ advance_expression = "velocity.x == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5manc"]
 advance_mode = 2
-advance_expression = "look_direction < 0"
+advance_expression = "look_direction < 0 and velocity.x == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_00th5"]
 advance_mode = 2
-advance_expression = "look_direction > 0"
+advance_expression = "look_direction > 0 and velocity.x == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8n0ok"]
 advance_mode = 2
-advance_expression = "look_direction == 0"
+advance_expression = "look_direction == 0 or velocity.x != 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hgnyv"]
 advance_mode = 2
-advance_expression = "look_direction == 0"
+advance_expression = "look_direction == 0 or velocity.x != 0"
 
 [resource]
 states/idle/node = SubResource("AnimationNodeAnimation_4d7gs")

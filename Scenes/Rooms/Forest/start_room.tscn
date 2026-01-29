@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bcugmf7l7bssg" path="res://Assets/Sprites/Forest/Foreground-Top.png" id="11_iuq4c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dd8l6"]
-size = Vector2(1024, 480)
+size = Vector2(1024, 544)
 
 [sub_resource type="Gradient" id="Gradient_tl3a5"]
 colors = PackedColorArray(0.32156864, 0.5058824, 0.827451, 1, 0.827451, 0.92941177, 1, 1)
@@ -478,12 +478,13 @@ sources/0 = SubResource("TileSetAtlasSource_4o6nq")
 script = ExtResource("1_4o6nq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -80)
+position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_dd8l6")
 
 [node name="Sky" type="Sprite2D" parent="."]
-position = Vector2(0, -170)
+position = Vector2(0.043812215, -224.00769)
 rotation = 1.5707964
+scale = Vector2(1.2504499, 1088.0399)
 texture = SubResource("GradientTexture1D_0wux6")
 region_enabled = true
 region_rect = Rect2(0, 0, 384, 1088)
@@ -540,7 +541,7 @@ repeat_size = Vector2(1024, 0)
 [node name="ForegroundBottomBack" type="Sprite2D" parent="Shrubs"]
 z_index = 1
 texture_repeat = 2
-position = Vector2(512, 128)
+position = Vector2(512, 96)
 texture = ExtResource("6_8c6kp")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 100)
@@ -554,30 +555,30 @@ repeat_size = Vector2(1024, 0)
 [node name="ForegroundBottomFront" type="Sprite2D" parent="Grass_Trees"]
 z_index = 1
 texture_repeat = 2
-position = Vector2(512, 150)
+position = Vector2(512, 128)
 texture = ExtResource("7_6p12r")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 72)
 
 [node name="ForegroundTree1" type="Sprite2D" parent="Grass_Trees"]
 z_index = 1
-position = Vector2(240, -80)
+position = Vector2(240, -128)
 texture = ExtResource("8_1m5im")
 
 [node name="ForegroundTree2" type="Sprite2D" parent="Grass_Trees"]
 z_index = 1
-position = Vector2(512, -80)
+position = Vector2(512, -128)
 texture = ExtResource("9_qof05")
 
 [node name="ForegroundTree3" type="Sprite2D" parent="Grass_Trees"]
 z_index = 1
-position = Vector2(845, -80)
+position = Vector2(845, -128)
 texture = ExtResource("10_3k22j")
 
 [node name="ForegroundTop" type="Sprite2D" parent="Grass_Trees"]
 z_index = 1
 texture_repeat = 2
-position = Vector2(512, -290)
+position = Vector2(512, -338)
 texture = ExtResource("11_iuq4c")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 92)
