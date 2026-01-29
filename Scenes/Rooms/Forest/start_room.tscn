@@ -482,12 +482,11 @@ position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_dd8l6")
 
 [node name="Sky" type="Sprite2D" parent="."]
-position = Vector2(0.043812215, -224.00769)
+position = Vector2(0.044, -224)
 rotation = 1.5707964
-scale = Vector2(1.2504499, 1088.0399)
 texture = SubResource("GradientTexture1D_0wux6")
 region_enabled = true
-region_rect = Rect2(0, 0, 384, 1088)
+region_rect = Rect2(0, 0, 320, 1088)
 
 [node name="Clouds" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 1)
