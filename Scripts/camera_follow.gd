@@ -46,14 +46,26 @@ func look(direction: float) -> void:
 	if _look_up_down_tween:
 		_look_up_down_tween.kill()
 	_look_up_down_tween = create_tween().set_trans(_look_up_down_trans).set_ease(_look_up_down_ease)
-	_look_up_down_tween.tween_property(self, "offset:y", _maximum_look_distance * sign(direction) if direction else _default_offset.y, _look_up_down_duration)
+	_look_up_down_tween.tween_method(_set_y_offset, offset.y, _maximum_look_distance * sign(direction) if direction else _default_offset.y, _look_up_down_duration)
 
 
 func _on_subject_changed_direction(direction: float) -> void:
 	if _look_ahead_tween:
 		_look_ahead_tween.kill()
 	_look_ahead_tween = create_tween().set_trans(_look_ahead_trans).set_ease(_look_ahead_ease)
-	_look_ahead_tween.tween_property(self, "offset:x", _default_offset.x * sign(direction), _look_ahead_duration)
+	_look_ahead_tween.tween_method(_set_x_offset, offset.x, _default_offset.x * sign(direction), _look_ahead_duration)
+
+
+func _set_x_offset(new_x_offset: float) -> void:
+	offset.x = new_x_offset
+	if _is_bound:
+		position.x = clampf(position.x, _min.x - offset.x, _max.x - offset.x)
+
+
+func _set_y_offset(new_y_offset: float) -> void:
+	offset.y = new_y_offset
+	if _is_bound:
+		position.y = clampf(position.y, _min.y - offset.y, _max.y - offset.y)
 
 
 func _process(_delta: float) -> void:
