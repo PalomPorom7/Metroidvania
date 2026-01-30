@@ -5,6 +5,7 @@ extends Camera2D
 @onready var _default_offset: Vector2 = offset
 var _min: Vector2
 var _max: Vector2
+var _midpoint: Vector2
 var _is_bound: bool
 var _subject: Node2D
 
@@ -25,7 +26,12 @@ var _look_up_down_tween: Tween
 func set_bounds(top_left: Vector2, bottom_right: Vector2) -> void:
 	_min = top_left + _half_viewport_size
 	_max = bottom_right - _half_viewport_size
+	_midpoint = (_min + _max) / 2.0
 	_is_bound = true
+
+
+func offset_from_midpoint() -> Vector2:
+	return position + offset - _midpoint
 
 
 func follow(subject: Node2D) -> void:

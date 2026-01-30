@@ -1,3 +1,5 @@
+CanvasLayer
+Camera2D
 Node2D
 Parallax2D
 Sprite2D
@@ -11,4 +13,3 @@ MeshInstance2D
 Node
 GPUParticles2D
 AudioStreamPlayer2D
-AnimationTree
