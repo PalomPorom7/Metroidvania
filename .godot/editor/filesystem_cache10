@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1769785368
+::res://::1769804261
 default_bus_layout.tres::AudioBusLayout::8136350821215637055::1767473355::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::8585082902123709665::1764348609::1764367363::1::::<><><>0<>0<>5e97e2f28fd96d8d238c5c309a912da2<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex::
 README.md::TextFile::-1::1764793005::0::1::::<><><>0<>0<><>::
@@ -40,9 +40,9 @@ Forest-Terrain-32x32.png::CompressedTexture2D::7772035689077498542::1768659769::
 Cat-Default.png::CompressedTexture2D::6549699897101848234::1767295083::1767295089::1::::<><><>0<>0<>5f6ab7f007e3b9410efd7e8cb15a2537<>res://.godot/imported/Cat-Default.png-474130c36b2eec7aad2173b11c47cbc7.ctex::
 ::res://Scenes/::1769722601
 game.tscn::PackedScene::9049026017747633324::1769722601::0::1::::<><><>0<>0<><>::uid://c4bxjxcgtvxyv::::res://Scenes/Characters/kitty.tscn<>uid://nnp4201xfi2e::::res://Scripts/world.gd<>uid://4bl0viq2b4v6::::res://Scripts/Managers/game_manager.gd<>uid://bptxtqgu8sl73::::res://Scripts/player.gd<>uid://8eonf1t4ytft::::res://Scenes/Dust/footstep_dust.tscn<>uid://dlff4r3edrjnh::::res://Scenes/Dust/jump_dust.tscn<>uid://dljnglf8hoe0r::::res://Scenes/Dust/land_dust.tscn<>uid://caxyh1supbwlf::::res://Scenes/Rooms/forest.tscn<>uid://c14oilynetvb3::::res://Scripts/camera_follow.gd
-::res://Scenes/Characters/::1769720838
+::res://Scenes/Characters/::1769787669
 kitty.tscn::PackedScene::6811795985047491641::1769713021::0::1::::<><><>0<>0<><>::uid://cnabtvk7aqowv::::res://Scripts/character.gd<>uid://c0kyuoboi64uw::::res://Assets/Sprites/Kitty/Cat-Default.png<>uid://b3arg8hd30d1r::::res://Scenes/Characters/locomotion.tres<>uid://bonuwook64xa6::::res://Assets/SFX/sfx_jump.wav<>uid://dgyw3npnh72n4::::res://Assets/SFX/sfx_land.wav<>uid://su4s6eugejr4::::res://Scripts/sfx_randomizer.gd<>uid://byaykv2p7scia::::res://Assets/SFX/sfx_footstep1.wav<>uid://dt5fowicqpqs4::::res://Assets/SFX/sfx_footstep2.wav<>uid://1a7oib0vy8aa::::res://Assets/SFX/sfx_footstep3.wav<>uid://baexs3vo7yxqw::::res://Assets/SFX/sfx_footstep4.wav<>uid://clm75mcgfds6w::::res://Scripts/voice.gd<>uid://bxgi3q3qm1se6::::res://Assets/SFX/Voice/Meow-Fast02.wav<>uid://bn7bu77odvosb::::res://Assets/SFX/Voice/Meow-Fast.wav
-locomotion.tres::AnimationNodeStateMachine::4352752953457363385::1769720838::0::1::::<><><>0<>0<><>::
+locomotion.tres::AnimationNodeStateMachine::4352752953457363385::1769787669::0::1::::<><><>0<>0<><>::
 ::res://Scenes/Dust/::1767457745
 footstep_dust.tscn::PackedScene::2325362907975459705::1767457745::0::1::::<><><>0<>0<><>::uid://d2ufi1vkaowfd::::res://Assets/Sprites/Dust/footsteps-8x8.png
 jump_dust.tscn::PackedScene::7942017529192938397::1767457622::0::1::::<><><>0<>0<><>::uid://biw11nyou0oc0::::res://Assets/Sprites/Dust/jumpcloud-32x32.png
@@ -52,12 +52,13 @@ forest.tscn::PackedScene::4821793158455708235::1769721188::0::1::::<><><>0<>0<><
 ::res://Scenes/Rooms/Forest/::1769720858
 second_room.tscn::PackedScene::3053297407247960148::1769720858::0::1::::<><><>0<>0<><>::uid://dsk0pts58d63::::res://Scripts/room.gd<>uid://jmnpnbetu3lx::::res://Scenes/Rooms/Forest/Contents/second_room_contents.tscn
 start_room.tscn::PackedScene::6349311367763247131::1769713043::0::1::::<><><>0<>0<><>::uid://dsk0pts58d63::::res://Scripts/room.gd<>uid://w3rxtlg10gcy::::res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
-::res://Scenes/Rooms/Forest/Contents/::1769720838
-second_room_contents.tscn::PackedScene::657288918161853453::1769720838::0::1::::<><><>0<>0<><>::uid://ckx8w6w7al4hw::::res://Assets/Sprites/Forest/Forest-Paralax-1.png<>uid://ceulx4y5eaqf::::res://Assets/Sprites/Forest/Forest-Paralax-2.png<>uid://b7nrnrggbg63s::::res://Assets/Sprites/Forest/Forest-Paralax-3.png<>uid://diy3j65gj7kyg::::res://Assets/Sprites/Forest/Forest-Terrain-32x32.png<>uid://b66tampyd4pap::::res://Assets/Sprites/Forest/Foreground-Bottom-Back.png<>uid://cld5xs1nxk1am::::res://Assets/Sprites/Forest/Foreground-Bottom-Front.png
+::res://Scenes/Rooms/Forest/Contents/::1769804235
+second_room_contents.tscn::PackedScene::657288918161853453::1769804235::0::1::::<><><>0<>0<><>::uid://ckx8w6w7al4hw::::res://Assets/Sprites/Forest/Forest-Paralax-1.png<>uid://ceulx4y5eaqf::::res://Assets/Sprites/Forest/Forest-Paralax-2.png<>uid://b5ah5toaygywu::::res://Scripts/parallax.gd<>uid://b7nrnrggbg63s::::res://Assets/Sprites/Forest/Forest-Paralax-3.png<>uid://diy3j65gj7kyg::::res://Assets/Sprites/Forest/Forest-Terrain-32x32.png<>uid://b66tampyd4pap::::res://Assets/Sprites/Forest/Foreground-Bottom-Back.png<>uid://cld5xs1nxk1am::::res://Assets/Sprites/Forest/Foreground-Bottom-Front.png
 start_room_contents.tscn::PackedScene::1603031414532076892::1769720804::0::1::::<><><>0<>0<><>::uid://ckx8w6w7al4hw::::res://Assets/Sprites/Forest/Forest-Paralax-1.png<>uid://ceulx4y5eaqf::::res://Assets/Sprites/Forest/Forest-Paralax-2.png<>uid://b7nrnrggbg63s::::res://Assets/Sprites/Forest/Forest-Paralax-3.png<>uid://diy3j65gj7kyg::::res://Assets/Sprites/Forest/Forest-Terrain-32x32.png<>uid://b66tampyd4pap::::res://Assets/Sprites/Forest/Foreground-Bottom-Back.png<>uid://cld5xs1nxk1am::::res://Assets/Sprites/Forest/Foreground-Bottom-Front.png<>uid://s13tsasuutoi::::res://Assets/Sprites/Forest/Foreground-Tree1.png<>uid://c0rm171551cpl::::res://Assets/Sprites/Forest/Foreground-Tree2.png<>uid://bcuaont3l54gx::::res://Assets/Sprites/Forest/Foreground-Tree3.png<>uid://bcugmf7l7bssg::::res://Assets/Sprites/Forest/Foreground-Top.png
-::res://Scripts/::1769722528
-camera_follow.gd::GDScript::6658483196521681802::1769711346::0::1::::<>Camera2D<><>0<>0<><>::
+::res://Scripts/::1769804235
+camera_follow.gd::GDScript::6658483196521681802::1769787899::0::1::::<>Camera2D<><>0<>0<><>::
 character.gd::GDScript::5685392101650559161::1769710657::0::1::::Character<>CharacterBody2D<><>0<>0<><>::
+parallax.gd::GDScript::4492565605203835664::1769804235::0::1::::<>Sprite2D<><>0<>0<><>::
 player.gd::GDScript::3479907787104501928::1768745587::0::1::::<>Timer<><>0<>0<><>::
 room.gd::GDScript::248377963323225518::1769722528::0::1::::Room<>Area2D<><>0<>0<><>::
 sfx_randomizer.gd::GDScript::1306481312966260867::1767379157::0::1::::<>AudioStreamPlayer2D<><>0<>0<><>::

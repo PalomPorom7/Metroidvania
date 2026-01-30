@@ -1,4 +1,3 @@
 res://Scenes/Rooms/Forest/Contents/second_room_contents.tscn
 res://Scenes/Characters/locomotion.tres
 res://Scripts/parallax.gd
-res://Scripts/camera_follow.gd

@@ -476,18 +476,15 @@ texture = SubResource("GradientTexture1D_0wux6")
 region_enabled = true
 region_rect = Rect2(0, 0, 320, 1088)
 
-[node name="Clouds" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0, 1)
-scroll_offset = Vector2(-512, 0)
-repeat_size = Vector2(1024, 0)
-autoscroll = Vector2(1, 0)
-
-[node name="ForestParalax1" type="Sprite2D" parent="Clouds"]
+[node name="ForestParalax1" type="Sprite2D" parent="."]
 texture_repeat = 2
-position = Vector2(512, -128)
+position = Vector2(0, -128)
 texture = ExtResource("1_be0sj")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 512)
+script = ExtResource("3_7c67u")
+_scroll_scale = Vector2(1, 0)
+_auto_scroll = Vector2(1, 0)
 
 [node name="ForestParalax2" type="Sprite2D" parent="."]
 modulate = Color(0.32941177, 0.72156864, 1, 1)
