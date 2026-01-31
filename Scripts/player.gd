@@ -20,7 +20,7 @@ func enable() -> void:
 
 func disable() -> void:
 	_is_enabled = false
-	character.direction = 0
+	character.move_direction = 0
 	character.walk()
 
 

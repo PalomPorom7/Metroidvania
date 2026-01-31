@@ -1,3 +1,4 @@
+ColorRect
 CanvasLayer
 Camera2D
 Node2D
@@ -12,4 +13,3 @@ AnimatedSprite2D
 MeshInstance2D
 Node
 GPUParticles2D
-AudioStreamPlayer2D

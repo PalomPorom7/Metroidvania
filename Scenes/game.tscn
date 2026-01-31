@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d16oevymn1f1e"]
+[gd_scene load_steps=11 format=3 uid="uid://d16oevymn1f1e"]
 
 [ext_resource type="PackedScene" uid="uid://c4bxjxcgtvxyv" path="res://Scenes/Characters/kitty.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://nnp4201xfi2e" path="res://Scripts/world.gd" id="1_feb5d"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dljnglf8hoe0r" path="res://Scenes/Dust/land_dust.tscn" id="4_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://caxyh1supbwlf" path="res://Scenes/Rooms/forest.tscn" id="6_h4fw4"]
 [ext_resource type="Script" uid="uid://c14oilynetvb3" path="res://Scripts/camera_follow.gd" id="8_j5wjh"]
+[ext_resource type="Script" uid="uid://ogbhovye72b4" path="res://Scripts/fade.gd" id="10_ldgsr"]
 
 [node name="Game" type="Node2D"]
 process_mode = 3
@@ -73,6 +74,17 @@ offset_left = 28.0
 offset_top = 588.0
 offset_right = 68.0
 offset_bottom = 628.0
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("10_ldgsr")
 
 [connection signal="jumped" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_jump_dust"]
 [connection signal="landed" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_land_dust"]
