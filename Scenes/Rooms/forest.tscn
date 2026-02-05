@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bjrbmkydvtclo" path="res://Scenes/Rooms/Forest/second_room.tscn" id="2_wj5m4"]
 
 [node name="Forest" type="Node2D"]
+visibility_layer = 3
 
 [node name="StartRoom" parent="." instance=ExtResource("1_f47cm")]
 

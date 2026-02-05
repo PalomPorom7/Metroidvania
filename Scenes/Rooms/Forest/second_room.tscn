@@ -1,12 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjrbmkydvtclo"]
+[gd_scene load_steps=7 format=4 uid="uid://bjrbmkydvtclo"]
 
 [ext_resource type="Script" uid="uid://dsk0pts58d63" path="res://Scripts/room.gd" id="1_hcx62"]
 [ext_resource type="PackedScene" uid="uid://jmnpnbetu3lx" path="res://Scenes/Rooms/Forest/Contents/second_room_contents.tscn" id="2_hcx62"]
+[ext_resource type="Texture2D" uid="uid://nyanutw5drcx" path="res://Assets/Sprites/blank.png" id="3_cbv43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dd8l6"]
 size = Vector2(1024, 544)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m3iir"]
+texture = ExtResource("3_cbv43")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4yj8g"]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_m3iir")
+
 [node name="SecondRoom" type="Area2D"]
+visibility_layer = 3
 collision_mask = 256
 script = ExtResource("1_hcx62")
 _contents_scene = ExtResource("2_hcx62")
@@ -14,5 +25,11 @@ _contents_scene = ExtResource("2_hcx62")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_dd8l6")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+modulate = Color(0, 0.5019608, 0, 1)
+visibility_layer = 2
+tile_map_data = PackedByteArray("AADv/wAAAQAAAAAAAADw/wAAAQAAAAAAAADx/wAAAQAAAAAAAADy/wAAAQAAAAAAAADz/wAAAQAAAAAAAAD0/wAAAQAAAAAAAAD1/wAAAQAAAAAAAAD2/wAAAQAAAAAAAAD3/wAAAQAAAAAAAAD4/wAAAQAAAAAAAAD8/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD+/wAAAQAAAAAAAAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAAQAP3/AQAAAAAAAAAPAP3/AQAAAAAAAAAPAPz/AQAAAAAAAAAPAPv/AQAAAAAAAAAPAPr/AQAAAAAAAAAPAPn/AQAAAAAAAAAPAPj/AQAAAAAAAAAPAPf/AQAAAAAAAAAPAPb/AQAAAAAAAAAPAPX/AQAAAAAAAAAPAPT/AQAAAAAAAAAOAPT/AQAAAAAAAAANAPT/AQAAAAAAAAAMAPT/AQAAAAAAAAALAPT/AQAAAAAAAAAKAPT/AQAAAAAAAAAJAPT/AQAAAAAAAAAIAPT/AQAAAAAAAAAHAPT/AQAAAAAAAAAGAPT/AQAAAAAAAAAFAPT/AQAAAAAAAAAEAPT/AQAAAAAAAAADAPT/AQAAAAAAAAACAPT/AQAAAAAAAAABAPT/AQAAAAAAAAAAAPT/AQAAAAAAAAD///T/AQAAAAAAAAD+//T/AQAAAAAAAAD9//T/AQAAAAAAAAD8//T/AQAAAAAAAAD7//T/AQAAAAAAAAD6//T/AQAAAAAAAAD5//T/AQAAAAAAAAD4//T/AQAAAAAAAAD3//T/AQAAAAAAAAD2//T/AQAAAAAAAAD1//T/AQAAAAAAAAD0//T/AQAAAAAAAADz//T/AQAAAAAAAADy//T/AQAAAAAAAADx//T/AQAAAAAAAADw//T/AQAAAAAAAADv//3/AQAAAAAAAADw//X/AQAAAAAAAADw//b/AQAAAAAAAADw//f/AQAAAAAAAADw//j/AQAAAAAAAADw//n/AQAAAAAAAADw//r/AQAAAAAAAADw//v/AQAAAAAAAADw//z/AQAAAAAAAADw//3/AQAAAAAAAAD8////AQAAAAAAAAD7////AQAAAAAAAAD6////AQAAAAAAAAD5////AQAAAAAAAAD4////AQAAAAAAAAACAAEAAQAAAAAAAAADAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAEAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_4yj8g")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

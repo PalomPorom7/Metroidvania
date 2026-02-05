@@ -10,6 +10,7 @@ var _current_room: Room
 
 
 func _ready() -> void:
+	get_viewport().canvas_cull_mask = 1
 	_map_viewport.world_2d = get_viewport().world_2d
 	_camera.follow(_kitty)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c4bxjxcgtvxyv"]
+[gd_scene load_steps=35 format=3 uid="uid://c4bxjxcgtvxyv"]
 
 [ext_resource type="Script" uid="uid://cnabtvk7aqowv" path="res://Scripts/character.gd" id="1_4d7gs"]
 [ext_resource type="Texture2D" uid="uid://c0kyuoboi64uw" path="res://Assets/Sprites/Kitty/Cat-Default.png" id="2_4d7gs"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://clm75mcgfds6w" path="res://Scripts/voice.gd" id="11_wa61m"]
 [ext_resource type="AudioStream" uid="uid://bxgi3q3qm1se6" path="res://Assets/SFX/Voice/Meow-Fast02.wav" id="12_ugghv"]
 [ext_resource type="AudioStream" uid="uid://bn7bu77odvosb" path="res://Assets/SFX/Voice/Meow-Fast.wav" id="13_mc7f2"]
+[ext_resource type="Script" uid="uid://caea04o20e6hw" path="res://Scripts/map_icon.gd" id="14_ugghv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8h8s0"]
 radius = 6.0
@@ -257,7 +258,12 @@ states/jump/position = Vector2(365, -62)
 transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_kdfac"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_te1kl"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_cngrh"), "fall", "Locomotion", SubResource("AnimationNodeStateMachineTransition_dxk2g"), "Locomotion", "fall", SubResource("AnimationNodeStateMachineTransition_xidd3")]
 graph_offset = Vector2(-330, -154)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc7f2"]
+atlas = ExtResource("2_4d7gs")
+region = Rect2(137, 9, 13, 15)
+
 [node name="Kitty" type="CharacterBody2D"]
+visibility_layer = 3
 collision_layer = 256
 script = ExtResource("1_4d7gs")
 _walk_speed = 64.0
@@ -310,5 +316,13 @@ _jump_effort = Array[AudioStream]([ExtResource("12_ugghv"), ExtResource("13_mc7f
 [node name="Coyote" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="MapIcon" type="Sprite2D" parent="."]
+visible = false
+visibility_layer = 2
+scale = Vector2(8, 8)
+texture = SubResource("AtlasTexture_mc7f2")
+offset = Vector2(0, -7.5)
+script = ExtResource("14_ugghv")
 
 [connection signal="jumped" from="." to="Voice" method="play_jump_effort" unbinds=2]

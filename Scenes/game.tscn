@@ -16,6 +16,7 @@ viewport_path = NodePath("MapViewport")
 
 [node name="Game" type="Node2D"]
 process_mode = 3
+visibility_layer = 3
 script = ExtResource("1_vef74")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -91,6 +92,7 @@ script = ExtResource("10_ldgsr")
 [node name="MapViewport" type="SubViewport" parent="."]
 unique_name_in_owner = true
 transparent_bg = true
+canvas_cull_mask = 4293918722
 size = Vector2i(640, 360)
 
 [node name="MapCamera" type="Camera2D" parent="MapViewport"]
