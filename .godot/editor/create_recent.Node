@@ -1,6 +1,10 @@
+RemoteTransform2D
+PanelContainer
+TextureRect
+SubViewport
+Camera2D
 ColorRect
 CanvasLayer
-Camera2D
 Node2D
 Parallax2D
 Sprite2D
@@ -9,7 +13,3 @@ Area2D
 Timer
 StaticBody2D
 TileMapLayer
-AnimatedSprite2D
-MeshInstance2D
-Node
-GPUParticles2D

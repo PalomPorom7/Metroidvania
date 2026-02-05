@@ -1,6 +1,7 @@
 extends Node2D
 
 
+@onready var _map_viewport: SubViewport = %MapViewport
 @onready var _fade: ColorRect = %Fade
 @onready var _kitty: CharacterBody2D = %Kitty
 @onready var _player: Timer = %Player
@@ -9,6 +10,7 @@ var _current_room: Room
 
 
 func _ready() -> void:
+	_map_viewport.world_2d = get_viewport().world_2d
 	_camera.follow(_kitty)
 
 
