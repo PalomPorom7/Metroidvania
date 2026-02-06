@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d16oevymn1f1e"]
+[gd_scene load_steps=13 format=3 uid="uid://d16oevymn1f1e"]
 
 [ext_resource type="PackedScene" uid="uid://c4bxjxcgtvxyv" path="res://Scenes/Characters/kitty.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://nnp4201xfi2e" path="res://Scripts/world.gd" id="1_feb5d"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://caxyh1supbwlf" path="res://Scenes/Rooms/forest.tscn" id="6_h4fw4"]
 [ext_resource type="Script" uid="uid://c14oilynetvb3" path="res://Scripts/camera_follow.gd" id="8_j5wjh"]
 [ext_resource type="Script" uid="uid://ogbhovye72b4" path="res://Scripts/fade.gd" id="10_ldgsr"]
+[ext_resource type="Script" uid="uid://ebmyyodhljxr" path="res://Scripts/map.gd" id="10_o5yvi"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ldgsr"]
 viewport_path = NodePath("MapViewport")
@@ -31,11 +32,12 @@ _land_dust = ExtResource("4_j5wjh")
 [node name="Kitty" parent="WorldEnvironment" instance=ExtResource("1_80nbo")]
 unique_name_in_owner = true
 
-[node name="Player" type="Timer" parent="WorldEnvironment/Kitty" node_paths=PackedStringArray("character")]
+[node name="Player" type="Timer" parent="WorldEnvironment/Kitty" node_paths=PackedStringArray("_map", "character")]
 unique_name_in_owner = true
 wait_time = 0.25
 one_shot = true
 script = ExtResource("2_e2o6t")
+_map = NodePath("../../../CanvasLayer/Map")
 character = NodePath("..")
 
 [node name="LookHold" type="Timer" parent="WorldEnvironment/Kitty/Player"]
@@ -62,6 +64,7 @@ _look_up_down_duration = 0.5
 
 [node name="Map" type="PanelContainer" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -73,6 +76,7 @@ offset_right = 320.0
 offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("10_o5yvi")
 
 [node name="MapViewportTexture" type="TextureRect" parent="CanvasLayer/Map"]
 layout_mode = 2
