@@ -19,6 +19,7 @@ func open() -> void:
 
 func close() -> void:
 	hide()
+	_camera.offset = Vector2.ZERO
 	_is_open = false
 
 
