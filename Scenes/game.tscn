@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d16oevymn1f1e"]
+[gd_scene format=3 uid="uid://d16oevymn1f1e"]
 
 [ext_resource type="PackedScene" uid="uid://c4bxjxcgtvxyv" path="res://Scenes/Characters/kitty.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://nnp4201xfi2e" path="res://Scripts/world.gd" id="1_feb5d"]
@@ -11,44 +11,51 @@
 [ext_resource type="Script" uid="uid://c14oilynetvb3" path="res://Scripts/camera_follow.gd" id="8_j5wjh"]
 [ext_resource type="Script" uid="uid://ogbhovye72b4" path="res://Scripts/fade.gd" id="10_ldgsr"]
 [ext_resource type="Script" uid="uid://ebmyyodhljxr" path="res://Scripts/map.gd" id="10_o5yvi"]
+[ext_resource type="Texture2D" uid="uid://dagwsiaytr45s" path="res://Assets/Sprites/UI/hero-portrait.png" id="11_1phco"]
+[ext_resource type="Texture2D" uid="uid://dqknc01v3mlhn" path="res://Assets/Sprites/UI/Health.png" id="12_nb51f"]
+[ext_resource type="Texture2D" uid="uid://dyqvksjf3jot3" path="res://Assets/Sprites/UI/bar-combined.png" id="13_nnt18"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ldgsr"]
 viewport_path = NodePath("MapViewport")
 
-[node name="Game" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewbju"]
+atlas = ExtResource("12_nb51f")
+region = Rect2(0, 0, 32, 32)
+
+[node name="Game" type="Node2D" unique_id=2091927422]
 process_mode = 3
 visibility_layer = 3
 script = ExtResource("1_vef74")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1907494304]
 process_mode = 1
 script = ExtResource("1_feb5d")
 _footstep_dust = ExtResource("2_ryrav")
 _jump_dust = ExtResource("3_eow3j")
 _land_dust = ExtResource("4_j5wjh")
 
-[node name="Forest" parent="WorldEnvironment" instance=ExtResource("6_h4fw4")]
+[node name="Forest" parent="WorldEnvironment" unique_id=584330548 instance=ExtResource("6_h4fw4")]
 
-[node name="Kitty" parent="WorldEnvironment" instance=ExtResource("1_80nbo")]
+[node name="Kitty" parent="WorldEnvironment" unique_id=408623218 instance=ExtResource("1_80nbo")]
 unique_name_in_owner = true
 
-[node name="Player" type="Timer" parent="WorldEnvironment/Kitty" node_paths=PackedStringArray("_map", "character")]
+[node name="Player" type="Timer" parent="WorldEnvironment/Kitty" unique_id=97144592 node_paths=PackedStringArray("_map", "character")]
 unique_name_in_owner = true
 wait_time = 0.25
 one_shot = true
 script = ExtResource("2_e2o6t")
-_map = NodePath("../../../CanvasLayer/Map")
+_map = NodePath("../../../CanvasLayer/HUD/Map")
 character = NodePath("..")
 
-[node name="LookHold" type="Timer" parent="WorldEnvironment/Kitty/Player"]
+[node name="LookHold" type="Timer" parent="WorldEnvironment/Kitty/Player" unique_id=281871185]
 one_shot = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="WorldEnvironment/Kitty"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="WorldEnvironment/Kitty" unique_id=1904815921]
 remote_path = NodePath("../../../MapViewport/MapCamera")
 update_rotation = false
 update_scale = false
 
-[node name="Camera2D" type="Camera2D" parent="WorldEnvironment"]
+[node name="Camera2D" type="Camera2D" parent="WorldEnvironment" unique_id=1686976114]
 unique_name_in_owner = true
 offset = Vector2(64, -64)
 zoom = Vector2(2, 2)
@@ -60,11 +67,20 @@ _look_up_down_trans = 4
 _look_up_down_ease = 1
 _look_up_down_duration = 0.5
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1388785714]
 
-[node name="Map" type="PanelContainer" parent="CanvasLayer"]
+[node name="HUD" type="Control" parent="CanvasLayer" unique_id=1161705710]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Map" type="PanelContainer" parent="CanvasLayer/HUD" unique_id=305343438]
 unique_name_in_owner = true
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -78,11 +94,78 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_o5yvi")
 
-[node name="MapViewportTexture" type="TextureRect" parent="CanvasLayer/Map"]
+[node name="MapViewportTexture" type="TextureRect" parent="CanvasLayer/HUD/Map" unique_id=990288281]
 layout_mode = 2
 texture = SubResource("ViewportTexture_ldgsr")
 
-[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+[node name="Vitals" type="Control" parent="CanvasLayer/HUD" unique_id=1863060363]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+scale = Vector2(2, 2)
+
+[node name="Profile" type="TextureRect" parent="CanvasLayer/HUD/Vitals" unique_id=881806137]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_1phco")
+
+[node name="HealthCounter" type="HBoxContainer" parent="CanvasLayer/HUD/Vitals" unique_id=1497370051]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 8.0
+offset_right = 257.0
+offset_bottom = 40.0
+theme_override_constants/separation = -8
+
+[node name="HealthIcon" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=804833384]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ewbju")
+
+[node name="HealthIcon2" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=907569917]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ewbju")
+
+[node name="HealthIcon3" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=1609055391]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ewbju")
+
+[node name="HealthIcon4" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=1073073963]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ewbju")
+
+[node name="HealthIcon5" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=829159914]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ewbju")
+
+[node name="HealthIcon6" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=392885811]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ewbju")
+
+[node name="HealthIcon7" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=537197461]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ewbju")
+
+[node name="HealthIcon8" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=1322465866]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ewbju")
+
+[node name="HealthIcon9" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=1720984932]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ewbju")
+
+[node name="MagicGauge" type="TextureRect" parent="CanvasLayer/HUD/Vitals" unique_id=1604072902]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 40.0
+offset_right = 102.0
+offset_bottom = 56.0
+texture = ExtResource("13_nnt18")
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1297152098]
 unique_name_in_owner = true
 visible = false
 anchors_preset = 15
@@ -93,13 +176,13 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("10_ldgsr")
 
-[node name="MapViewport" type="SubViewport" parent="."]
+[node name="MapViewport" type="SubViewport" parent="." unique_id=1440166377]
 unique_name_in_owner = true
 transparent_bg = true
 canvas_cull_mask = 4293918722
 size = Vector2i(640, 360)
 
-[node name="MapCamera" type="Camera2D" parent="MapViewport"]
+[node name="MapCamera" type="Camera2D" parent="MapViewport" unique_id=1050735940]
 unique_name_in_owner = true
 zoom = Vector2(0.125, 0.125)
 

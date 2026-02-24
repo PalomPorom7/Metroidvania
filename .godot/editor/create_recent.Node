@@ -1,8 +1,10 @@
+TextureRect
+HBoxContainer
+Control
 Sprite2D
 TileMapLayer
 RemoteTransform2D
 PanelContainer
-TextureRect
 SubViewport
 Camera2D
 ColorRect
@@ -10,5 +12,3 @@ CanvasLayer
 Node2D
 Parallax2D
 CollisionShape2D
-Area2D
-Timer
