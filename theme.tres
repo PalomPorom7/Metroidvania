@@ -1,0 +1,22 @@
+[gd_resource type="Theme" format=3 uid="uid://cys2x0ycpvfk0"]
+
+[ext_resource type="Texture2D" uid="uid://c6uwhp4kilr1q" path="res://Assets/Sprites/UI/bar-back.png" id="1_cjfk0"]
+[ext_resource type="Texture2D" uid="uid://dv2ugawhxau5o" path="res://Assets/Sprites/UI/bar-fill.png" id="2_vj6dk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cjfk0"]
+texture = ExtResource("1_cjfk0")
+texture_margin_left = 6.0
+texture_margin_top = 2.0
+texture_margin_right = 6.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(0, 0, 64, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vj6dk"]
+texture = ExtResource("2_vj6dk")
+texture_margin_left = 6.0
+texture_margin_right = 6.0
+
+[resource]
+MagicGauge/base_type = &"ProgressBar"
+MagicGauge/styles/background = SubResource("StyleBoxTexture_cjfk0")
+MagicGauge/styles/fill = SubResource("StyleBoxTexture_vj6dk")
