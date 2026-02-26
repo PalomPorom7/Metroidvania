@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dmj88ram4yj1a"]
+
+[ext_resource type="Texture2D" uid="uid://dqknc01v3mlhn" path="res://Assets/Sprites/UI/Health.png" id="1_2ml21"]
+[ext_resource type="Script" uid="uid://d0u1cnyuv2jso" path="res://Scripts/UI/animated_icon.gd" id="2_0huen"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewbju"]
+resource_local_to_scene = true
+atlas = ExtResource("1_2ml21")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="Animation" id="Animation_1d58w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(192, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_b0ypv"]
+resource_name = "empty"
+length = 0.50000834
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(32, 0, 32, 32), Rect2(64, 0, 32, 32), Rect2(96, 0, 32, 32), Rect2(128, 0, 32, 32), Rect2(160, 0, 32, 32), Rect2(192, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_2tpc1"]
+resource_name = "fill"
+length = 0.66667503
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5, 0.5833334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 32, 32, 32), Rect2(32, 32, 32, 32), Rect2(64, 32, 32, 32), Rect2(96, 32, 32, 32), Rect2(128, 32, 32, 32), Rect2(160, 32, 32, 32), Rect2(192, 32, 32, 32), Rect2(0, 0, 32, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mpcfy"]
+_data = {
+&"RESET": SubResource("Animation_1d58w"),
+&"empty": SubResource("Animation_b0ypv"),
+&"fill": SubResource("Animation_2tpc1")
+}
+
+[node name="HealthIcon" type="TextureRect" unique_id=1585766523]
+texture = SubResource("AtlasTexture_ewbju")
+script = ExtResource("2_0huen")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1146561847]
+libraries/ = SubResource("AnimationLibrary_mpcfy")

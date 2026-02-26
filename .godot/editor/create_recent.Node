@@ -1,3 +1,5 @@
+AnimationPlayer
+AnimatedSprite2D
 ProgressBar
 TextureRect
 HBoxContainer
@@ -11,4 +13,3 @@ Camera2D
 ColorRect
 CanvasLayer
 Node2D
-Parallax2D

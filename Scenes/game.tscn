@@ -14,13 +14,55 @@
 [ext_resource type="Script" uid="uid://ebmyyodhljxr" path="res://Scripts/map.gd" id="10_o5yvi"]
 [ext_resource type="Texture2D" uid="uid://dagwsiaytr45s" path="res://Assets/Sprites/UI/hero-portrait.png" id="11_1phco"]
 [ext_resource type="Texture2D" uid="uid://dqknc01v3mlhn" path="res://Assets/Sprites/UI/Health.png" id="12_nb51f"]
+[ext_resource type="PackedScene" uid="uid://dmj88ram4yj1a" path="res://Scenes/health_icon.tscn" id="13_1phco"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ldgsr"]
 viewport_path = NodePath("MapViewport")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ewbju"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb51f"]
+resource_local_to_scene = true
 atlas = ExtResource("12_nb51f")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnt18"]
+resource_local_to_scene = true
+atlas = ExtResource("12_nb51f")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewbju"]
+resource_local_to_scene = true
+atlas = ExtResource("12_nb51f")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85qyi"]
+resource_local_to_scene = true
+atlas = ExtResource("12_nb51f")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iivbl"]
+resource_local_to_scene = true
+atlas = ExtResource("12_nb51f")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nbq1"]
+resource_local_to_scene = true
+atlas = ExtResource("12_nb51f")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exi56"]
+resource_local_to_scene = true
+atlas = ExtResource("12_nb51f")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t8sx"]
+resource_local_to_scene = true
+atlas = ExtResource("12_nb51f")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg4q0"]
+resource_local_to_scene = true
+atlas = ExtResource("12_nb51f")
+region = Rect2(192, 0, 32, 32)
 
 [node name="Game" type="Node2D" unique_id=2091927422]
 process_mode = 3
@@ -122,41 +164,41 @@ offset_right = 257.0
 offset_bottom = 40.0
 theme_override_constants/separation = -8
 
-[node name="HealthIcon" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=804833384]
+[node name="HealthIcon1" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=1585766523 instance=ExtResource("13_1phco")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nb51f")
+
+[node name="HealthIcon2" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=308534979 instance=ExtResource("13_1phco")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nnt18")
+
+[node name="HealthIcon3" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=535387212 instance=ExtResource("13_1phco")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_ewbju")
 
-[node name="HealthIcon2" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=907569917]
+[node name="HealthIcon4" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=38168909 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_ewbju")
+texture = SubResource("AtlasTexture_85qyi")
 
-[node name="HealthIcon3" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=1609055391]
+[node name="HealthIcon5" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=326093497 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_ewbju")
+texture = SubResource("AtlasTexture_iivbl")
 
-[node name="HealthIcon4" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=1073073963]
+[node name="HealthIcon6" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=34202027 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_ewbju")
+texture = SubResource("AtlasTexture_7nbq1")
 
-[node name="HealthIcon5" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=829159914]
+[node name="HealthIcon7" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=1737950826 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_ewbju")
+texture = SubResource("AtlasTexture_exi56")
 
-[node name="HealthIcon6" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=392885811]
+[node name="HealthIcon8" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=298415098 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_ewbju")
+texture = SubResource("AtlasTexture_7t8sx")
 
-[node name="HealthIcon7" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=537197461]
+[node name="HealthIcon9" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=632355684 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_ewbju")
-
-[node name="HealthIcon8" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=1322465866]
-layout_mode = 2
-texture = SubResource("AtlasTexture_ewbju")
-
-[node name="HealthIcon9" type="TextureRect" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=1720984932]
-layout_mode = 2
-texture = SubResource("AtlasTexture_ewbju")
+texture = SubResource("AtlasTexture_mg4q0")
 
 [node name="MagicGauge" type="ProgressBar" parent="CanvasLayer/HUD/Vitals" unique_id=415712282]
 layout_mode = 0
