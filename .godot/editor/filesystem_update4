@@ -1,6 +1,4 @@
-res://Scenes/health_icon.tscn
+res://Scenes/game.tscn
 res://theme.tres
 res://Scenes/Characters/locomotion.tres
-res://Scripts/UI/animated_icon.gd
-res://Scenes/game.tscn
-res://Scripts/player.gd
+res://Scripts/UI/icon_counter.gd
