@@ -39,14 +39,15 @@ func set_value(new_value: int) -> void:
 	_value = new_value
 
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed:
-		match event.keycode:
-			KEY_0, KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9:
-				var number: int = event.keycode - KEY_0
-				if Input.is_action_pressed("look_up"):
-					print("Set max health to " + str(number))
-					set_max_value(number)
-				else:
-					print("Set current health to " + str(number))
-					set_value(number)
+# TEST
+#func _input(event: InputEvent) -> void:
+	#if event is InputEventKey and event.pressed:
+		#match event.keycode:
+			#KEY_0, KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9:
+				#var number: int = event.keycode - KEY_0
+				#if Input.is_action_pressed("look_up"):
+					#print("Set max health to " + str(number))
+					#set_max_value(number)
+				#else:
+					#print("Set current health to " + str(number))
+					#set_value(number)

@@ -6,6 +6,7 @@ extends Node2D
 @onready var _kitty: CharacterBody2D = %Kitty
 @onready var _player: Timer = %Player
 @onready var _camera: Camera2D = %Camera2D
+@onready var _health_counter: HBoxContainer = %HealthCounter
 var _current_room: Room
 
 
@@ -13,6 +14,7 @@ func _ready() -> void:
 	get_viewport().canvas_cull_mask = 1
 	_map_viewport.world_2d = get_viewport().world_2d
 	_camera.follow(_kitty)
+	_kitty.get_node("HurtBox").set_counter(_health_counter)
 
 
 func on_player_entered_room(room_entered: Room) -> void:

@@ -1,3 +1,7 @@
+CollisionShape2D
+Area2D
+RigidBody2D
+StaticBody2D
 AnimationPlayer
 AnimatedSprite2D
 ProgressBar
@@ -8,8 +12,3 @@ Sprite2D
 TileMapLayer
 RemoteTransform2D
 PanelContainer
-SubViewport
-Camera2D
-ColorRect
-CanvasLayer
-Node2D
