@@ -1,9 +1,6 @@
 res://Scenes/game.tscn
 res://theme.tres
 res://Scenes/Characters/locomotion.tres
-res://Scripts/UI/icon_counter.gd
-res://Scenes/Rooms/Forest/start_room.tscn
-res://Scripts/character.gd
-res://Scenes/Characters/kitty.tscn
-res://Scripts/hurt_box.gd
+res://Scripts/Resources/data.gd
+res://test_data.tres
 res://Scripts/Managers/game_manager.gd

@@ -17,6 +17,16 @@ func _ready() -> void:
 	_kitty.get_node("HurtBox").set_counter(_health_counter)
 
 
+# TEST
+	#_test()
+
+
+#func _test() -> void:
+	#var data: Data = Data.new()
+	#data.max_health_upgrades = [true, false, true, false]
+	#print(data.max_health_upgrades)
+
+
 func on_player_entered_room(room_entered: Room) -> void:
 	if room_entered == _current_room:
 		return
