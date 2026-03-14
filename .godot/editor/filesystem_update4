@@ -1,6 +1,6 @@
 res://Scenes/game.tscn
 res://theme.tres
 res://Scenes/Characters/locomotion.tres
-res://Scripts/Resources/data.gd
-res://test_data.tres
+res://Scripts/Globals/file.gd
 res://Scripts/Managers/game_manager.gd
+res://Scripts/hurt_box.gd

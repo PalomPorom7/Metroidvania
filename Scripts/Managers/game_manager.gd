@@ -8,23 +8,27 @@ extends Node2D
 @onready var _camera: Camera2D = %Camera2D
 @onready var _health_counter: HBoxContainer = %HealthCounter
 var _current_room: Room
+var _kitty_hurt_box: Area2D
 
 
 func _ready() -> void:
 	get_viewport().canvas_cull_mask = 1
 	_map_viewport.world_2d = get_viewport().world_2d
 	_camera.follow(_kitty)
-	_kitty.get_node("HurtBox").set_counter(_health_counter)
+	_kitty_hurt_box = _kitty.get_node("HurtBox")
+	_kitty_hurt_box.initialize(File.data.max_health)
+	_kitty_hurt_box.set_counter(_health_counter)
 
 
-# TEST
-	#_test()
-
-
-#func _test() -> void:
-	#var data: Data = Data.new()
-	#data.max_health_upgrades = [true, false, true, false]
-	#print(data.max_health_upgrades)
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("look_up"):
+		File.data.max_health += 1
+		_kitty_hurt_box.initialize(File.data.max_health)
+		File.save_game()
+	elif event.is_action_pressed("look_down"):
+		File.data.max_health -= 1
+		_kitty_hurt_box.initialize(File.data.max_health)
+		File.save_game()
 
 
 func on_player_entered_room(room_entered: Room) -> void:

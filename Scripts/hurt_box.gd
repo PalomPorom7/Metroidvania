@@ -10,6 +10,13 @@ var _max_health: int = 5
 @onready var _current_health: int = _max_health
 
 
+func initialize(max_health: int) -> void:
+	_max_health = max_health
+	_current_health = max_health
+	max_health_changed.emit(_max_health)
+	current_health_changed.emit(_current_health)
+
+
 func set_counter(counter: Control) -> void:
 	max_health_changed.connect(counter.set_max_value)
 	current_health_changed.connect(counter.set_value)
