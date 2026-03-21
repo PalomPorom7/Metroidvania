@@ -22,12 +22,8 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("look_up"):
-		File.data.max_health += 1
-		_kitty_hurt_box.initialize(File.data.max_health)
-		File.save_game()
-	elif event.is_action_pressed("look_down"):
-		File.data.max_health -= 1
-		_kitty_hurt_box.initialize(File.data.max_health)
+		print("Unlock Double Jump")
+		File.data.abilities_unlocked[Enums.Abilities.DOUBLE_JUMP] = true
 		File.save_game()
 
 

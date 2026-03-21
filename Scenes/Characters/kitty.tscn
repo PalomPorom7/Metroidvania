@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4bxjxcgtvxyv"]
 
-[ext_resource type="Script" uid="uid://cnabtvk7aqowv" path="res://Scripts/character.gd" id="1_4d7gs"]
+[ext_resource type="Script" uid="uid://dguleimd3kwbg" path="res://Scripts/player_character.gd" id="1_mc7f2"]
 [ext_resource type="Texture2D" uid="uid://c0kyuoboi64uw" path="res://Assets/Sprites/Kitty/Cat-Default.png" id="2_4d7gs"]
 [ext_resource type="Script" uid="uid://dl7rh5imgcgw7" path="res://Scripts/hurt_box.gd" id="2_mc7f2"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://b3arg8hd30d1r" path="res://Scenes/Characters/locomotion.tres" id="3_8h8s0"]
@@ -270,7 +270,7 @@ region = Rect2(137, 9, 13, 15)
 [node name="Kitty" type="CharacterBody2D" unique_id=2011354323]
 visibility_layer = 3
 collision_layer = 256
-script = ExtResource("1_4d7gs")
+script = ExtResource("1_mc7f2")
 _walk_speed = 64.0
 _run_speed = 128.0
 _acceleration = 256.0
