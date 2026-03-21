@@ -22,8 +22,8 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("look_up"):
-		print("Unlock Double Jump")
-		File.data.abilities_unlocked[Enums.Abilities.DOUBLE_JUMP] = true
+		print("Unlock Wall Jump")
+		File.data.abilities_unlocked[Enums.Abilities.WALL_JUMP] = true
 		File.save_game()
 
 

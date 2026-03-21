@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c0kyuoboi64uw" path="res://Assets/Sprites/Kitty/Cat-Default.png" id="2_4d7gs"]
 [ext_resource type="Script" uid="uid://dl7rh5imgcgw7" path="res://Scripts/hurt_box.gd" id="2_mc7f2"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://b3arg8hd30d1r" path="res://Scenes/Characters/locomotion.tres" id="3_8h8s0"]
+[ext_resource type="Texture2D" uid="uid://dwjm4kqaiqnfv" path="res://Assets/Sprites/Kitty/Cat-Sheet.png" id="3_oh2nt"]
 [ext_resource type="AudioStream" uid="uid://bonuwook64xa6" path="res://Assets/SFX/sfx_jump.wav" id="4_wo4o5"]
 [ext_resource type="AudioStream" uid="uid://dgyw3npnh72n4" path="res://Assets/SFX/sfx_land.wav" id="5_kdfac"]
 [ext_resource type="Script" uid="uid://su4s6eugejr4" path="res://Scripts/sfx_randomizer.gd" id="5_te1kl"]
@@ -25,7 +26,7 @@ radius = 4.0
 height = 24.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3j1hx"]
-atlas = ExtResource("2_4d7gs")
+atlas = ExtResource("3_oh2nt")
 region = Rect2(0, 0, 32, 36)
 
 [sub_resource type="Animation" id="Animation_8h8s0"]
@@ -215,6 +216,24 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_mc7f2"]
+resource_name = "wall_slide"
+length = 0.58334166
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 396, 32, 36), Rect2(32, 396, 32, 36), Rect2(64, 396, 32, 36), Rect2(96, 396, 32, 36), Rect2(128, 396, 32, 36), Rect2(160, 396, 32, 36), Rect2(192, 396, 32, 36)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cngrh"]
 _data = {
 &"RESET": SubResource("Animation_8h8s0"),
@@ -224,7 +243,8 @@ _data = {
 &"look_down": SubResource("Animation_ugghv"),
 &"look_up": SubResource("Animation_wa61m"),
 &"run": SubResource("Animation_wo4o5"),
-&"walk": SubResource("Animation_3j1hx")
+&"walk": SubResource("Animation_3j1hx"),
+&"wall_slide": SubResource("Animation_mc7f2")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3j1hx"]
@@ -232,6 +252,9 @@ animation = &"fall"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wo4o5"]
 animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5o8xj"]
+animation = &"wall_slide"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kdfac"]
 advance_mode = 2
@@ -253,6 +276,22 @@ advance_expression = "_is_on_floor"
 advance_mode = 2
 advance_expression = "not _is_on_floor"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qd3iw"]
+advance_mode = 2
+advance_expression = "_is_wall_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fku4i"]
+advance_mode = 2
+advance_expression = "_is_wall_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bbx3e"]
+advance_mode = 2
+advance_expression = "not _is_wall_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ps7kw"]
+advance_mode = 2
+advance_expression = "_is_on_floor"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7n1hr"]
 states/Locomotion/node = ExtResource("3_8h8s0")
 states/Locomotion/position = Vector2(536, 100)
@@ -260,8 +299,10 @@ states/fall/node = SubResource("AnimationNodeAnimation_3j1hx")
 states/fall/position = Vector2(693, -62)
 states/jump/node = SubResource("AnimationNodeAnimation_wo4o5")
 states/jump/position = Vector2(365, -62)
-transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_kdfac"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_te1kl"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_cngrh"), "fall", "Locomotion", SubResource("AnimationNodeStateMachineTransition_dxk2g"), "Locomotion", "fall", SubResource("AnimationNodeStateMachineTransition_xidd3")]
-graph_offset = Vector2(-330, -154)
+states/wall_slide/node = SubResource("AnimationNodeAnimation_5o8xj")
+states/wall_slide/position = Vector2(536, -212)
+transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_kdfac"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_te1kl"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_cngrh"), "fall", "Locomotion", SubResource("AnimationNodeStateMachineTransition_dxk2g"), "Locomotion", "fall", SubResource("AnimationNodeStateMachineTransition_xidd3"), "fall", "wall_slide", SubResource("AnimationNodeStateMachineTransition_qd3iw"), "jump", "wall_slide", SubResource("AnimationNodeStateMachineTransition_fku4i"), "wall_slide", "fall", SubResource("AnimationNodeStateMachineTransition_bbx3e"), "wall_slide", "Locomotion", SubResource("AnimationNodeStateMachineTransition_ps7kw")]
+graph_offset = Vector2(-323, -252)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mc7f2"]
 atlas = ExtResource("2_4d7gs")

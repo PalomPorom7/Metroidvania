@@ -1,8 +1,5 @@
 res://Scenes/game.tscn
 res://theme.tres
 res://Scenes/Characters/locomotion.tres
-res://Scenes/Characters/kitty.tscn
 res://Scripts/player_character.gd
-res://Scripts/Resources/data.gd
-res://Scripts/enums.gd
-res://Scripts/Managers/game_manager.gd
+res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
