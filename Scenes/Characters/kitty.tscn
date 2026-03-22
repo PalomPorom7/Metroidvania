@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c4bxjxcgtvxyv"]
 
 [ext_resource type="Script" uid="uid://dguleimd3kwbg" path="res://Scripts/player_character.gd" id="1_mc7f2"]
-[ext_resource type="Texture2D" uid="uid://c0kyuoboi64uw" path="res://Assets/Sprites/Kitty/Cat-Default.png" id="2_4d7gs"]
 [ext_resource type="Script" uid="uid://dl7rh5imgcgw7" path="res://Scripts/hurt_box.gd" id="2_mc7f2"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://b3arg8hd30d1r" path="res://Scenes/Characters/locomotion.tres" id="3_8h8s0"]
 [ext_resource type="Texture2D" uid="uid://dwjm4kqaiqnfv" path="res://Assets/Sprites/Kitty/Cat-Sheet.png" id="3_oh2nt"]
@@ -292,6 +291,11 @@ advance_expression = "not _is_wall_sliding"
 advance_mode = 2
 advance_expression = "_is_on_floor"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mc7f2"]
+priority = 0
+advance_mode = 2
+advance_expression = "_is_jumping"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7n1hr"]
 states/Locomotion/node = ExtResource("3_8h8s0")
 states/Locomotion/position = Vector2(536, 100)
@@ -301,17 +305,21 @@ states/jump/node = SubResource("AnimationNodeAnimation_wo4o5")
 states/jump/position = Vector2(365, -62)
 states/wall_slide/node = SubResource("AnimationNodeAnimation_5o8xj")
 states/wall_slide/position = Vector2(536, -212)
-transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_kdfac"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_te1kl"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_cngrh"), "fall", "Locomotion", SubResource("AnimationNodeStateMachineTransition_dxk2g"), "Locomotion", "fall", SubResource("AnimationNodeStateMachineTransition_xidd3"), "fall", "wall_slide", SubResource("AnimationNodeStateMachineTransition_qd3iw"), "jump", "wall_slide", SubResource("AnimationNodeStateMachineTransition_fku4i"), "wall_slide", "fall", SubResource("AnimationNodeStateMachineTransition_bbx3e"), "wall_slide", "Locomotion", SubResource("AnimationNodeStateMachineTransition_ps7kw")]
+transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_kdfac"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_te1kl"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_cngrh"), "fall", "Locomotion", SubResource("AnimationNodeStateMachineTransition_dxk2g"), "Locomotion", "fall", SubResource("AnimationNodeStateMachineTransition_xidd3"), "fall", "wall_slide", SubResource("AnimationNodeStateMachineTransition_qd3iw"), "jump", "wall_slide", SubResource("AnimationNodeStateMachineTransition_fku4i"), "wall_slide", "fall", SubResource("AnimationNodeStateMachineTransition_bbx3e"), "wall_slide", "Locomotion", SubResource("AnimationNodeStateMachineTransition_ps7kw"), "wall_slide", "jump", SubResource("AnimationNodeStateMachineTransition_mc7f2")]
 graph_offset = Vector2(-323, -252)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oh2nt"]
+load_path = "res://.godot/imported/Cat-Default.png-474130c36b2eec7aad2173b11c47cbc7.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mc7f2"]
-atlas = ExtResource("2_4d7gs")
+atlas = SubResource("CompressedTexture2D_oh2nt")
 region = Rect2(137, 9, 13, 15)
 
 [node name="Kitty" type="CharacterBody2D" unique_id=2011354323]
 visibility_layer = 3
 collision_layer = 256
 script = ExtResource("1_mc7f2")
+_wall_jump_force_multiplier = Vector2(-0.333, 1)
 _walk_speed = 64.0
 _run_speed = 128.0
 _acceleration = 256.0
@@ -372,6 +380,11 @@ _jump_effort = Array[AudioStream]([ExtResource("12_ugghv"), ExtResource("13_mc7f
 wait_time = 0.25
 one_shot = true
 
+[node name="WallJump" type="Timer" parent="." unique_id=628174176]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
 [node name="MapIcon" type="Sprite2D" parent="." unique_id=1363910337]
 visible = false
 visibility_layer = 2
@@ -381,3 +394,4 @@ offset = Vector2(0, -7.5)
 script = ExtResource("14_ugghv")
 
 [connection signal="jumped" from="." to="Voice" method="play_jump_effort" unbinds=2]
+[connection signal="timeout" from="WallJump" to="." method="_on_wall_jump_air_control_override_timeout"]

@@ -2,6 +2,7 @@ extends Character
 
 
 signal double_jumped(position: Vector2, flipped: bool)
+signal wall_jumped(position: Vector2, flipped: bool)
 
 
 # Local reference to the Save Data Resource's list of unlocked abilities
@@ -9,13 +10,35 @@ signal double_jumped(position: Vector2, flipped: bool)
 var _double_jump_is_ready: bool = true
 
 
+@export_category("Wall Jump")
 @export var _wall_slide_gravity_multiplier: float = 0.1
+## Negative x values will be away from the wall, positive Y values up
+@export var _wall_jump_force_multiplier: Vector2 = Vector2(-1, 1)
+@export var _wall_jump_air_control: float = 4
+@onready var _default_air_control: float = _air_control
+@onready var _wall_jump_air_control_override: Timer = %WallJump
 var _is_wall_sliding: bool
 
 
 func jump() -> bool:
+	# Wall Jump
+	if (
+		_abilities_unlocked[Enums.Abilities.WALL_JUMP] and
+		(
+			_is_wall_sliding or
+			not _is_on_floor and is_on_wall() and sign(move_direction * -1) == sign(get_wall_normal().x)
+		)
+	):
+		velocity = Vector2(get_wall_normal().x, 1) * _jump_force * _wall_jump_force_multiplier
+		_air_control = _wall_jump_air_control
+		_wall_jump_air_control_override.start()
+		_jump_sfx.play_random()
+		wall_jumped.emit(position, _sprite.flip_h)
+		_is_wall_sliding = false
+		is_jumping = true
+		return true
 	# Double Jump
-	if _abilities_unlocked[Enums.Abilities.DOUBLE_JUMP] and _double_jump_is_ready and not _is_on_floor:
+	elif _abilities_unlocked[Enums.Abilities.DOUBLE_JUMP] and _double_jump_is_ready and not _is_on_floor:
 		velocity.y = _jump_force
 		_jump_sfx.play_random()
 		double_jumped.emit(position, _sprite.flip_h)
@@ -25,12 +48,16 @@ func jump() -> bool:
 	return super.jump()
 
 
+func _on_wall_jump_air_control_override_timeout() -> void:
+	_air_control = _default_air_control
+
+
 func _air_physics(delta: float) -> void:
 	# Is the character currently wall sliding?
 	if _is_wall_sliding:
 		# End wall slide
 		if not is_on_wall() or sign(get_wall_normal().x) == sign(move_direction):
-			print("Ended wall slide no longer touching a wall")
+			#print("Ended wall slide no longer touching a wall")
 			_is_wall_sliding = false
 		# Continue wall slide
 		else:
