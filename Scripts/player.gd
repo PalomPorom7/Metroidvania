@@ -40,6 +40,11 @@ func _input(event: InputEvent) -> void:
 		character.run()
 	elif event.is_action_released("run"):
 		character.walk()
+	if event.is_action_pressed("dash"):
+		var direction: float = Input.get_axis("move_left", "move_right")
+		if not character.dash(direction):
+			_buffered_input = character.dash.bind(direction)
+			start()
 
 
 func _on_look_hold_timeout() -> void:

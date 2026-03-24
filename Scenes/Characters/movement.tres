@@ -1,0 +1,65 @@
+[gd_resource type="AnimationNodeStateMachine" format=3 uid="uid://dqhsnspcpbpo1"]
+
+[ext_resource type="AnimationNodeStateMachine" uid="uid://b3arg8hd30d1r" path="res://Scenes/Characters/locomotion.tres" id="1_jtm6k"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3j1hx"]
+animation = &"fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wo4o5"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5o8xj"]
+animation = &"wall_slide"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kdfac"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_te1kl"]
+priority = 0
+advance_mode = 2
+advance_expression = "velocity.y < 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cngrh"]
+advance_mode = 2
+advance_expression = "velocity.y >= 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dxk2g"]
+advance_mode = 2
+advance_expression = "_is_on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xidd3"]
+advance_mode = 2
+advance_expression = "not _is_on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qd3iw"]
+advance_mode = 2
+advance_expression = "_is_wall_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fku4i"]
+advance_mode = 2
+advance_expression = "_is_wall_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bbx3e"]
+advance_mode = 2
+advance_expression = "not _is_wall_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ps7kw"]
+advance_mode = 2
+advance_expression = "_is_on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mc7f2"]
+priority = 0
+advance_mode = 2
+advance_expression = "_is_jumping"
+
+[resource]
+states/Locomotion/node = ExtResource("1_jtm6k")
+states/Locomotion/position = Vector2(536, 100)
+states/fall/node = SubResource("AnimationNodeAnimation_3j1hx")
+states/fall/position = Vector2(693, -62)
+states/jump/node = SubResource("AnimationNodeAnimation_wo4o5")
+states/jump/position = Vector2(365, -62)
+states/wall_slide/node = SubResource("AnimationNodeAnimation_5o8xj")
+states/wall_slide/position = Vector2(536, -212)
+transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_kdfac"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_te1kl"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_cngrh"), "fall", "Locomotion", SubResource("AnimationNodeStateMachineTransition_dxk2g"), "Locomotion", "fall", SubResource("AnimationNodeStateMachineTransition_xidd3"), "fall", "wall_slide", SubResource("AnimationNodeStateMachineTransition_qd3iw"), "jump", "wall_slide", SubResource("AnimationNodeStateMachineTransition_fku4i"), "wall_slide", "fall", SubResource("AnimationNodeStateMachineTransition_bbx3e"), "wall_slide", "Locomotion", SubResource("AnimationNodeStateMachineTransition_ps7kw"), "wall_slide", "jump", SubResource("AnimationNodeStateMachineTransition_mc7f2")]
+graph_offset = Vector2(-323, -252)

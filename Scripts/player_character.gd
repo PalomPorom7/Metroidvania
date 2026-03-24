@@ -7,6 +7,10 @@ signal wall_jumped(position: Vector2, flipped: bool)
 
 # Local reference to the Save Data Resource's list of unlocked abilities
 @onready var _abilities_unlocked: Array[bool] = File.data.abilities_unlocked
+# NOTE: As more layers are added to the state machine, this will need to be updated!
+@onready var _animation: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
+
+
 var _double_jump_is_ready: bool = true
 
 
@@ -18,6 +22,12 @@ var _double_jump_is_ready: bool = true
 @onready var _default_air_control: float = _air_control
 @onready var _wall_jump_air_control_override: Timer = %WallJump
 var _is_wall_sliding: bool
+
+
+@export_category("Dash")
+@export var _dash_distance: float = 128
+@onready var _dash_force: float = sqrt(_dash_distance * _deceleration * 2)
+@onready var _default_gravity: float = _gravity
 
 
 func jump() -> bool:
@@ -48,8 +58,38 @@ func jump() -> bool:
 	return super.jump()
 
 
+func dash(direction: float) -> bool:
+	if _abilities_unlocked[Enums.Abilities.DASH]:
+		# Dash away from the wall
+		if _is_wall_sliding:
+			direction = sign(get_wall_normal().x)
+		# Dash in the given direction
+		elif direction:
+			direction = sign(direction)
+		# Dash forward
+		else:
+			direction = -1 if _is_facing_left else 1
+		move_direction = direction
+		velocity = Vector2(direction * _dash_force, 0)
+		_gravity = 0
+		_animation.travel("dash")
+		return true
+	return false
+
+
+# MUST be called after dashing even if animation was interrupted!
+func end_dash() -> void:
+	_gravity = _default_gravity
+
+
 func _on_wall_jump_air_control_override_timeout() -> void:
 	_air_control = _default_air_control
+
+
+func _physics_process(delta: float) -> void:
+	if _animation.get_current_node() != "Movement":
+		move_direction = 0
+	super._physics_process(delta)
 
 
 func _air_physics(delta: float) -> void:
