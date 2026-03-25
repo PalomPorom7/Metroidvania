@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c0rm171551cpl" path="res://Assets/Sprites/Forest/Foreground-Tree2.png" id="8_jm8eo"]
 [ext_resource type="Texture2D" uid="uid://bcuaont3l54gx" path="res://Assets/Sprites/Forest/Foreground-Tree3.png" id="9_3xa6x"]
 [ext_resource type="Texture2D" uid="uid://bcugmf7l7bssg" path="res://Assets/Sprites/Forest/Foreground-Top.png" id="10_ir7cs"]
+[ext_resource type="Script" uid="uid://bv05oxwvec7wp" path="res://Scripts/hit_box.gd" id="11_ntqre"]
 
 [sub_resource type="Gradient" id="Gradient_tl3a5"]
 colors = PackedColorArray(0.32156864, 0.5058824, 0.827451, 1, 0.827451, 0.92941177, 1, 1)
@@ -470,6 +471,9 @@ terrain_set_0/terrain_0/name = "Forest"
 terrain_set_0/terrain_0/color = Color(0.70694613, 3.3691526e-07, 0.34755957, 1)
 sources/0 = SubResource("TileSetAtlasSource_4o6nq")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6g03w"]
+size = Vector2(32, 64)
+
 [node name="Contents" type="Node2D" unique_id=2026156040]
 
 [node name="Sky" type="Sprite2D" parent="." unique_id=1567312670]
@@ -573,3 +577,17 @@ position = Vector2(512, -338)
 texture = ExtResource("10_ir7cs")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 92)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=795132820]
+position = Vector2(-210, 0)
+collision_layer = 0
+collision_mask = 512
+monitorable = false
+script = ExtResource("11_ntqre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1553217566]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_6g03w")
+debug_color = Color(0.96168846, 1.540184e-06, 0.51167804, 0.41960785)
+
+[connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]

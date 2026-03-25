@@ -1,0 +1,7 @@
+res://Scripts/hit_box.gd
+res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
+res://theme.tres
+res://Scenes/Characters/locomotion.tres
+res://Scenes/Characters/movement.tres
+res://Scenes/Characters/kitty.tscn
+res://Scripts/player_character.gd

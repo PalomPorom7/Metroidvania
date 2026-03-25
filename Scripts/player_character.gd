@@ -28,6 +28,8 @@ var _is_wall_sliding: bool
 @export var _dash_distance: float = 128
 @onready var _dash_force: float = sqrt(_dash_distance * _deceleration * 2)
 @onready var _default_gravity: float = _gravity
+@onready var _dash_cooldown: Timer = %DashCooldown
+@onready var _dash_cooldown_effect: AnimatedSprite2D = %DashCooldownEffect
 
 
 func jump() -> bool:
@@ -59,7 +61,7 @@ func jump() -> bool:
 
 
 func dash(direction: float) -> bool:
-	if _abilities_unlocked[Enums.Abilities.DASH]:
+	if _abilities_unlocked[Enums.Abilities.DASH] and _animation.get_current_node() == "Movement" and _dash_cooldown.is_stopped():
 		# Dash away from the wall
 		if _is_wall_sliding:
 			direction = sign(get_wall_normal().x)
@@ -80,6 +82,9 @@ func dash(direction: float) -> bool:
 # MUST be called after dashing even if animation was interrupted!
 func end_dash() -> void:
 	_gravity = _default_gravity
+	_dash_cooldown.start()
+	_dash_cooldown_effect.stop()
+	_dash_cooldown_effect.play()
 
 
 func _on_wall_jump_air_control_override_timeout() -> void:

@@ -1,14 +1,15 @@
+Node2D
+AnimatedSprite2D
+Node
 Timer
 CollisionShape2D
 Area2D
 RigidBody2D
 StaticBody2D
 AnimationPlayer
-AnimatedSprite2D
 ProgressBar
 TextureRect
 HBoxContainer
 Control
 Sprite2D
 TileMapLayer
-RemoteTransform2D

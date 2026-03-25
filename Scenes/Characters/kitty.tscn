@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bxgi3q3qm1se6" path="res://Assets/SFX/Voice/Meow-Fast02.wav" id="12_ugghv"]
 [ext_resource type="AudioStream" uid="uid://bn7bu77odvosb" path="res://Assets/SFX/Voice/Meow-Fast.wav" id="13_mc7f2"]
 [ext_resource type="Script" uid="uid://caea04o20e6hw" path="res://Scripts/map_icon.gd" id="14_ugghv"]
+[ext_resource type="Texture2D" uid="uid://cxpys3rmrb6h5" path="res://Assets/Sprites/Dust/recharge-64x64-12fps.png" id="16_oh2nt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8h8s0"]
 radius = 6.0
@@ -54,6 +55,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [Rect2(0, 0, 32, 36)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtBox:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HurtBox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_oh2nt"]
 resource_name = "dash"
@@ -84,6 +109,30 @@ tracks/1/keys = {
 "args": [],
 "method": &"end_dash"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtBox:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HurtBox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_te1kl"]
@@ -305,6 +354,143 @@ load_path = "res://.godot/imported/Cat-Default.png-474130c36b2eec7aad2173b11c47c
 atlas = SubResource("CompressedTexture2D_oh2nt")
 region = Rect2(137, 9, 13, 15)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o8xj"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd3iw"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fku4i"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbx3e"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps7kw"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go2i8"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkbpd"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv5h8"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqg5k"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6nio"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x45rl"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx4v7"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swum3"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn4p0"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx4lh"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plqyw"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kue8c"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cprcb"]
+atlas = ExtResource("16_oh2nt")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ad43c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o8xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd3iw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fku4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbx3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps7kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go2i8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkbpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv5h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqg5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6nio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x45rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx4v7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swum3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn4p0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx4lh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plqyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kue8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cprcb")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="Kitty" type="CharacterBody2D" unique_id=2011354323]
 visibility_layer = 3
 collision_layer = 256
@@ -318,6 +504,7 @@ _jump_height = 80.0
 _gravity_multiplier = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=167891020]
+visible = false
 position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_8h8s0")
 
@@ -370,11 +557,6 @@ _jump_effort = Array[AudioStream]([ExtResource("12_ugghv"), ExtResource("13_mc7f
 wait_time = 0.25
 one_shot = true
 
-[node name="WallJump" type="Timer" parent="." unique_id=628174176]
-unique_name_in_owner = true
-wait_time = 0.5
-one_shot = true
-
 [node name="MapIcon" type="Sprite2D" parent="." unique_id=1363910337]
 visible = false
 visibility_layer = 2
@@ -383,5 +565,23 @@ texture = SubResource("AtlasTexture_mc7f2")
 offset = Vector2(0, -7.5)
 script = ExtResource("14_ugghv")
 
+[node name="Abilities" type="Node2D" parent="." unique_id=268785916]
+
+[node name="WallJump" type="Timer" parent="Abilities" unique_id=628174176]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="DashCooldown" type="Timer" parent="Abilities" unique_id=202459280]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="DashCooldownEffect" type="AnimatedSprite2D" parent="Abilities" unique_id=1911497301]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_ad43c")
+frame = 18
+frame_progress = 1.0
+offset = Vector2(0, -12)
+
 [connection signal="jumped" from="." to="Voice" method="play_jump_effort" unbinds=2]
-[connection signal="timeout" from="WallJump" to="." method="_on_wall_jump_air_control_override_timeout"]
+[connection signal="timeout" from="Abilities/WallJump" to="." method="_on_wall_jump_air_control_override_timeout"]

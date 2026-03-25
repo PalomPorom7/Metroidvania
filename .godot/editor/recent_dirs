@@ -1,5 +1,6 @@
-res://Scenes/Characters/
+res://Assets/Sprites/Dust/
 res://Scripts/
+res://Scenes/Characters/
 res://Scripts/Globals/
 res://
 res://Scripts/UI/
@@ -9,5 +10,4 @@ res://Scenes/Rooms/
 res://Scenes/Rooms/Forest/Contents/
 res://Scripts/Managers/
 res://Scenes/Rooms/Forest/
-res://Assets/Sprites/Dust/
 res://Scenes/Dust/
