@@ -235,6 +235,7 @@ size = Vector2i(640, 360)
 unique_name_in_owner = true
 zoom = Vector2(0.125, 0.125)
 
+[connection signal="ability_unlocked" from="." to="WorldEnvironment/Kitty" method="update_sprite_visibility" unbinds=1]
 [connection signal="jumped" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_jump_dust"]
 [connection signal="landed" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_land_dust"]
 [connection signal="stepped" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_footstep_dust"]

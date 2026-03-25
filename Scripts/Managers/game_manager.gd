@@ -1,6 +1,9 @@
 extends Node2D
 
 
+signal ability_unlocked(ability: int)
+
+
 @onready var _map_viewport: SubViewport = %MapViewport
 @onready var _fade: ColorRect = %Fade
 @onready var _kitty: CharacterBody2D = %Kitty
@@ -18,12 +21,20 @@ func _ready() -> void:
 	_kitty_hurt_box = _kitty.get_node("HurtBox")
 	_kitty_hurt_box.initialize(File.data.max_health)
 	_kitty_hurt_box.set_counter(_health_counter)
+	_kitty.update_sprite_visibility()
 
 
+func unlock_ability(ability: int) -> void:
+	File.data.abilities_unlocked[ability] = true
+	ability_unlocked.emit(ability)
+
+
+var next_ability: int
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("look_up"):
-		print("Unlock Dash")
-		File.data.abilities_unlocked[Enums.Abilities.DASH] = true
+		print("Unlock " + Enums.Abilities.keys()[next_ability])
+		unlock_ability(next_ability)
+		next_ability = clampi(next_ability + 1, 0, Enums.Abilities.size() - 1)
 		File.save_game()
 
 

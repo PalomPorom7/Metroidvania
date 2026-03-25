@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://dguleimd3kwbg" path="res://Scripts/player_character.gd" id="1_mc7f2"]
 [ext_resource type="Script" uid="uid://dl7rh5imgcgw7" path="res://Scripts/hurt_box.gd" id="2_mc7f2"]
 [ext_resource type="Texture2D" uid="uid://dwjm4kqaiqnfv" path="res://Assets/Sprites/Kitty/Cat-Sheet.png" id="3_oh2nt"]
+[ext_resource type="Texture2D" uid="uid://d0nlbtg5p62tu" path="res://Assets/Sprites/Kitty/cat-cloak.png" id="4_fku4i"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://dqhsnspcpbpo1" path="res://Scenes/Characters/movement.tres" id="4_mc7f2"]
 [ext_resource type="AudioStream" uid="uid://bonuwook64xa6" path="res://Assets/SFX/sfx_jump.wav" id="4_wo4o5"]
+[ext_resource type="Texture2D" uid="uid://dek7fehu5rhy2" path="res://Assets/Sprites/Kitty/cat-hat.png" id="5_bbx3e"]
 [ext_resource type="AudioStream" uid="uid://dgyw3npnh72n4" path="res://Assets/SFX/sfx_land.wav" id="5_kdfac"]
 [ext_resource type="Script" uid="uid://su4s6eugejr4" path="res://Scripts/sfx_randomizer.gd" id="5_te1kl"]
+[ext_resource type="Texture2D" uid="uid://bgm781nlllx61" path="res://Assets/Sprites/Kitty/cat-gem.png" id="6_ps7kw"]
 [ext_resource type="AudioStream" uid="uid://byaykv2p7scia" path="res://Assets/SFX/sfx_footstep1.wav" id="6_xidd3"]
 [ext_resource type="AudioStream" uid="uid://dt5fowicqpqs4" path="res://Assets/SFX/sfx_footstep2.wav" id="7_7n1hr"]
 [ext_resource type="AudioStream" uid="uid://1a7oib0vy8aa" path="res://Assets/SFX/sfx_footstep3.wav" id="8_wluej"]
@@ -27,6 +30,18 @@ height = 24.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3j1hx"]
 atlas = ExtResource("3_oh2nt")
+region = Rect2(0, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ad43c"]
+atlas = ExtResource("4_fku4i")
+region = Rect2(0, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnsnb"]
+atlas = ExtResource("5_bbx3e")
+region = Rect2(0, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd2up"]
+atlas = ExtResource("6_ps7kw")
 region = Rect2(0, 0, 32, 36)
 
 [sub_resource type="Animation" id="Animation_8h8s0"]
@@ -78,6 +93,42 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/Cloak:texture:region")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 36)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D/Hat:texture:region")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 36)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D/Gem:texture:region")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 36)]
 }
 
 [sub_resource type="Animation" id="Animation_oh2nt"]
@@ -134,10 +185,46 @@ tracks/3/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/Cloak:texture:region")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 216, 32, 36), Rect2(32, 216, 32, 36), Rect2(64, 216, 32, 36), Rect2(96, 216, 32, 36), Rect2(128, 216, 32, 36), Rect2(160, 216, 32, 36), Rect2(192, 216, 32, 36)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D/Hat:texture:region")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 216, 32, 36), Rect2(32, 216, 32, 36), Rect2(64, 216, 32, 36), Rect2(96, 216, 32, 36), Rect2(128, 216, 32, 36), Rect2(160, 216, 32, 36), Rect2(192, 216, 32, 36)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D/Gem:texture:region")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 216, 32, 36), Rect2(32, 216, 32, 36), Rect2(64, 216, 32, 36), Rect2(96, 216, 32, 36), Rect2(128, 216, 32, 36), Rect2(160, 216, 32, 36), Rect2(192, 216, 32, 36)]
+}
 
 [sub_resource type="Animation" id="Animation_te1kl"]
 resource_name = "fall"
-length = 0.083341666
+length = 0.58334166
 loop_mode = 1
 step = 0.083333336
 tracks/0/type = "value"
@@ -147,10 +234,46 @@ tracks/0/path = NodePath("Sprite2D:texture:region")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(0, 180, 32, 36)]
+"values": [Rect2(0, 180, 32, 36), Rect2(32, 180, 32, 36), Rect2(64, 180, 32, 36), Rect2(96, 180, 32, 36), Rect2(128, 180, 32, 36), Rect2(160, 180, 32, 36), Rect2(192, 180, 32, 36)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Cloak:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 180, 32, 36), Rect2(32, 180, 32, 36), Rect2(64, 180, 32, 36), Rect2(96, 180, 32, 36), Rect2(128, 180, 32, 36), Rect2(160, 180, 32, 36), Rect2(192, 180, 32, 36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Hat:texture:region")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 180, 32, 36), Rect2(32, 180, 32, 36), Rect2(64, 180, 32, 36), Rect2(96, 180, 32, 36), Rect2(128, 180, 32, 36), Rect2(160, 180, 32, 36), Rect2(192, 180, 32, 36)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Gem:texture:region")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 180, 32, 36), Rect2(32, 180, 32, 36), Rect2(64, 180, 32, 36), Rect2(96, 180, 32, 36), Rect2(128, 180, 32, 36), Rect2(160, 180, 32, 36), Rect2(192, 180, 32, 36)]
 }
 
 [sub_resource type="Animation" id="Animation_4d7gs"]
@@ -170,10 +293,46 @@ tracks/0/keys = {
 "update": 1,
 "values": [Rect2(0, 0, 32, 36), Rect2(32, 0, 32, 36), Rect2(64, 0, 32, 36), Rect2(96, 0, 32, 36), Rect2(128, 0, 32, 36), Rect2(160, 0, 32, 36), Rect2(192, 0, 32, 36)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Cloak:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 36), Rect2(32, 0, 32, 36), Rect2(64, 0, 32, 36), Rect2(96, 0, 32, 36), Rect2(128, 0, 32, 36), Rect2(160, 0, 32, 36), Rect2(192, 0, 32, 36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Hat:texture:region")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 36), Rect2(32, 0, 32, 36), Rect2(64, 0, 32, 36), Rect2(96, 0, 32, 36), Rect2(128, 0, 32, 36), Rect2(160, 0, 32, 36), Rect2(192, 0, 32, 36)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Gem:texture:region")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 36), Rect2(32, 0, 32, 36), Rect2(64, 0, 32, 36), Rect2(96, 0, 32, 36), Rect2(128, 0, 32, 36), Rect2(160, 0, 32, 36), Rect2(192, 0, 32, 36)]
+}
 
 [sub_resource type="Animation" id="Animation_kdfac"]
 resource_name = "jump"
-length = 0.083341666
+length = 0.58334166
 loop_mode = 1
 step = 0.083333336
 tracks/0/type = "value"
@@ -183,10 +342,46 @@ tracks/0/path = NodePath("Sprite2D:texture:region")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(0, 144, 32, 36)]
+"values": [Rect2(0, 144, 32, 36), Rect2(32, 144, 32, 36), Rect2(64, 144, 32, 36), Rect2(96, 144, 32, 36), Rect2(128, 144, 32, 36), Rect2(160, 144, 32, 36), Rect2(192, 144, 32, 36)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Cloak:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 144, 32, 36), Rect2(32, 144, 32, 36), Rect2(64, 144, 32, 36), Rect2(96, 144, 32, 36), Rect2(128, 144, 32, 36), Rect2(160, 144, 32, 36), Rect2(192, 144, 32, 36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Hat:texture:region")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 144, 32, 36), Rect2(32, 144, 32, 36), Rect2(64, 144, 32, 36), Rect2(96, 144, 32, 36), Rect2(128, 144, 32, 36), Rect2(160, 144, 32, 36), Rect2(192, 144, 32, 36)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Gem:texture:region")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 144, 32, 36), Rect2(32, 144, 32, 36), Rect2(64, 144, 32, 36), Rect2(96, 144, 32, 36), Rect2(128, 144, 32, 36), Rect2(160, 144, 32, 36), Rect2(192, 144, 32, 36)]
 }
 
 [sub_resource type="Animation" id="Animation_ugghv"]
@@ -206,6 +401,42 @@ tracks/0/keys = {
 "update": 1,
 "values": [Rect2(0, 72, 32, 36), Rect2(32, 72, 32, 36), Rect2(64, 72, 32, 36), Rect2(96, 72, 32, 36), Rect2(128, 72, 32, 36), Rect2(160, 72, 32, 36), Rect2(192, 72, 32, 36)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Cloak:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 72, 32, 36), Rect2(32, 72, 32, 36), Rect2(64, 72, 32, 36), Rect2(96, 72, 32, 36), Rect2(128, 72, 32, 36), Rect2(160, 72, 32, 36), Rect2(192, 72, 32, 36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Hat:texture:region")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 72, 32, 36), Rect2(32, 72, 32, 36), Rect2(64, 72, 32, 36), Rect2(96, 72, 32, 36), Rect2(128, 72, 32, 36), Rect2(160, 72, 32, 36), Rect2(192, 72, 32, 36)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Gem:texture:region")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 72, 32, 36), Rect2(32, 72, 32, 36), Rect2(64, 72, 32, 36), Rect2(96, 72, 32, 36), Rect2(128, 72, 32, 36), Rect2(160, 72, 32, 36), Rect2(192, 72, 32, 36)]
+}
 
 [sub_resource type="Animation" id="Animation_wa61m"]
 resource_name = "look_up"
@@ -219,6 +450,42 @@ tracks/0/path = NodePath("Sprite2D:texture:region")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 36, 32, 36), Rect2(32, 36, 32, 36), Rect2(64, 36, 32, 36), Rect2(96, 36, 32, 36), Rect2(128, 36, 32, 36), Rect2(160, 36, 32, 36), Rect2(192, 36, 32, 36)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Cloak:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 36, 32, 36), Rect2(32, 36, 32, 36), Rect2(64, 36, 32, 36), Rect2(96, 36, 32, 36), Rect2(128, 36, 32, 36), Rect2(160, 36, 32, 36), Rect2(192, 36, 32, 36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Hat:texture:region")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 36, 32, 36), Rect2(32, 36, 32, 36), Rect2(64, 36, 32, 36), Rect2(96, 36, 32, 36), Rect2(128, 36, 32, 36), Rect2(160, 36, 32, 36), Rect2(192, 36, 32, 36)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Gem:texture:region")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -259,6 +526,42 @@ tracks/1/keys = {
 "method": &"_on_stepped"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Cloak:texture:region")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.041666668, 0.083333336, 0.125, 0.16666667, 0.20833333, 0.25, 0.29166666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 108, 32, 36), Rect2(32, 108, 32, 36), Rect2(64, 108, 32, 36), Rect2(96, 108, 32, 36), Rect2(128, 108, 32, 36), Rect2(160, 108, 32, 36), Rect2(192, 108, 32, 36), Rect2(224, 108, 32, 36)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Hat:texture:region")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.041666668, 0.083333336, 0.125, 0.16666667, 0.20833333, 0.25, 0.29166666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 108, 32, 36), Rect2(32, 108, 32, 36), Rect2(64, 108, 32, 36), Rect2(96, 108, 32, 36), Rect2(128, 108, 32, 36), Rect2(160, 108, 32, 36), Rect2(192, 108, 32, 36), Rect2(224, 108, 32, 36)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/Gem:texture:region")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.041666668, 0.083333336, 0.125, 0.16666667, 0.20833333, 0.25, 0.29166666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 108, 32, 36), Rect2(32, 108, 32, 36), Rect2(64, 108, 32, 36), Rect2(96, 108, 32, 36), Rect2(128, 108, 32, 36), Rect2(160, 108, 32, 36), Rect2(192, 108, 32, 36), Rect2(224, 108, 32, 36)]
+}
 
 [sub_resource type="Animation" id="Animation_3j1hx"]
 resource_name = "walk"
@@ -294,6 +597,42 @@ tracks/1/keys = {
 "method": &"_on_stepped"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Cloak:texture:region")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5, 0.5833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 108, 32, 36), Rect2(32, 108, 32, 36), Rect2(64, 108, 32, 36), Rect2(96, 108, 32, 36), Rect2(128, 108, 32, 36), Rect2(160, 108, 32, 36), Rect2(192, 108, 32, 36), Rect2(224, 108, 32, 36)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Hat:texture:region")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5, 0.5833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 108, 32, 36), Rect2(32, 108, 32, 36), Rect2(64, 108, 32, 36), Rect2(96, 108, 32, 36), Rect2(128, 108, 32, 36), Rect2(160, 108, 32, 36), Rect2(192, 108, 32, 36), Rect2(224, 108, 32, 36)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/Gem:texture:region")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5, 0.5833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 108, 32, 36), Rect2(32, 108, 32, 36), Rect2(64, 108, 32, 36), Rect2(96, 108, 32, 36), Rect2(128, 108, 32, 36), Rect2(160, 108, 32, 36), Rect2(192, 108, 32, 36), Rect2(224, 108, 32, 36)]
+}
 
 [sub_resource type="Animation" id="Animation_mc7f2"]
 resource_name = "wall_slide"
@@ -307,6 +646,42 @@ tracks/0/path = NodePath("Sprite2D:texture:region")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 396, 32, 36), Rect2(32, 396, 32, 36), Rect2(64, 396, 32, 36), Rect2(96, 396, 32, 36), Rect2(128, 396, 32, 36), Rect2(160, 396, 32, 36), Rect2(192, 396, 32, 36)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Cloak:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 396, 32, 36), Rect2(32, 396, 32, 36), Rect2(64, 396, 32, 36), Rect2(96, 396, 32, 36), Rect2(128, 396, 32, 36), Rect2(160, 396, 32, 36), Rect2(192, 396, 32, 36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Hat:texture:region")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 396, 32, 36), Rect2(32, 396, 32, 36), Rect2(64, 396, 32, 36), Rect2(96, 396, 32, 36), Rect2(128, 396, 32, 36), Rect2(160, 396, 32, 36), Rect2(192, 396, 32, 36)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Gem:texture:region")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -509,7 +884,7 @@ position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_8h8s0")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1544895168]
-collision_layer = 512
+collision_layer = 8704
 collision_mask = 0
 monitoring = false
 script = ExtResource("2_mc7f2")
@@ -522,6 +897,27 @@ debug_color = Color(0.18923053, 0.6424029, 0, 0.41960785)
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=581382877]
 position = Vector2(0, -18)
 texture = SubResource("AtlasTexture_3j1hx")
+
+[node name="Cloak" type="Sprite2D" parent="Sprite2D" unique_id=499322508]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, 18)
+texture = SubResource("AtlasTexture_ad43c")
+offset = Vector2(0, -18)
+
+[node name="Hat" type="Sprite2D" parent="Sprite2D" unique_id=2026949258]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, 18)
+texture = SubResource("AtlasTexture_mnsnb")
+offset = Vector2(0, -18)
+
+[node name="Gem" type="Sprite2D" parent="Sprite2D" unique_id=1536115965]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, 18)
+texture = SubResource("AtlasTexture_pd2up")
+offset = Vector2(0, -18)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=336009697]
 libraries/ = SubResource("AnimationLibrary_cngrh")

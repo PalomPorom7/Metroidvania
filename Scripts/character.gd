@@ -39,7 +39,7 @@ var is_jumping: bool
 
 
 func face_left(left: bool = true) -> void:
-	_sprite.flip_h = left
+	_sprite.scale.x = -1 if left else 1
 	_is_facing_left = left
 	changed_direction.emit(move_direction)
 

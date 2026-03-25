@@ -32,6 +32,14 @@ var _is_wall_sliding: bool
 @onready var _dash_cooldown_effect: AnimatedSprite2D = %DashCooldownEffect
 
 
+func update_sprite_visibility() -> void:
+	%Cloak.visible = _abilities_unlocked[Enums.Abilities.DOUBLE_JUMP]
+	%Gem.visible = _abilities_unlocked[Enums.Abilities.SHOOT]
+	if _abilities_unlocked[Enums.Abilities.HAT]:
+		%Hat.visible = true
+		$HurtBox.collision_layer &= ~8192
+
+
 func jump() -> bool:
 	# Wall Jump
 	if (

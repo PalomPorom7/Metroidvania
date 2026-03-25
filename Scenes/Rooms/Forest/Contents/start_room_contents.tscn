@@ -590,4 +590,17 @@ position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_6g03w")
 debug_color = Color(0.96168846, 1.540184e-06, 0.51167804, 0.41960785)
 
+[node name="Heat" type="Area2D" parent="." unique_id=2131623341]
+position = Vector2(175, 3)
+collision_layer = 0
+collision_mask = 8192
+monitorable = false
+script = ExtResource("11_ntqre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Heat" unique_id=1497761897]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_6g03w")
+debug_color = Color(0.8511134, 0.37107486, 0, 0.41960785)
+
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]
+[connection signal="area_entered" from="Heat" to="Heat" method="_on_area_entered"]

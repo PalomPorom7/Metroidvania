@@ -1,5 +1,6 @@
-Node2D
+Sprite2D
 AnimatedSprite2D
+Node2D
 Node
 Timer
 CollisionShape2D
@@ -11,5 +12,3 @@ ProgressBar
 TextureRect
 HBoxContainer
 Control
-Sprite2D
-TileMapLayer
