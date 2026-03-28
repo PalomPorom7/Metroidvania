@@ -11,6 +11,8 @@ var _contents_node: Node2D
 
 func _ready() -> void:
 	room_entered.connect($/root/Game.on_player_entered_room)
+	area_exited.connect(_on_area_exited)
+	body_entered.connect(_on_body_entered)
 
 
 func load_contents() -> void:
@@ -31,6 +33,11 @@ func get_top_left() -> Vector2:
 
 func get_bottom_right() -> Vector2:
 	return _shape_node.global_position + _shape_node.shape.get_rect().end
+
+
+func _on_area_exited(area: Node2D) -> void:
+	if area is Projectile:
+		area.queue_free()
 
 
 func _on_body_entered(_body: Node2D) -> void:

@@ -3,6 +3,8 @@ extends Character
 
 signal double_jumped(position: Vector2, flipped: bool)
 signal wall_jumped(position: Vector2, flipped: bool)
+signal max_magic_changed(new_max_magic: float)
+signal current_magic_changed(new_current_magic: float)
 
 
 # Local reference to the Save Data Resource's list of unlocked abilities
@@ -30,6 +32,22 @@ var _is_wall_sliding: bool
 @onready var _default_gravity: float = _gravity
 @onready var _dash_cooldown: Timer = %DashCooldown
 @onready var _dash_cooldown_effect: AnimatedSprite2D = %DashCooldownEffect
+
+
+@export_category("Cast")
+@export var _projectile: PackedScene
+@export var _magic_cost: float = 16
+@onready var _projectile_spawn: Marker2D = %ProjectileSpawn
+
+var _max_magic: float
+var _current_magic: float
+
+
+func _ready() -> void:
+	_max_magic = File.data.max_magic
+	_current_magic = _max_magic
+	max_magic_changed.emit(_max_magic)
+	current_magic_changed.emit(_current_magic)
 
 
 func update_sprite_visibility() -> void:
@@ -93,6 +111,24 @@ func end_dash() -> void:
 	_dash_cooldown.start()
 	_dash_cooldown_effect.stop()
 	_dash_cooldown_effect.play()
+
+
+func cast() -> bool:
+	if _abilities_unlocked[Enums.Abilities.SHOOT] and _animation.get_current_node() == "Movement" and _current_magic >= _magic_cost:
+		_animation.travel("cast")
+		return true
+	return false
+
+
+func shoot_projectile() -> void:
+	if _current_magic < _magic_cost:
+		return
+	_current_magic -= _magic_cost
+	current_magic_changed.emit(_current_magic)
+	var new_projectile: Area2D = _projectile.instantiate()
+	get_parent().add_child(new_projectile)
+	new_projectile.position = _projectile_spawn.global_position
+	new_projectile.fire(Vector2.LEFT if _is_facing_left else Vector2.RIGHT)
 
 
 func _on_wall_jump_air_control_override_timeout() -> void:

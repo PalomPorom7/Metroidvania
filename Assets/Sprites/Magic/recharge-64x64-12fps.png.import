@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxpys3rmrb6h5"
-path="res://.godot/imported/recharge-64x64-12fps.png-06370c87abe456e583bb8311188292d3.ctex"
+path="res://.godot/imported/recharge-64x64-12fps.png-29ace03a5f532e4a95d921449e89cd6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Dust/recharge-64x64-12fps.png"
-dest_files=["res://.godot/imported/recharge-64x64-12fps.png-06370c87abe456e583bb8311188292d3.ctex"]
+source_file="res://Assets/Sprites/Magic/recharge-64x64-12fps.png"
+dest_files=["res://.godot/imported/recharge-64x64-12fps.png-29ace03a5f532e4a95d921449e89cd6c.ctex"]
 
 [params]
 
