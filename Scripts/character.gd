@@ -111,7 +111,7 @@ func _physics_process(delta: float) -> void:
 	# Check if the character walked off of a ledge or landed
 	_was_on_floor = _is_on_floor
 	_is_on_floor = is_on_floor()
-	if _was_on_floor and not _is_on_floor and velocity.y >= 0:
+	if _coyote and _was_on_floor and not _is_on_floor and velocity.y >= 0:
 		_coyote.start()
 		#print("Walked off of a ledge!")
 	elif not _was_on_floor and _is_on_floor:

@@ -1018,12 +1018,12 @@ animations = [{
 visibility_layer = 3
 collision_layer = 256
 script = ExtResource("1_mc7f2")
-_wall_jump_force_multiplier = Vector2(-0.333, 1)
+_wall_jump_force_multiplier = Vector2(-0.5, 1)
 _projectile = ExtResource("2_ps7kw")
-_walk_speed = 64.0
-_run_speed = 128.0
-_acceleration = 256.0
-_deceleration = 1024.0
+_walk_speed = 100.0
+_run_speed = 200.0
+_acceleration = 400.0
+_deceleration = 1600.0
 _jump_height = 80.0
 _gravity_multiplier = 2.0
 

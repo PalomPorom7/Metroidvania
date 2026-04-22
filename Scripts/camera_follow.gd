@@ -1,7 +1,7 @@
 extends Camera2D
 
 
-@onready var _half_viewport_size: Vector2 = get_viewport().size / zoom.x / 2.0
+@onready var _half_viewport_size: Vector2 = get_viewport().get_visible_rect().size / zoom.x / 2.0
 @onready var _default_offset: Vector2 = offset
 var _min: Vector2
 var _max: Vector2

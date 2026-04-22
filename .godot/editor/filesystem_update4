@@ -1,13 +1,6 @@
-res://Scenes/game.tscn
+res://Scenes/Enemies/blind_mouse.tscn
 res://theme.tres
 res://Scenes/Characters/locomotion.tres
 res://Scenes/Characters/movement.tres
-res://Scripts/player.gd
-res://Scripts/player_character.gd
-res://Scenes/Characters/kitty.tscn
-res://Scenes/Projectiles/projectile.tscn
-res://Scripts/projectile.gd
-res://Scripts/room.gd
-res://Scenes/Rooms/Forest/start_room.tscn
-res://Scenes/Rooms/Forest/second_room.tscn
 res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
+res://Scripts/character.gd

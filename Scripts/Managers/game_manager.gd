@@ -31,11 +31,12 @@ func unlock_ability(ability: int) -> void:
 
 var next_ability: int
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("look_up"):
-		print("Unlock " + Enums.Abilities.keys()[next_ability])
-		unlock_ability(next_ability)
-		next_ability = clampi(next_ability + 1, 0, Enums.Abilities.size() - 1)
-		File.save_game()
+	if event.is_action_pressed("quit"):
+		get_tree().quit()
+		#print("Unlock " + Enums.Abilities.keys()[next_ability])
+		#unlock_ability(next_ability)
+		#next_ability = clampi(next_ability + 1, 0, Enums.Abilities.size() - 1)
+		#File.save_game()
 
 
 func on_player_entered_room(room_entered: Room) -> void:

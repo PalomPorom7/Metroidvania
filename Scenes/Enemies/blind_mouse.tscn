@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://cnb1g1y3hk270"]
+
+[ext_resource type="Script" uid="uid://cnabtvk7aqowv" path="res://Scripts/character.gd" id="1_0ah1n"]
+[ext_resource type="Texture2D" uid="uid://b2ciq0fmdmei8" path="res://Assets/Sprites/Enemies/BlindMouse-Sheet.png" id="3_7t1cj"]
+[ext_resource type="Script" uid="uid://dl7rh5imgcgw7" path="res://Scripts/hurt_box.gd" id="3_hs6pd"]
+[ext_resource type="AudioStream" uid="uid://bonuwook64xa6" path="res://Assets/SFX/sfx_jump.wav" id="10_oxr37"]
+[ext_resource type="Script" uid="uid://su4s6eugejr4" path="res://Scripts/sfx_randomizer.gd" id="11_u3o1r"]
+[ext_resource type="AudioStream" uid="uid://byaykv2p7scia" path="res://Assets/SFX/sfx_footstep1.wav" id="12_55y7h"]
+[ext_resource type="AudioStream" uid="uid://dt5fowicqpqs4" path="res://Assets/SFX/sfx_footstep2.wav" id="13_afj1e"]
+[ext_resource type="AudioStream" uid="uid://1a7oib0vy8aa" path="res://Assets/SFX/sfx_footstep3.wav" id="14_kvrqr"]
+[ext_resource type="AudioStream" uid="uid://baexs3vo7yxqw" path="res://Assets/SFX/sfx_footstep4.wav" id="15_ex5ni"]
+[ext_resource type="AudioStream" uid="uid://dgyw3npnh72n4" path="res://Assets/SFX/sfx_land.wav" id="16_13u2u"]
+[ext_resource type="Script" uid="uid://clm75mcgfds6w" path="res://Scripts/voice.gd" id="17_1klx2"]
+[ext_resource type="AudioStream" uid="uid://bxgi3q3qm1se6" path="res://Assets/SFX/Voice/Meow-Fast02.wav" id="18_6n48v"]
+[ext_resource type="AudioStream" uid="uid://bn7bu77odvosb" path="res://Assets/SFX/Voice/Meow-Fast.wav" id="19_cqsaq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8h8s0"]
+radius = 6.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oh2nt"]
+radius = 4.0
+height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j1hx"]
+resource_local_to_scene = true
+atlas = ExtResource("3_7t1cj")
+region = Rect2(0, 0, 32, 36)
+
+[sub_resource type="Animation" id="Animation_8h8s0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 36)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtBox:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4d7gs"]
+resource_name = "idle"
+length = 0.58334166
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 36), Rect2(32, 0, 32, 36), Rect2(64, 0, 32, 36), Rect2(96, 0, 32, 36), Rect2(128, 0, 32, 36), Rect2(160, 0, 32, 36), Rect2(192, 0, 32, 36)]
+}
+
+[sub_resource type="Animation" id="Animation_3j1hx"]
+resource_name = "walk"
+length = 0.66667503
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5, 0.5833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 36, 32, 36), Rect2(32, 36, 32, 36), Rect2(64, 36, 32, 36), Rect2(96, 36, 32, 36), Rect2(128, 36, 32, 36), Rect2(160, 36, 32, 36), Rect2(192, 36, 32, 36), Rect2(224, 36, 32, 36)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 0.5833333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_on_stepped"
+}, {
+"args": [],
+"method": &"_on_stepped"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cngrh"]
+_data = {
+&"RESET": SubResource("Animation_8h8s0"),
+&"idle": SubResource("Animation_4d7gs"),
+&"walk": SubResource("Animation_3j1hx")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mr71r"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0ah1n"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7t1cj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f516k"]
+advance_mode = 2
+advance_expression = "velocity.x != 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5pbwb"]
+advance_mode = 2
+advance_expression = "velocity.x == 0"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ns28w"]
+states/idle/node = SubResource("AnimationNodeAnimation_mr71r")
+states/idle/position = Vector2(404, 100)
+states/walk/node = SubResource("AnimationNodeAnimation_0ah1n")
+states/walk/position = Vector2(654, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7t1cj"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_f516k"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_5pbwb")]
+
+[node name="BlindMouse" type="CharacterBody2D" unique_id=2011354323]
+visibility_layer = 3
+collision_layer = 256
+script = ExtResource("1_0ah1n")
+_walk_speed = 100.0
+_run_speed = 200.0
+_acceleration = 400.0
+_deceleration = 1600.0
+_jump_height = 80.0
+_gravity_multiplier = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=167891020]
+visible = false
+position = Vector2(0, -14)
+shape = SubResource("CapsuleShape2D_8h8s0")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1544895168]
+collision_layer = 8704
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_hs6pd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=708751239]
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_oh2nt")
+debug_color = Color(0.18923053, 0.6424029, 0, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=581382877]
+position = Vector2(0, -18)
+texture = SubResource("AtlasTexture_3j1hx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=336009697]
+libraries/ = SubResource("AnimationLibrary_cngrh")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1408423736]
+tree_root = SubResource("AnimationNodeStateMachine_ns28w")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Footstep" type="AudioStreamPlayer2D" parent="." unique_id=941330525]
+stream = ExtResource("10_oxr37")
+bus = &"SFX"
+script = ExtResource("11_u3o1r")
+_sounds = Array[AudioStream]([ExtResource("12_55y7h"), ExtResource("13_afj1e"), ExtResource("14_kvrqr"), ExtResource("15_ex5ni")])
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="." unique_id=1349303673]
+stream = ExtResource("10_oxr37")
+bus = &"SFX"
+script = ExtResource("11_u3o1r")
+
+[node name="Land" type="AudioStreamPlayer2D" parent="." unique_id=1052570541]
+stream = ExtResource("16_13u2u")
+bus = &"SFX"
+script = ExtResource("11_u3o1r")
+
+[node name="Voice" type="AudioStreamPlayer2D" parent="." unique_id=890689994]
+position = Vector2(0, -18)
+bus = &"Voice"
+script = ExtResource("17_1klx2")
+_jump_effort = Array[AudioStream]([ExtResource("18_6n48v"), ExtResource("19_cqsaq")])
