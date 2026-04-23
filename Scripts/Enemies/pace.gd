@@ -8,7 +8,7 @@ extends Timer
 func _process(_delta: float) -> void:
 	if is_stopped():
 		_enemy.move_direction = _direction
-		if _enemy.is_on_wall():
+		if _enemy.is_on_wall() and sign(_enemy.get_wall_normal().x) != _direction:
 			if _enemy.get_wall_normal().x < 0:
 				_enemy.face_left(true)
 			else:

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cnb1g1y3hk270"]
 
 [ext_resource type="Script" uid="uid://cnabtvk7aqowv" path="res://Scripts/character.gd" id="1_0ah1n"]
+[ext_resource type="Script" uid="uid://bv05oxwvec7wp" path="res://Scripts/hit_box.gd" id="3_0ah1n"]
 [ext_resource type="Texture2D" uid="uid://b2ciq0fmdmei8" path="res://Assets/Sprites/Enemies/BlindMouse-Sheet.png" id="3_7t1cj"]
 [ext_resource type="Script" uid="uid://dl7rh5imgcgw7" path="res://Scripts/hurt_box.gd" id="3_hs6pd"]
 [ext_resource type="AudioStream" uid="uid://bonuwook64xa6" path="res://Assets/SFX/sfx_jump.wav" id="10_oxr37"]
@@ -21,6 +22,10 @@ height = 28.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oh2nt"]
 radius = 4.0
 height = 24.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7t1cj"]
+radius = 6.0
+height = 26.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3j1hx"]
 resource_local_to_scene = true
@@ -152,7 +157,8 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 
 [node name="BlindMouse" type="CharacterBody2D" unique_id=2011354323]
 visibility_layer = 3
-collision_layer = 256
+collision_layer = 65536
+collision_mask = 17
 script = ExtResource("1_0ah1n")
 _walk_speed = 100.0
 _run_speed = 200.0
@@ -176,6 +182,17 @@ script = ExtResource("3_hs6pd")
 position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_oh2nt")
 debug_color = Color(0.18923053, 0.6424029, 0, 0.41960785)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=2122070651]
+collision_layer = 0
+collision_mask = 512
+monitorable = false
+script = ExtResource("3_0ah1n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1329656144]
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_7t1cj")
+debug_color = Color(0.9754819, 0, 0.42259383, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=581382877]
 position = Vector2(0, -18)
@@ -210,3 +227,5 @@ position = Vector2(0, -18)
 bus = &"Voice"
 script = ExtResource("17_1klx2")
 _jump_effort = Array[AudioStream]([ExtResource("18_6n48v"), ExtResource("19_cqsaq")])
+
+[connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]

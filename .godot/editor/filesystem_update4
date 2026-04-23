@@ -1,6 +1,7 @@
-res://Scenes/Enemies/blind_mouse.tscn
+res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
 res://theme.tres
 res://Scenes/Characters/locomotion.tres
 res://Scenes/Characters/movement.tres
-res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
-res://Scripts/character.gd
+res://Scripts/hit_box.gd
+res://Scenes/Enemies/blind_mouse.tscn
+res://Scripts/Managers/game_manager.gd
