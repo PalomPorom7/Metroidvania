@@ -1,6 +1,7 @@
+RayCast2D
+Timer
 CollisionShape2D
 Area2D
-Timer
 Node
 Marker2D
 AnimatedSprite2D
@@ -11,4 +12,3 @@ StaticBody2D
 AnimationPlayer
 ProgressBar
 TextureRect
-HBoxContainer
