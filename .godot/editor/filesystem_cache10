@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1776955317
+::res://::1777036530
 default_bus_layout.tres::AudioBusLayout::8136350821215637055::1767473355::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::8585082902123709665::1764348609::1764367363::1::::<><><>0<>0<>5e97e2f28fd96d8d238c5c309a912da2<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex::
 README.md::TextFile::-1::1764793005::0::1::::<><><>0<>0<><>::
@@ -27,7 +27,8 @@ blank.png::CompressedTexture2D::962024329570713111::1770309957::1770309958::1:::
 footsteps-8x8.png::CompressedTexture2D::9095967654205371125::1767456759::1767456761::1::::<><><>0<>0<>690930108e98cb0cf2dac3ed9548ba8b<>res://.godot/imported/footsteps-8x8.png-661f3f309edbb798d590d26f4035ae73.ctex::
 jumpcloud-32x32.png::CompressedTexture2D::2994973536382809949::1767456760::1767456761::1::::<><><>0<>0<>99132979b08da226cd6beaac8180c620<>res://.godot/imported/jumpcloud-32x32.png-1863f4465f3d08ea29b33f99256527da.ctex::
 landdust-64x32.png::CompressedTexture2D::9036985498209103656::1767456760::1767456761::1::::<><><>0<>0<>94f7479fefba627d2efd1493231ef264<>res://.godot/imported/landdust-64x32.png-942a319c957d78b563a653171a67dead.ctex::
-::res://Assets/Sprites/Enemies/::1776966050
+::res://Assets/Sprites/Enemies/::1777040749
+bat-Sheet.png::CompressedTexture2D::2401930873517099797::1777040749::1777040750::1::::<><><>0<>0<>8dd819e8406515090b9dbd9a5aeb939a<>res://.godot/imported/bat-Sheet.png-abfd7dd0686851864a65af765ca7fad4.ctex::
 BlindMouse-Sheet.png::CompressedTexture2D::4286163847430191377::1776865111::1776865111::1::::<><><>0<>0<>3bc03ca0e9c9ebea741c9ccd41de5115<>res://.godot/imported/BlindMouse-Sheet.png-4177fd07e96235f01b70846695477613.ctex::
 MouseKnight-Sheet.png::CompressedTexture2D::6398873959511734660::1776966050::1776966050::1::::<><><>0<>0<>07854f708240b58569fb3f54c1878869<>res://.godot/imported/MouseKnight-Sheet.png-2283f41eb1f419a9735230f85e804e03.ctex::
 ::res://Assets/Sprites/Forest/::1769710657
@@ -69,9 +70,9 @@ movement.tres::AnimationNodeStateMachine::8297851283460141610::1776955317::0::1:
 footstep_dust.tscn::PackedScene::2325362907975459705::1767457745::0::1::::<><><>0<>0<><>::uid://d2ufi1vkaowfd::::res://Assets/Sprites/Dust/footsteps-8x8.png
 jump_dust.tscn::PackedScene::7942017529192938397::1767457622::0::1::::<><><>0<>0<><>::uid://biw11nyou0oc0::::res://Assets/Sprites/Dust/jumpcloud-32x32.png
 land_dust.tscn::PackedScene::7950719353543743539::1767457699::0::1::::<><><>0<>0<><>::uid://d10t3ipfivdem::::res://Assets/Sprites/Dust/landdust-64x32.png
-::res://Scenes/Enemies/::1776966031
+::res://Scenes/Enemies/::1776966059
 blind_mouse.tscn::PackedScene::5688951472974421637::1776951649::0::1::::<><><>0<>0<><>::uid://cnabtvk7aqowv::::res://Scripts/character.gd<>uid://bv05oxwvec7wp::::res://Scripts/hit_box.gd<>uid://b2ciq0fmdmei8::::res://Assets/Sprites/Enemies/BlindMouse-Sheet.png<>uid://dl7rh5imgcgw7::::res://Scripts/hurt_box.gd<>uid://bonuwook64xa6::::res://Assets/SFX/sfx_jump.wav<>uid://su4s6eugejr4::::res://Scripts/sfx_randomizer.gd<>uid://byaykv2p7scia::::res://Assets/SFX/sfx_footstep1.wav<>uid://dt5fowicqpqs4::::res://Assets/SFX/sfx_footstep2.wav<>uid://1a7oib0vy8aa::::res://Assets/SFX/sfx_footstep3.wav<>uid://baexs3vo7yxqw::::res://Assets/SFX/sfx_footstep4.wav<>uid://dgyw3npnh72n4::::res://Assets/SFX/sfx_land.wav<>uid://clm75mcgfds6w::::res://Scripts/voice.gd<>uid://bxgi3q3qm1se6::::res://Assets/SFX/Voice/Meow-Fast02.wav<>uid://bn7bu77odvosb::::res://Assets/SFX/Voice/Meow-Fast.wav
-mouse_knight.tscn::PackedScene::6085627360958307027::1776966031::0::1::::<><><>0<>0<><>::uid://cnabtvk7aqowv::::res://Scripts/character.gd<>uid://dl7rh5imgcgw7::::res://Scripts/hurt_box.gd<>uid://bv05oxwvec7wp::::res://Scripts/hit_box.gd<>uid://b2ciq0fmdmei8::::res://Assets/Sprites/Enemies/BlindMouse-Sheet.png<>uid://bonuwook64xa6::::res://Assets/SFX/sfx_jump.wav<>uid://su4s6eugejr4::::res://Scripts/sfx_randomizer.gd<>uid://byaykv2p7scia::::res://Assets/SFX/sfx_footstep1.wav<>uid://dt5fowicqpqs4::::res://Assets/SFX/sfx_footstep2.wav<>uid://1a7oib0vy8aa::::res://Assets/SFX/sfx_footstep3.wav<>uid://baexs3vo7yxqw::::res://Assets/SFX/sfx_footstep4.wav<>uid://dgyw3npnh72n4::::res://Assets/SFX/sfx_land.wav<>uid://clm75mcgfds6w::::res://Scripts/voice.gd<>uid://bxgi3q3qm1se6::::res://Assets/SFX/Voice/Meow-Fast02.wav<>uid://bn7bu77odvosb::::res://Assets/SFX/Voice/Meow-Fast.wav
+mouse_knight.tscn::PackedScene::6085627360958307027::1776966059::0::1::::<><><>0<>0<><>::uid://cnabtvk7aqowv::::res://Scripts/character.gd<>uid://dl7rh5imgcgw7::::res://Scripts/hurt_box.gd<>uid://bv05oxwvec7wp::::res://Scripts/hit_box.gd<>uid://cxfwrwhwmhqj1::::res://Assets/Sprites/Enemies/MouseKnight-Sheet.png<>uid://bonuwook64xa6::::res://Assets/SFX/sfx_jump.wav<>uid://su4s6eugejr4::::res://Scripts/sfx_randomizer.gd<>uid://byaykv2p7scia::::res://Assets/SFX/sfx_footstep1.wav<>uid://dt5fowicqpqs4::::res://Assets/SFX/sfx_footstep2.wav<>uid://1a7oib0vy8aa::::res://Assets/SFX/sfx_footstep3.wav<>uid://baexs3vo7yxqw::::res://Assets/SFX/sfx_footstep4.wav<>uid://dgyw3npnh72n4::::res://Assets/SFX/sfx_land.wav<>uid://clm75mcgfds6w::::res://Scripts/voice.gd<>uid://bxgi3q3qm1se6::::res://Assets/SFX/Voice/Meow-Fast02.wav<>uid://bn7bu77odvosb::::res://Assets/SFX/Voice/Meow-Fast.wav
 ::res://Scenes/Projectiles/::1776689630
 projectile.tscn::PackedScene::1869567618723856320::1776689630::0::1::::<><><>0<>0<><>::uid://dux5jydellwm4::::res://Assets/Sprites/Magic/projectile.png<>uid://cgb44diyjphu5::::res://Scripts/projectile.gd<>uid://b4cv6g1bxl466::::res://Assets/Sprites/Magic/magic-impact-64x64.png
 ::res://Scenes/Rooms/::1776689630
@@ -79,9 +80,9 @@ forest.tscn::PackedScene::4821793158455708235::1776689630::0::1::::<><><>0<>0<><
 ::res://Scenes/Rooms/Forest/::1776689630
 second_room.tscn::PackedScene::3053297407247960148::1776689630::0::1::::<><><>0<>0<><>::uid://dsk0pts58d63::::res://Scripts/room.gd<>uid://jmnpnbetu3lx::::res://Scenes/Rooms/Forest/Contents/second_room_contents.tscn<>uid://nyanutw5drcx::::res://Assets/Sprites/blank.png
 start_room.tscn::PackedScene::6349311367763247131::1776689630::0::1::::<><><>0<>0<><>::uid://dsk0pts58d63::::res://Scripts/room.gd<>uid://w3rxtlg10gcy::::res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn<>uid://nyanutw5drcx::::res://Assets/Sprites/blank.png
-::res://Scenes/Rooms/Forest/Contents/::1776964833
+::res://Scenes/Rooms/Forest/Contents/::1776974594
 second_room_contents.tscn::PackedScene::657288918161853453::1776689630::0::1::::<><><>0<>0<><>::uid://ckx8w6w7al4hw::::res://Assets/Sprites/Forest/Forest-Paralax-1.png<>uid://ceulx4y5eaqf::::res://Assets/Sprites/Forest/Forest-Paralax-2.png<>uid://b5ah5toaygywu::::res://Scripts/parallax.gd<>uid://b7nrnrggbg63s::::res://Assets/Sprites/Forest/Forest-Paralax-3.png<>uid://diy3j65gj7kyg::::res://Assets/Sprites/Forest/Forest-Terrain-32x32.png<>uid://b66tampyd4pap::::res://Assets/Sprites/Forest/Foreground-Bottom-Back.png<>uid://cld5xs1nxk1am::::res://Assets/Sprites/Forest/Foreground-Bottom-Front.png
-start_room_contents.tscn::PackedScene::1603031414532076892::1776964833::0::1::::<><><>0<>0<><>::uid://ckx8w6w7al4hw::::res://Assets/Sprites/Forest/Forest-Paralax-1.png<>uid://ceulx4y5eaqf::::res://Assets/Sprites/Forest/Forest-Paralax-2.png<>uid://b7nrnrggbg63s::::res://Assets/Sprites/Forest/Forest-Paralax-3.png<>uid://diy3j65gj7kyg::::res://Assets/Sprites/Forest/Forest-Terrain-32x32.png<>uid://b66tampyd4pap::::res://Assets/Sprites/Forest/Foreground-Bottom-Back.png<>uid://cld5xs1nxk1am::::res://Assets/Sprites/Forest/Foreground-Bottom-Front.png<>uid://s13tsasuutoi::::res://Assets/Sprites/Forest/Foreground-Tree1.png<>uid://c0rm171551cpl::::res://Assets/Sprites/Forest/Foreground-Tree2.png<>uid://bcuaont3l54gx::::res://Assets/Sprites/Forest/Foreground-Tree3.png<>uid://bcugmf7l7bssg::::res://Assets/Sprites/Forest/Foreground-Top.png<>uid://cnb1g1y3hk270::::res://Scenes/Enemies/blind_mouse.tscn<>uid://dbnolfgewgmju::::res://Scripts/Enemies/pace.gd<>uid://nyanutw5drcx::::res://Assets/Sprites/blank.png
+start_room_contents.tscn::PackedScene::1603031414532076892::1776974594::0::1::::<><><>0<>0<><>::uid://ckx8w6w7al4hw::::res://Assets/Sprites/Forest/Forest-Paralax-1.png<>uid://ceulx4y5eaqf::::res://Assets/Sprites/Forest/Forest-Paralax-2.png<>uid://b7nrnrggbg63s::::res://Assets/Sprites/Forest/Forest-Paralax-3.png<>uid://diy3j65gj7kyg::::res://Assets/Sprites/Forest/Forest-Terrain-32x32.png<>uid://b66tampyd4pap::::res://Assets/Sprites/Forest/Foreground-Bottom-Back.png<>uid://cld5xs1nxk1am::::res://Assets/Sprites/Forest/Foreground-Bottom-Front.png<>uid://s13tsasuutoi::::res://Assets/Sprites/Forest/Foreground-Tree1.png<>uid://c0rm171551cpl::::res://Assets/Sprites/Forest/Foreground-Tree2.png<>uid://bcuaont3l54gx::::res://Assets/Sprites/Forest/Foreground-Tree3.png<>uid://bcugmf7l7bssg::::res://Assets/Sprites/Forest/Foreground-Top.png<>uid://dbnolfgewgmju::::res://Scripts/Enemies/pace.gd<>uid://csx6nm5wr0ia2::::res://Scenes/Enemies/mouse_knight.tscn<>uid://nyanutw5drcx::::res://Assets/Sprites/blank.png<>uid://bbglc6ciw42qo::::res://Scripts/Enemies/ledge_detector.gd
 ::res://Scripts/::1776951644
 camera_follow.gd::GDScript::6658483196521681802::1776690626::0::1::::<>Camera2D<><>0<>0<><>::
 character.gd::GDScript::5685392101650559161::1776871668::0::1::::Character<>CharacterBody2D<><>0<>0<><>::
@@ -99,8 +100,9 @@ room.gd::GDScript::248377963323225518::1776689630::0::1::::Room<>Area2D<><>0<>0<
 sfx_randomizer.gd::GDScript::1306481312966260867::1767379157::0::1::::<>AudioStreamPlayer2D<><>0<>0<><>::
 voice.gd::GDScript::5571688331688193956::1773608746::0::1::::<>AudioStreamPlayer2D<><>0<>0<><>::
 world.gd::GDScript::940255878974764754::1776689630::0::1::::<>WorldEnvironment<><>0<>0<><>::
-::res://Scripts/Enemies/::1776955984
-pace.gd::GDScript::7257157759248765318::1776955984::0::1::::<>Timer<><>0<>0<><>::
+::res://Scripts/Enemies/::1776967149
+ledge_detector.gd::GDScript::2469668884071250658::1776967042::0::1::::<>RayCast2D<><>0<>0<><>::
+pace.gd::GDScript::7257157759248765318::1776967149::0::1::::<>Timer<><>0<>0<><>::
 ::res://Scripts/Globals/::1772987647
 file.gd::GDScript::7821350439199922345::1772987647::0::1::::<>Node<><>0<>0<><>::
 ::res://Scripts/Managers/::1776952456

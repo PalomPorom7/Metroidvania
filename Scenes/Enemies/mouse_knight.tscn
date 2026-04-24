@@ -30,7 +30,7 @@ height = 26.0
 [sub_resource type="AtlasTexture" id="AtlasTexture_3j1hx"]
 resource_local_to_scene = true
 atlas = ExtResource("4_1gbyn")
-region = Rect2(0, 0, 32, 36)
+region = Rect2(192, 0, 32, 36)
 
 [sub_resource type="Animation" id="Animation_8h8s0"]
 length = 0.001

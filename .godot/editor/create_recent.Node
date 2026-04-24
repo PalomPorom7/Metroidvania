@@ -1,8 +1,8 @@
+Node
 RayCast2D
 Timer
 CollisionShape2D
 Area2D
-Node
 Marker2D
 AnimatedSprite2D
 Sprite2D
