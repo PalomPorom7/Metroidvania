@@ -1,8 +1,8 @@
-res://Scenes/Enemies/mouse_knight.tscn
-res://Scenes/Enemies/bat.tscn
+res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
 res://theme.tres
 res://Scenes/Characters/locomotion.tres
 res://Scenes/Characters/movement.tres
-res://Scripts/Enemies/flying_enemy.gd
-res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
-res://Scripts/Enemies/ricochet.gd
+res://Scripts/character.gd
+res://Scenes/Enemies/bat.tscn
+res://Scenes/Enemies/snail.tscn
+res://Scripts/Enemies/crawling_enemy.gd

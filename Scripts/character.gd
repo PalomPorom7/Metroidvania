@@ -41,7 +41,7 @@ var is_jumping: bool
 func face_left(left: bool = true) -> void:
 	_sprite.scale.x = -1 if left else 1
 	_is_facing_left = left
-	changed_direction.emit(move_direction)
+	changed_direction.emit(-1 if left else 1)
 
 
 func walk() -> void:
@@ -102,12 +102,15 @@ func _on_stepped() -> void:
 	_footstep_sfx.play_random()
 
 
-func _physics_process(delta: float) -> void:
-	# Face move_direction
+func _face_move_direction() -> void:
 	if _is_facing_left and move_direction > 0:
 		face_left(false)
 	elif not _is_facing_left and move_direction < 0:
 		face_left()
+
+
+func _physics_process(delta: float) -> void:
+	_face_move_direction()
 	# Check if the character walked off of a ledge or landed
 	_was_on_floor = _is_on_floor
 	_is_on_floor = is_on_floor()
