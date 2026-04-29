@@ -2,7 +2,4 @@ res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
 res://theme.tres
 res://Scenes/Characters/locomotion.tres
 res://Scenes/Characters/movement.tres
-res://Scripts/character.gd
-res://Scenes/Enemies/bat.tscn
-res://Scenes/Enemies/snail.tscn
-res://Scripts/Enemies/crawling_enemy.gd
+res://Scripts/Enemies/field_of_view.gd
