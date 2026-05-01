@@ -8,6 +8,7 @@ signal landed(position: Vector2, flipped: bool)
 
 
 @onready var _sprite: Sprite2D = $Sprite2D
+@onready var _animation: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
 @onready var _footstep_sfx: AudioStreamPlayer2D = $Footstep
 @onready var _jump_sfx: AudioStreamPlayer2D = $Jump
 @onready var _land_sfx: AudioStreamPlayer2D = $Land
@@ -39,6 +40,8 @@ var is_jumping: bool
 
 
 func face_left(left: bool = true) -> void:
+	if _animation.get_current_node() == "attack":
+		return
 	_sprite.scale.x = -1 if left else 1
 	_is_facing_left = left
 	changed_direction.emit(-1 if left else 1)
@@ -65,6 +68,10 @@ func jump() -> bool:
 func cancel_jump() -> void:
 	if is_jumping:
 		velocity.y /= 2
+
+
+func attack() -> void:
+	_animation.travel("attack")
 
 
 func _ground_physics(delta: float) -> void:
@@ -110,6 +117,8 @@ func _face_move_direction() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if _animation.get_current_node() == "attack":
+		move_direction = 0
 	_face_move_direction()
 	# Check if the character walked off of a ledge or landed
 	_was_on_floor = _is_on_floor

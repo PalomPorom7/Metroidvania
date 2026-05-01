@@ -25,3 +25,12 @@ func wait_and_turn_around(direction: int) -> void:
 	_enemy.move_direction = 0
 	_direction = direction * -1
 	start()
+
+
+func pause() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func resume() -> void:
+	process_mode = Node.PROCESS_MODE_INHERIT
+	_enemy.walk()

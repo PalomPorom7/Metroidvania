@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bv05oxwvec7wp" path="res://Scripts/hit_box.gd" id="3_5rba3"]
 [ext_resource type="Texture2D" uid="uid://cxfwrwhwmhqj1" path="res://Assets/Sprites/Enemies/MouseKnight-Sheet.png" id="4_1gbyn"]
 [ext_resource type="AudioStream" uid="uid://bonuwook64xa6" path="res://Assets/SFX/sfx_jump.wav" id="5_keav5"]
+[ext_resource type="Texture2D" uid="uid://bnsvx2nw4eitx" path="res://Assets/Sprites/Effects/DownSlash.png" id="5_uxpss"]
 [ext_resource type="Script" uid="uid://su4s6eugejr4" path="res://Scripts/sfx_randomizer.gd" id="6_42k4h"]
 [ext_resource type="AudioStream" uid="uid://byaykv2p7scia" path="res://Assets/SFX/sfx_footstep1.wav" id="7_xsep0"]
 [ext_resource type="AudioStream" uid="uid://dt5fowicqpqs4" path="res://Assets/SFX/sfx_footstep2.wav" id="8_rtper"]
@@ -27,10 +28,38 @@ height = 24.0
 radius = 6.0
 height = 26.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5rba3"]
+radius = 14.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3j1hx"]
 resource_local_to_scene = true
 atlas = ExtResource("4_1gbyn")
-region = Rect2(192, 0, 32, 36)
+region = Rect2(0, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3nu8"]
+atlas = ExtResource("5_uxpss")
+region = Rect2(0, 0, 64, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keav5"]
+atlas = ExtResource("5_uxpss")
+region = Rect2(64, 0, 64, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_42k4h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3nu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keav5")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="Animation" id="Animation_8h8s0"]
 length = 0.001
@@ -69,6 +98,85 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBox:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBox:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xsep0"]
+resource_name = "attack"
+length = 0.25000834
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 72, 32, 36), Rect2(32, 72, 32, 36), Rect2(64, 72, 32, 36)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.083333336, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBox:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.083333336, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/AnimatedSprite2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.083333336),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"", 1.0, false],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_4d7gs"]
@@ -127,9 +235,13 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cngrh"]
 _data = {
 &"RESET": SubResource("Animation_8h8s0"),
+&"attack": SubResource("Animation_xsep0"),
 &"idle": SubResource("Animation_4d7gs"),
 &"walk": SubResource("Animation_3j1hx")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uxpss"]
+animation = &"attack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mr71r"]
 animation = &"idle"
@@ -148,12 +260,21 @@ advance_expression = "velocity.x != 0"
 advance_mode = 2
 advance_expression = "velocity.x == 0"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5rba3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r3nu8"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ns28w"]
+states/attack/node = SubResource("AnimationNodeAnimation_uxpss")
+states/attack/position = Vector2(404, -58)
 states/idle/node = SubResource("AnimationNodeAnimation_mr71r")
 states/idle/position = Vector2(404, 100)
 states/walk/node = SubResource("AnimationNodeAnimation_0ah1n")
 states/walk/position = Vector2(654, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7t1cj"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_f516k"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_5pbwb")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7t1cj"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_f516k"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_5pbwb"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_5rba3"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_r3nu8")]
+graph_offset = Vector2(-209, -161)
 
 [node name="MouseKnight" type="CharacterBody2D" unique_id=2011354323]
 visibility_layer = 3
@@ -183,20 +304,40 @@ position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_oh2nt")
 debug_color = Color(0.18923053, 0.6424029, 0, 0.41960785)
 
-[node name="HitBox" type="Area2D" parent="." unique_id=2122070651]
+[node name="ContactDamage" type="Area2D" parent="." unique_id=2122070651]
 collision_layer = 0
 collision_mask = 512
 monitorable = false
 script = ExtResource("3_5rba3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1329656144]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage" unique_id=1329656144]
 position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_7t1cj")
+debug_color = Color(0.9754819, 0, 0.42259383, 0.41960785)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=211586514]
+visible = false
+collision_layer = 0
+collision_mask = 512
+monitoring = false
+monitorable = false
+script = ExtResource("3_5rba3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=707410249]
+position = Vector2(32, -16)
+scale = Vector2(2, 1)
+shape = SubResource("CircleShape2D_5rba3")
 debug_color = Color(0.9754819, 0, 0.42259383, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=581382877]
 position = Vector2(0, -18)
 texture = SubResource("AtlasTexture_3j1hx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D" unique_id=32772636]
+position = Vector2(32, 1)
+sprite_frames = SubResource("SpriteFrames_42k4h")
+frame = 2
+frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=336009697]
 libraries/ = SubResource("AnimationLibrary_cngrh")
@@ -228,4 +369,6 @@ bus = &"Voice"
 script = ExtResource("12_0nsak")
 _jump_effort = Array[AudioStream]([ExtResource("13_avcqy"), ExtResource("14_ibxan")])
 
+[connection signal="changed_direction" from="." to="HitBox" method="_on_enemy_changed_direction"]
+[connection signal="area_entered" from="ContactDamage" to="ContactDamage" method="_on_area_entered"]
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]

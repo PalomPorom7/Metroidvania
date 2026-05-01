@@ -10,7 +10,7 @@ signal current_magic_changed(new_current_magic: float)
 # Local reference to the Save Data Resource's list of unlocked abilities
 @onready var _abilities_unlocked: Array[bool] = File.data.abilities_unlocked
 # NOTE: As more layers are added to the state machine, this will need to be updated!
-@onready var _animation: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
+#@onready var _animation: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
 
 
 var _double_jump_is_ready: bool = true

@@ -1,5 +1,10 @@
-res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
+res://Scenes/Enemies/mouse_knight.tscn
 res://theme.tres
 res://Scenes/Characters/locomotion.tres
 res://Scenes/Characters/movement.tres
-res://Scripts/Enemies/field_of_view.gd
+res://Scripts/hit_box.gd
+res://Scripts/Enemies/aggression.gd
+res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
+res://Scripts/Enemies/pace.gd
+res://Scripts/character.gd
+res://Scripts/player_character.gd

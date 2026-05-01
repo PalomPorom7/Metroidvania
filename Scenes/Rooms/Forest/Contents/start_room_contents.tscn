@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://nyanutw5drcx" path="res://Assets/Sprites/blank.png" id="13_ba4y6"]
 [ext_resource type="Script" uid="uid://dbnolfgewgmju" path="res://Scripts/Enemies/pace.gd" id="13_buhjj"]
 [ext_resource type="Script" uid="uid://bf61myihius8t" path="res://Scripts/Enemies/field_of_view.gd" id="14_buhjj"]
+[ext_resource type="Script" uid="uid://br485soy68kgq" path="res://Scripts/Enemies/aggression.gd" id="15_pfkxn"]
 
 [sub_resource type="Gradient" id="Gradient_tl3a5"]
 colors = PackedColorArray(0.32156864, 0.5058824, 0.827451, 1, 0.827451, 0.92941177, 1, 1)
@@ -597,7 +598,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1024, 92)
 
 [node name="MouseKnight" parent="." unique_id=2011354323 instance=ExtResource("12_ba4y6")]
-position = Vector2(219, -2)
+position = Vector2(178, -5)
 
 [node name="Pace" type="Timer" parent="MouseKnight" unique_id=1539003322]
 one_shot = true
@@ -619,6 +620,16 @@ position = Vector2(0, -15)
 target_position = Vector2(128, 0)
 collision_mask = 257
 
+[node name="Aggression" type="Timer" parent="MouseKnight" unique_id=1972140486]
+process_mode = 4
+one_shot = true
+script = ExtResource("15_pfkxn")
+
 [connection signal="changed_direction" from="MouseKnight" to="MouseKnight/FieldofView" method="_on_enemy_changed_direction"]
 [connection signal="body_entered" from="MouseKnight/FieldofView" to="MouseKnight/FieldofView" method="_on_body_entered"]
 [connection signal="body_exited" from="MouseKnight/FieldofView" to="MouseKnight/FieldofView" method="_on_body_exited"]
+[connection signal="target_acquired" from="MouseKnight/FieldofView" to="MouseKnight/Aggression" method="resume"]
+[connection signal="target_acquired" from="MouseKnight/FieldofView" to="MouseKnight/Pace" method="pause" unbinds=1]
+[connection signal="target_lost" from="MouseKnight/FieldofView" to="MouseKnight/Pace" method="resume"]
+[connection signal="target_lost" from="MouseKnight/FieldofView" to="MouseKnight/Aggression" method="pause"]
+[connection signal="timeout" from="MouseKnight/Aggression" to="MouseKnight/Aggression" method="_on_timeout"]
