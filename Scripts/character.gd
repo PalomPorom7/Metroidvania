@@ -70,8 +70,9 @@ func cancel_jump() -> void:
 		velocity.y /= 2
 
 
-func attack() -> void:
+func attack() -> bool:
 	_animation.travel("attack")
+	return true
 
 
 func _ground_physics(delta: float) -> void:

@@ -113,6 +113,16 @@ func end_dash() -> void:
 	_dash_cooldown_effect.play()
 
 
+func attack() -> bool:
+	if _animation.get_current_node() == "Movement":
+		_animation.travel("attack_1")
+		return true
+	elif _animation.get_current_node() == "attack_1":
+		_animation.travel("attack_2")
+		return true
+	return false
+
+
 func cast() -> bool:
 	if _abilities_unlocked[Enums.Abilities.SHOOT] and _animation.get_current_node() == "Movement" and _current_magic >= _magic_cost:
 		_animation.travel("cast")

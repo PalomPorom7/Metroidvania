@@ -294,7 +294,7 @@ position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_8h8s0")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1544895168]
-collision_layer = 8704
+collision_layer = 131072
 collision_mask = 0
 monitoring = false
 script = ExtResource("2_uxpss")
@@ -369,6 +369,6 @@ bus = &"Voice"
 script = ExtResource("12_0nsak")
 _jump_effort = Array[AudioStream]([ExtResource("13_avcqy"), ExtResource("14_ibxan")])
 
-[connection signal="changed_direction" from="." to="HitBox" method="_on_enemy_changed_direction"]
+[connection signal="changed_direction" from="." to="HitBox" method="_on_character_changed_direction"]
 [connection signal="area_entered" from="ContactDamage" to="ContactDamage" method="_on_area_entered"]
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]

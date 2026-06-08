@@ -45,6 +45,10 @@ func _input(event: InputEvent) -> void:
 		if not character.dash(direction):
 			_buffered_input = character.dash.bind(direction)
 			start()
+	if event.is_action_pressed("attack"):
+		if not character.attack():
+			_buffered_input = character.attack
+			start()
 	if event.is_action_pressed("cast"):
 		if not character.cast():
 			_buffered_input = character.cast
