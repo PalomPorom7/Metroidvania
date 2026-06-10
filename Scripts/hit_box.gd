@@ -6,7 +6,7 @@ extends Area2D
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):
-		area.take_damage(1)
+		area.take_damage(1, (area.global_position - global_position).normalized())
 
 
 func _on_character_changed_direction(direction: float) -> void:

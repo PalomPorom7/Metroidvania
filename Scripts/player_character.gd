@@ -9,8 +9,6 @@ signal current_magic_changed(new_current_magic: float)
 
 # Local reference to the Save Data Resource's list of unlocked abilities
 @onready var _abilities_unlocked: Array[bool] = File.data.abilities_unlocked
-# NOTE: As more layers are added to the state machine, this will need to be updated!
-#@onready var _animation: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
 
 
 var _double_jump_is_ready: bool = true
@@ -32,6 +30,7 @@ var _is_wall_sliding: bool
 @onready var _default_gravity: float = _gravity
 @onready var _dash_cooldown: Timer = %DashCooldown
 @onready var _dash_cooldown_effect: AnimatedSprite2D = %DashCooldownEffect
+var _is_dashing: bool
 
 
 @export_category("Cast")
@@ -87,7 +86,7 @@ func jump() -> bool:
 
 
 func dash(direction: float) -> bool:
-	if _abilities_unlocked[Enums.Abilities.DASH] and _animation.get_current_node() == "Movement" and _dash_cooldown.is_stopped():
+	if _abilities_unlocked[Enums.Abilities.DASH] and _action_animations.get_current_node() == "Movement" and _dash_cooldown.is_stopped():
 		# Dash away from the wall
 		if _is_wall_sliding:
 			direction = sign(get_wall_normal().x)
@@ -100,32 +99,35 @@ func dash(direction: float) -> bool:
 		move_direction = direction
 		velocity = Vector2(direction * _dash_force, 0)
 		_gravity = 0
-		_animation.travel("dash")
+		_action_animations.travel("dash")
+		_is_dashing = true
 		return true
 	return false
 
 
 # MUST be called after dashing even if animation was interrupted!
 func end_dash() -> void:
-	_gravity = _default_gravity
-	_dash_cooldown.start()
-	_dash_cooldown_effect.stop()
-	_dash_cooldown_effect.play()
+	if _is_dashing:
+		_gravity = _default_gravity
+		_dash_cooldown.start()
+		_dash_cooldown_effect.stop()
+		_dash_cooldown_effect.play()
+	_is_dashing = false
 
 
 func attack() -> bool:
-	if _animation.get_current_node() == "Movement":
-		_animation.travel("attack_1")
+	if _action_animations.get_current_node() == "Movement":
+		_action_animations.travel("attack_1")
 		return true
-	elif _animation.get_current_node() == "attack_1":
-		_animation.travel("attack_2")
+	elif _action_animations.get_current_node() == "attack_1":
+		_action_animations.travel("attack_2")
 		return true
 	return false
 
 
 func cast() -> bool:
-	if _abilities_unlocked[Enums.Abilities.SHOOT] and _animation.get_current_node() == "Movement" and _current_magic >= _magic_cost:
-		_animation.travel("cast")
+	if _abilities_unlocked[Enums.Abilities.SHOOT] and _action_animations.get_current_node() == "Movement" and _current_magic >= _magic_cost:
+		_action_animations.travel("cast")
 		return true
 	return false
 
@@ -146,7 +148,7 @@ func _on_wall_jump_air_control_override_timeout() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if _animation.get_current_node() != "Movement":
+	if _action_animations.get_current_node() != "Movement":
 		move_direction = 0
 	super._physics_process(delta)
 

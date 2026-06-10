@@ -1,0 +1,57 @@
+[gd_resource type="AnimationNodeStateMachine" format=3 uid="uid://dgrb6ga48scwy"]
+
+[ext_resource type="AnimationNodeStateMachine" uid="uid://dqhsnspcpbpo1" path="res://Scenes/Characters/movement.tres" id="1_m0iue"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fv5h8"]
+animation = &"attack_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lqg5k"]
+animation = &"attack_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vftg3"]
+animation = &"cast"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5o8xj"]
+animation = &"dash"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qd3iw"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fku4i"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bbx3e"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gmf77"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hqdbk"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i6nio"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x45rl"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tx4v7"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_swum3"]
+switch_mode = 2
+advance_mode = 2
+
+[resource]
+states/Movement/node = ExtResource("1_m0iue")
+states/Movement/position = Vector2(548, 100)
+states/attack_1/node = SubResource("AnimationNodeAnimation_fv5h8")
+states/attack_1/position = Vector2(414, -40)
+states/attack_2/node = SubResource("AnimationNodeAnimation_lqg5k")
+states/attack_2/position = Vector2(689, -40)
+states/cast/node = SubResource("AnimationNodeAnimation_vftg3")
+states/cast/position = Vector2(689, 257)
+states/dash/node = SubResource("AnimationNodeAnimation_5o8xj")
+states/dash/position = Vector2(414, 257)
+transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_qd3iw"), "Movement", "dash", SubResource("AnimationNodeStateMachineTransition_fku4i"), "dash", "Movement", SubResource("AnimationNodeStateMachineTransition_bbx3e"), "Movement", "cast", SubResource("AnimationNodeStateMachineTransition_gmf77"), "cast", "Movement", SubResource("AnimationNodeStateMachineTransition_hqdbk"), "Movement", "attack_1", SubResource("AnimationNodeStateMachineTransition_i6nio"), "attack_1", "attack_2", SubResource("AnimationNodeStateMachineTransition_x45rl"), "attack_2", "Movement", SubResource("AnimationNodeStateMachineTransition_tx4v7"), "attack_1", "Movement", SubResource("AnimationNodeStateMachineTransition_swum3")]
+graph_offset = Vector2(-289, -102)

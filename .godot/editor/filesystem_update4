@@ -1,9 +1,1 @@
-res://Scripts/hit_box.gd
-res://Scenes/Characters/kitty.tscn
-res://theme.tres
-res://Scenes/Characters/locomotion.tres
-res://Scenes/Characters/movement.tres
-res://Scenes/Enemies/mouse_knight.tscn
-res://Scripts/player.gd
 res://Scripts/character.gd
-res://Scripts/player_character.gd

@@ -7,8 +7,10 @@ signal jumped(position: Vector2, flipped: bool)
 signal landed(position: Vector2, flipped: bool)
 
 
+@export var _knockback_force: float = 256
 @onready var _sprite: Sprite2D = $Sprite2D
-@onready var _animation: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
+@onready var _action_animations: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/Actions/playback"]
+@onready var _hurt_animations: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
 @onready var _footstep_sfx: AudioStreamPlayer2D = $Footstep
 @onready var _jump_sfx: AudioStreamPlayer2D = $Jump
 @onready var _land_sfx: AudioStreamPlayer2D = $Land
@@ -40,7 +42,7 @@ var is_jumping: bool
 
 
 func face_left(left: bool = true) -> void:
-	if _animation.get_current_node() == "attack":
+	if _action_animations.get_current_node() == "attack":
 		return
 	_sprite.scale.x = -1 if left else 1
 	_is_facing_left = left
@@ -71,7 +73,7 @@ func cancel_jump() -> void:
 
 
 func attack() -> bool:
-	_animation.travel("attack")
+	_action_animations.travel("attack")
 	return true
 
 
@@ -118,7 +120,7 @@ func _face_move_direction() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if _animation.get_current_node() == "attack":
+	if _action_animations.get_current_node() == "attack":
 		move_direction = 0
 	_face_move_direction()
 	# Check if the character walked off of a ledge or landed
@@ -139,3 +141,8 @@ func _physics_process(delta: float) -> void:
 		is_jumping = false
 
 	move_and_slide()
+
+
+func _on_damage_received(direction: Vector2) -> void:
+	_hurt_animations.travel("hit")
+	velocity = direction * _knockback_force

@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dwjm4kqaiqnfv" path="res://Assets/Sprites/Kitty/Cat-Sheet.png" id="3_oh2nt"]
 [ext_resource type="Texture2D" uid="uid://d0nlbtg5p62tu" path="res://Assets/Sprites/Kitty/cat-cloak.png" id="4_fku4i"]
 [ext_resource type="Script" uid="uid://bv05oxwvec7wp" path="res://Scripts/hit_box.gd" id="4_jkbpd"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://dqhsnspcpbpo1" path="res://Scenes/Characters/movement.tres" id="4_mc7f2"]
 [ext_resource type="AudioStream" uid="uid://bonuwook64xa6" path="res://Assets/SFX/sfx_jump.wav" id="4_wo4o5"]
 [ext_resource type="Texture2D" uid="uid://dek7fehu5rhy2" path="res://Assets/Sprites/Kitty/cat-hat.png" id="5_bbx3e"]
 [ext_resource type="AudioStream" uid="uid://dgyw3npnh72n4" path="res://Assets/SFX/sfx_land.wav" id="5_kdfac"]
@@ -20,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c4kbcr3fm038b" path="res://Assets/Sprites/Effects/UpSlash.png" id="9_lqg5k"]
 [ext_resource type="AudioStream" uid="uid://baexs3vo7yxqw" path="res://Assets/SFX/sfx_footstep4.wav" id="9_wa61m"]
 [ext_resource type="Script" uid="uid://clm75mcgfds6w" path="res://Scripts/voice.gd" id="11_wa61m"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://dgrb6ga48scwy" path="res://Scenes/Characters/actions.tres" id="12_fv5h8"]
 [ext_resource type="AudioStream" uid="uid://bxgi3q3qm1se6" path="res://Assets/SFX/Voice/Meow-Fast02.wav" id="12_ugghv"]
 [ext_resource type="AudioStream" uid="uid://bn7bu77odvosb" path="res://Assets/SFX/Voice/Meow-Fast.wav" id="13_mc7f2"]
 [ext_resource type="Script" uid="uid://caea04o20e6hw" path="res://Scripts/map_icon.gd" id="14_ugghv"]
@@ -671,6 +671,97 @@ tracks/3/keys = {
 "values": [Rect2(0, 180, 32, 36), Rect2(32, 180, 32, 36), Rect2(64, 180, 32, 36), Rect2(96, 180, 32, 36), Rect2(128, 180, 32, 36), Rect2(160, 180, 32, 36), Rect2(192, 180, 32, 36)]
 }
 
+[sub_resource type="Animation" id="Animation_fv5h8"]
+resource_name = "hit"
+length = 0.58334166
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 252, 32, 36), Rect2(32, 252, 32, 36), Rect2(64, 252, 32, 36), Rect2(96, 252, 32, 36), Rect2(128, 252, 32, 36), Rect2(160, 252, 32, 36), Rect2(192, 252, 32, 36)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_dash"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtBox:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HurtBox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/Cloak:texture:region")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 252, 32, 36), Rect2(32, 252, 32, 36), Rect2(64, 252, 32, 36), Rect2(96, 252, 32, 36), Rect2(128, 252, 32, 36), Rect2(160, 252, 32, 36), Rect2(192, 252, 32, 36)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D/Hat:texture:region")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 252, 32, 36), Rect2(32, 252, 32, 36), Rect2(64, 252, 32, 36), Rect2(96, 252, 32, 36), Rect2(128, 252, 32, 36), Rect2(160, 252, 32, 36), Rect2(192, 252, 32, 36)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D/Gem:texture:region")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 252, 32, 36), Rect2(32, 252, 32, 36), Rect2(64, 252, 32, 36), Rect2(96, 252, 32, 36), Rect2(128, 252, 32, 36), Rect2(160, 252, 32, 36), Rect2(192, 252, 32, 36)]
+}
+
 [sub_resource type="Animation" id="Animation_4d7gs"]
 resource_name = "idle"
 length = 0.58334166
@@ -1091,6 +1182,7 @@ _data = {
 &"cast": SubResource("Animation_wp86f"),
 &"dash": SubResource("Animation_oh2nt"),
 &"fall": SubResource("Animation_te1kl"),
+&"hit": SubResource("Animation_fv5h8"),
 &"idle": SubResource("Animation_4d7gs"),
 &"jump": SubResource("Animation_kdfac"),
 &"look_down": SubResource("Animation_ugghv"),
@@ -1100,59 +1192,25 @@ _data = {
 &"wall_slide": SubResource("Animation_mc7f2")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fv5h8"]
-animation = &"attack_1"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lqg5k"]
-animation = &"attack_2"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vftg3"]
-animation = &"cast"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5o8xj"]
-animation = &"dash"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qd3iw"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fku4i"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bbx3e"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gmf77"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hqdbk"]
-switch_mode = 2
-advance_mode = 2
+animation = &"hit"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i6nio"]
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x45rl"]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tx4v7"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_swum3"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ps7kw"]
-states/Movement/node = ExtResource("4_mc7f2")
-states/Movement/position = Vector2(548, 100)
-states/attack_1/node = SubResource("AnimationNodeAnimation_fv5h8")
-states/attack_1/position = Vector2(414, -40)
-states/attack_2/node = SubResource("AnimationNodeAnimation_lqg5k")
-states/attack_2/position = Vector2(689, -40)
-states/cast/node = SubResource("AnimationNodeAnimation_vftg3")
-states/cast/position = Vector2(689, 257)
-states/dash/node = SubResource("AnimationNodeAnimation_5o8xj")
-states/dash/position = Vector2(414, 257)
-transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_qd3iw"), "Movement", "dash", SubResource("AnimationNodeStateMachineTransition_fku4i"), "dash", "Movement", SubResource("AnimationNodeStateMachineTransition_bbx3e"), "Movement", "cast", SubResource("AnimationNodeStateMachineTransition_gmf77"), "cast", "Movement", SubResource("AnimationNodeStateMachineTransition_hqdbk"), "Movement", "attack_1", SubResource("AnimationNodeStateMachineTransition_i6nio"), "attack_1", "attack_2", SubResource("AnimationNodeStateMachineTransition_x45rl"), "attack_2", "Movement", SubResource("AnimationNodeStateMachineTransition_tx4v7"), "attack_1", "Movement", SubResource("AnimationNodeStateMachineTransition_swum3")]
-graph_offset = Vector2(-258, -194)
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_swum3"]
+states/Actions/node = ExtResource("12_fv5h8")
+states/Actions/position = Vector2(539, 100)
+states/hit/node = SubResource("AnimationNodeAnimation_lqg5k")
+states/hit/position = Vector2(539, -44)
+transitions = ["Start", "Actions", SubResource("AnimationNodeStateMachineTransition_i6nio"), "Actions", "hit", SubResource("AnimationNodeStateMachineTransition_x45rl"), "hit", "Actions", SubResource("AnimationNodeStateMachineTransition_tx4v7")]
+graph_offset = Vector2(-229, -124)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oh2nt"]
 load_path = "res://.godot/imported/Cat-Default.png-474130c36b2eec7aad2173b11c47cbc7.ctex"
@@ -1388,7 +1446,7 @@ position = Vector2(12, 6)
 libraries/ = SubResource("AnimationLibrary_cngrh")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1408423736]
-tree_root = SubResource("AnimationNodeStateMachine_ps7kw")
+tree_root = SubResource("AnimationNodeStateMachine_swum3")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -1446,5 +1504,6 @@ offset = Vector2(0, -12)
 
 [connection signal="changed_direction" from="." to="HitBox" method="_on_character_changed_direction"]
 [connection signal="jumped" from="." to="Voice" method="play_jump_effort" unbinds=2]
+[connection signal="damage_received" from="HurtBox" to="." method="_on_damage_received"]
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]
 [connection signal="timeout" from="Abilities/WallJump" to="." method="_on_wall_jump_air_control_override_timeout"]
