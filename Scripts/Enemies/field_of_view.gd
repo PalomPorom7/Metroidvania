@@ -21,12 +21,12 @@ func _physics_process(_delta: float) -> void:
 	if not _is_targeting and _is_in_field_of_view and _is_in_line_of_sight:
 		_is_targeting = true
 		target_acquired.emit(_target)
-		print("target acquired")
+		#print("target acquired")
 	elif _is_targeting and not _is_in_field_of_view and not _is_in_line_of_sight:
 		_is_targeting = false
 		target_lost.emit()
 		_target = null
-		print("target lost")
+		#print("target lost")
 
 
 func _on_body_entered(body: Node2D) -> void:

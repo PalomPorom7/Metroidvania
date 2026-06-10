@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://clm75mcgfds6w" path="res://Scripts/voice.gd" id="12_0nsak"]
 [ext_resource type="AudioStream" uid="uid://bxgi3q3qm1se6" path="res://Assets/SFX/Voice/Meow-Fast02.wav" id="13_avcqy"]
 [ext_resource type="AudioStream" uid="uid://bn7bu77odvosb" path="res://Assets/SFX/Voice/Meow-Fast.wav" id="14_ibxan"]
+[ext_resource type="Texture2D" uid="uid://b86ript40cxbj" path="res://Assets/Sprites/Effects/circles-16x16.png" id="16_5rba3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8h8s0"]
 radius = 6.0
@@ -338,6 +339,30 @@ states/hit/position = Vector2(559, -49)
 transitions = ["Start", "Actions", SubResource("AnimationNodeStateMachineTransition_keav5"), "Actions", "hit", SubResource("AnimationNodeStateMachineTransition_42k4h"), "hit", "Actions", SubResource("AnimationNodeStateMachineTransition_xsep0")]
 graph_offset = Vector2(-206, -84)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5rba3"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_r3nu8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_keav5"]
+curve = SubResource("Curve_r3nu8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_42k4h"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 64.0
+gravity = Vector3(0, 0, 0)
+damping_max = 64.0
+attractor_interaction_enabled = false
+alpha_curve = SubResource("CurveTexture_keav5")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
 [node name="MouseKnight" type="CharacterBody2D" unique_id=2011354323]
 visibility_layer = 3
 collision_layer = 65536
@@ -430,6 +455,17 @@ position = Vector2(0, -18)
 bus = &"Voice"
 script = ExtResource("12_0nsak")
 _jump_effort = Array[AudioStream]([ExtResource("13_avcqy"), ExtResource("14_ibxan")])
+
+[node name="Particles" type="GPUParticles2D" parent="." unique_id=77112046]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_5rba3")
+position = Vector2(0, -12)
+emitting = false
+texture = ExtResource("16_5rba3")
+lifetime = 0.67
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_42k4h")
 
 [connection signal="changed_direction" from="." to="HitBox" method="_on_character_changed_direction"]
 [connection signal="damage_received" from="HurtBox" to="." method="_on_damage_received"]

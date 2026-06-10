@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://bn7bu77odvosb" path="res://Assets/SFX/Voice/Meow-Fast.wav" id="13_mc7f2"]
 [ext_resource type="Script" uid="uid://caea04o20e6hw" path="res://Scripts/map_icon.gd" id="14_ugghv"]
 [ext_resource type="Texture2D" uid="uid://cxpys3rmrb6h5" path="res://Assets/Sprites/Magic/recharge-64x64-12fps.png" id="16_oh2nt"]
+[ext_resource type="Texture2D" uid="uid://b86ript40cxbj" path="res://Assets/Sprites/Effects/circles-16x16.png" id="25_lqg5k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8h8s0"]
 radius = 6.0
@@ -151,6 +152,30 @@ animations = [{
 "name": &"default",
 "speed": 12.0
 }]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lqg5k"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_i6nio"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x45rl"]
+curve = SubResource("Curve_i6nio")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tx4v7"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 64.0
+gravity = Vector3(0, 0, 0)
+damping_max = 64.0
+attractor_interaction_enabled = false
+alpha_curve = SubResource("CurveTexture_x45rl")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
 
 [sub_resource type="Animation" id="Animation_8h8s0"]
 length = 0.001
@@ -1441,6 +1466,17 @@ offset = Vector2(0, -18)
 [node name="ProjectileSpawn" type="Marker2D" parent="Sprite2D" unique_id=361370153]
 unique_name_in_owner = true
 position = Vector2(12, 6)
+
+[node name="Particles" type="GPUParticles2D" parent="." unique_id=2024070524]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_lqg5k")
+position = Vector2(0, -12)
+emitting = false
+texture = ExtResource("25_lqg5k")
+lifetime = 0.67
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_tx4v7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=336009697]
 libraries/ = SubResource("AnimationLibrary_cngrh")

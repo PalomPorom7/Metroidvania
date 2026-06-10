@@ -1,3 +1,4 @@
+GPUParticles2D
 Timer
 AnimatedSprite2D
 RayCast2D
@@ -11,4 +12,3 @@ Node2D
 RigidBody2D
 StaticBody2D
 AnimationPlayer
-ProgressBar

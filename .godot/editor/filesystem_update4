@@ -1,1 +1,10 @@
+res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
+res://theme.tres
+res://Scenes/Characters/locomotion.tres
+res://Scenes/Characters/movement.tres
+res://Scenes/Characters/actions.tres
+res://Scripts/Enemies/field_of_view.gd
+res://Scenes/game.tscn
+res://Scenes/Enemies/mouse_knight.tscn
 res://Scripts/character.gd
+res://Scenes/Characters/kitty.tscn
