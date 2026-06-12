@@ -5,6 +5,8 @@ signal double_jumped(position: Vector2, flipped: bool)
 signal wall_jumped(position: Vector2, flipped: bool)
 signal max_magic_changed(new_max_magic: float)
 signal current_magic_changed(new_current_magic: float)
+signal attack_landed
+signal received_damage
 
 
 # Local reference to the Save Data Resource's list of unlocked abilities
@@ -141,6 +143,15 @@ func shoot_projectile() -> void:
 	get_parent().add_child(new_projectile)
 	new_projectile.position = _projectile_spawn.global_position
 	new_projectile.fire(Vector2.LEFT if _is_facing_left else Vector2.RIGHT)
+
+
+func _on_attack_landed() -> void:
+	attack_landed.emit()
+
+
+func _on_damage_received(direction: Vector2) -> void:
+	super._on_damage_received(direction)
+	received_damage.emit()
 
 
 func _on_wall_jump_air_control_override_timeout() -> void:

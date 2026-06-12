@@ -1413,7 +1413,7 @@ debug_color = Color(0.18923053, 0.6424029, 0, 0.41960785)
 [node name="HitBox" type="Area2D" parent="." unique_id=1328104373]
 visible = false
 collision_layer = 0
-collision_mask = 131072
+collision_mask = 131073
 monitoring = false
 monitorable = false
 script = ExtResource("4_jkbpd")
@@ -1542,4 +1542,5 @@ offset = Vector2(0, -12)
 [connection signal="jumped" from="." to="Voice" method="play_jump_effort" unbinds=2]
 [connection signal="damage_received" from="HurtBox" to="." method="_on_damage_received"]
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_attack_landed" unbinds=1]
 [connection signal="timeout" from="Abilities/WallJump" to="." method="_on_wall_jump_air_control_override_timeout"]

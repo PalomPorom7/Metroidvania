@@ -236,9 +236,11 @@ unique_name_in_owner = true
 zoom = Vector2(0.125, 0.125)
 
 [connection signal="ability_unlocked" from="." to="WorldEnvironment/Kitty" method="update_sprite_visibility" unbinds=1]
+[connection signal="attack_landed" from="WorldEnvironment/Kitty" to="WorldEnvironment/Camera2D" method="shake" binds= [4.0, 0.25]]
 [connection signal="current_magic_changed" from="WorldEnvironment/Kitty" to="CanvasLayer/HUD/Vitals/MagicGauge" method="set_value"]
 [connection signal="jumped" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_jump_dust"]
 [connection signal="landed" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_land_dust"]
 [connection signal="max_magic_changed" from="WorldEnvironment/Kitty" to="CanvasLayer/HUD/Vitals/MagicGauge" method="set_max"]
+[connection signal="received_damage" from="WorldEnvironment/Kitty" to="WorldEnvironment/Camera2D" method="shake" binds= [8.0, 0.5]]
 [connection signal="stepped" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_footstep_dust"]
 [connection signal="timeout" from="WorldEnvironment/Kitty/Player/LookHold" to="WorldEnvironment/Kitty/Player" method="_on_look_hold_timeout"]

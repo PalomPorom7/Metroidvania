@@ -18,6 +18,7 @@ sources/1 = SubResource("TileSetAtlasSource_ocn8a")
 
 [node name="StartRoom" type="Area2D" unique_id=639118513]
 visibility_layer = 3
+collision_layer = 0
 collision_mask = 257
 script = ExtResource("1_4o6nq")
 _contents_scene = ExtResource("2_4o6nq")

@@ -10,6 +10,10 @@ var _is_bound: bool
 var _subject: Node2D
 
 
+var _shake: Vector2
+var _shake_tween: Tween
+
+
 @export var _look_ahead_trans: Tween.TransitionType
 @export var _look_ahead_ease: Tween.EaseType
 @export var _look_ahead_duration: float = 1
@@ -55,6 +59,18 @@ func look(direction: float) -> void:
 	_look_up_down_tween.tween_method(_set_y_offset, offset.y, _maximum_look_distance * sign(direction) if direction else _default_offset.y, _look_up_down_duration)
 
 
+func shake(intensity: float, duration: float) -> void:
+	if _shake_tween:
+		_shake_tween.kill()
+	_shake_tween = create_tween()
+	_shake_tween.tween_method(_set_shake, intensity, 0, duration)
+	_shake_tween.finished.connect(_set_shake.bind(0))
+
+
+func _set_shake(intensity: float) -> void:
+	_shake = Vector2.RIGHT.rotated(randf_range(0, TAU)) * intensity
+
+
 func _on_subject_changed_direction(direction: float) -> void:
 	if _look_ahead_tween:
 		_look_ahead_tween.kill()
@@ -80,3 +96,4 @@ func _process(_delta: float) -> void:
 	if _is_bound:
 		position.x = clampf(position.x, _min.x - offset.x, _max.x - offset.x)
 		position.y = clampf(position.y, _min.y - offset.y, _max.y - offset.y)
+	position += _shake
