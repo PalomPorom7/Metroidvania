@@ -8,6 +8,10 @@ var _direction_to_target: Vector2
 var _distance_to_target: float
 
 
+func _ready() -> void:
+	_enemy.died.connect(queue_free)
+
+
 func _process(_delta: float) -> void:
 	if not _target:
 		return

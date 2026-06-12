@@ -225,6 +225,44 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("10_ldgsr")
 
+[node name="GameOver" type="Label" parent="CanvasLayer" unique_id=1646079798]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.5
+offset_top = -44.0
+offset_right = 350.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Curiosity Killed the Cat"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Revive" type="Label" parent="CanvasLayer" unique_id=530231347]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.5
+offset_top = -44.0
+offset_right = 350.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "But Satisfaction Brought it Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MapViewport" type="SubViewport" parent="." unique_id=1440166377]
 unique_name_in_owner = true
 transparent_bg = true
@@ -238,6 +276,8 @@ zoom = Vector2(0.125, 0.125)
 [connection signal="ability_unlocked" from="." to="WorldEnvironment/Kitty" method="update_sprite_visibility" unbinds=1]
 [connection signal="attack_landed" from="WorldEnvironment/Kitty" to="WorldEnvironment/Camera2D" method="shake" binds= [4.0, 0.25]]
 [connection signal="current_magic_changed" from="WorldEnvironment/Kitty" to="CanvasLayer/HUD/Vitals/MagicGauge" method="set_value"]
+[connection signal="died" from="WorldEnvironment/Kitty" to="." method="_on_player_died"]
+[connection signal="died" from="WorldEnvironment/Kitty" to="WorldEnvironment/Camera2D" method="shake" binds= [16.0, 1.0]]
 [connection signal="jumped" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_jump_dust"]
 [connection signal="landed" from="WorldEnvironment/Kitty" to="WorldEnvironment" method="_spawn_land_dust"]
 [connection signal="max_magic_changed" from="WorldEnvironment/Kitty" to="CanvasLayer/HUD/Vitals/MagicGauge" method="set_max"]

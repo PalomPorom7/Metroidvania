@@ -29,10 +29,10 @@ func unlock_ability(ability: int) -> void:
 	ability_unlocked.emit(ability)
 
 
-var next_ability: int
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("quit"):
-		get_tree().quit()
+#var next_ability: int
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("quit"):
+		#get_tree().quit()
 		#print("Unlock " + Enums.Abilities.keys()[next_ability])
 		#unlock_ability(next_ability)
 		#next_ability = clampi(next_ability + 1, 0, Enums.Abilities.size() - 1)
@@ -52,4 +52,27 @@ func on_player_entered_room(room_entered: Room) -> void:
 	_camera.set_bounds(_current_room.get_top_left(), _current_room.get_bottom_right())
 	_kitty.process_mode = Node.PROCESS_MODE_INHERIT
 	await _fade.to_clear()
+	_player.enable()
+
+
+func _on_player_died() -> void:
+	_player.disable()
+	# Wait 1 second
+	await get_tree().create_timer(1).timeout
+	var tween: Tween = create_tween()
+	tween.tween_property(%GameOver, "modulate:a", 1, 1)
+	await _fade.to_black()
+	# Reposition the player character
+	# TODO: respawn at the last saved checkpoint
+	_kitty.position = Vector2.ZERO
+	await get_tree().create_timer(1).timeout
+	tween = create_tween()
+	tween.tween_property(%GameOver, "modulate:a", 0, 0.5)
+	await tween.finished
+	_kitty.revive()
+	tween = create_tween()
+	tween.tween_property(%Revive, "modulate:a", 1, 0.5)
+	await _fade.to_clear()
+	tween = create_tween()
+	tween.tween_property(%Revive, "modulate:a", 0, 0.5)
 	_player.enable()

@@ -28,9 +28,10 @@ func set_counter(counter: Control) -> void:
 func take_damage(amount: int, direction: Vector2) -> void:
 	_current_health = max(_current_health - amount, 0)
 	current_health_changed.emit(_current_health)
-	damage_received.emit(direction)
 	if _current_health == 0:
 		died.emit()
+	else:
+		damage_received.emit(direction)
 
 
 func recover(amount: int = 0) -> void:

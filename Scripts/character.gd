@@ -5,6 +5,7 @@ signal changed_direction(direction: float)
 signal stepped(position: Vector2, flipped: bool)
 signal jumped(position: Vector2, flipped: bool)
 signal landed(position: Vector2, flipped: bool)
+signal died
 
 
 @export var _knockback_force: float = 256
@@ -15,6 +16,7 @@ signal landed(position: Vector2, flipped: bool)
 @onready var _footstep_sfx: AudioStreamPlayer2D = $Footstep
 @onready var _jump_sfx: AudioStreamPlayer2D = $Jump
 @onready var _land_sfx: AudioStreamPlayer2D = $Land
+var is_dead: bool
 
 
 @export_category("Locomotion")
@@ -42,8 +44,13 @@ var _is_on_floor: bool
 var is_jumping: bool
 
 
+func die() -> void:
+	is_dead = true
+	died.emit()
+
+
 func face_left(left: bool = true) -> void:
-	if _action_animations.get_current_node() == "attack":
+	if is_dead or _action_animations.get_current_node() == "attack":
 		return
 	_sprite.scale.x = -1 if left else 1
 	_is_facing_left = left
@@ -59,6 +66,8 @@ func run() -> void:
 
 
 func jump() -> bool:
+	if is_dead:
+		return false
 	if _is_on_floor or _coyote and not _coyote.is_stopped():
 		velocity.y = _jump_force
 		_jump_sfx.play_random()
@@ -74,6 +83,8 @@ func cancel_jump() -> void:
 
 
 func attack() -> bool:
+	if is_dead:
+		return false
 	_action_animations.travel("attack")
 	return true
 
@@ -121,7 +132,7 @@ func _face_move_direction() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if _action_animations.get_current_node() == "attack":
+	if is_dead or _action_animations.get_current_node() == "attack":
 		move_direction = 0
 	_face_move_direction()
 	# Check if the character walked off of a ledge or landed

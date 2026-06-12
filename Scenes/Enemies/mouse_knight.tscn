@@ -124,6 +124,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ContactDamage:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_xsep0"]
 resource_name = "attack"
@@ -178,6 +190,71 @@ tracks/3/keys = {
 "args": [&"", 1.0, false],
 "method": &"play"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_5rba3"]
+resource_name = "dead"
+length = 0.083341666
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(192, 72, 32, 36)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtBox:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ContactDamage:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBox:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_uxpss"]
@@ -278,6 +355,7 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_8h8s0"),
 &"attack": SubResource("Animation_xsep0"),
+&"dead": SubResource("Animation_5rba3"),
 &"hit": SubResource("Animation_uxpss"),
 &"idle": SubResource("Animation_4d7gs"),
 &"walk": SubResource("Animation_3j1hx")
@@ -319,6 +397,9 @@ states/walk/position = Vector2(654, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7t1cj"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_f516k"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_5pbwb"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_5rba3"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_r3nu8")]
 graph_offset = Vector2(-342, -140)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r3nu8"]
+animation = &"dead"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5rba3"]
 animation = &"hit"
 
@@ -331,13 +412,19 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rtper"]
+advance_mode = 2
+advance_expression = "is_dead"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rtper"]
 states/Actions/node = SubResource("AnimationNodeStateMachine_ns28w")
 states/Actions/position = Vector2(559, 100)
+states/dead/node = SubResource("AnimationNodeAnimation_r3nu8")
+states/dead/position = Vector2(559, 245)
 states/hit/node = SubResource("AnimationNodeAnimation_5rba3")
 states/hit/position = Vector2(559, -49)
-transitions = ["Start", "Actions", SubResource("AnimationNodeStateMachineTransition_keav5"), "Actions", "hit", SubResource("AnimationNodeStateMachineTransition_42k4h"), "hit", "Actions", SubResource("AnimationNodeStateMachineTransition_xsep0")]
-graph_offset = Vector2(-206, -84)
+transitions = ["Start", "Actions", SubResource("AnimationNodeStateMachineTransition_keav5"), "Actions", "hit", SubResource("AnimationNodeStateMachineTransition_42k4h"), "hit", "Actions", SubResource("AnimationNodeStateMachineTransition_xsep0"), "Actions", "dead", SubResource("AnimationNodeStateMachineTransition_rtper")]
+graph_offset = Vector2(-189, -48)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5rba3"]
 particles_animation = true
@@ -469,5 +556,6 @@ process_material = SubResource("ParticleProcessMaterial_42k4h")
 
 [connection signal="changed_direction" from="." to="HitBox" method="_on_character_changed_direction"]
 [connection signal="damage_received" from="HurtBox" to="." method="_on_damage_received"]
+[connection signal="died" from="HurtBox" to="." method="die"]
 [connection signal="area_entered" from="ContactDamage" to="ContactDamage" method="_on_area_entered"]
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]

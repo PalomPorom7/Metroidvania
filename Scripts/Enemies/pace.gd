@@ -6,6 +6,10 @@ extends Timer
 var _wall_normal_x: int
 
 
+func _ready() -> void:
+	_enemy.died.connect(queue_free)
+
+
 func _process(_delta: float) -> void:
 	if is_stopped():
 		_enemy.move_direction = _direction

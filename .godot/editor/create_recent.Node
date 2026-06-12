@@ -1,3 +1,7 @@
+Label
+Button
+PanelContainer
+VBoxContainer
 GPUParticles2D
 Timer
 AnimatedSprite2D
@@ -8,7 +12,3 @@ Area2D
 Node
 Marker2D
 Sprite2D
-Node2D
-RigidBody2D
-StaticBody2D
-AnimationPlayer

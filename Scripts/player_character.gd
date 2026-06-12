@@ -51,6 +51,24 @@ func _ready() -> void:
 	current_magic_changed.emit(_current_magic)
 
 
+func die() -> void:
+	super.die()
+	_particles.one_shot = false
+	_particles.explosiveness = 0
+	_particles.emitting = true
+	var tween: Tween = create_tween()
+	tween.tween_property(self, "modulate", Color(255, 255, 255), 1)
+
+
+func revive() -> void:
+	is_dead = false
+	%HurtBox.recover()
+	_particles.one_shot = true
+	_particles.explosiveness = 1
+	_particles.emitting = false
+	modulate = Color.WHITE
+
+
 func update_sprite_visibility() -> void:
 	%Cloak.visible = _abilities_unlocked[Enums.Abilities.DOUBLE_JUMP]
 	%Gem.visible = _abilities_unlocked[Enums.Abilities.SHOOT]

@@ -626,6 +626,7 @@ one_shot = true
 script = ExtResource("15_pfkxn")
 
 [connection signal="changed_direction" from="MouseKnight" to="MouseKnight/FieldofView" method="_on_enemy_changed_direction"]
+[connection signal="died" from="MouseKnight" to="MouseKnight/FieldofView" method="queue_free"]
 [connection signal="body_entered" from="MouseKnight/FieldofView" to="MouseKnight/FieldofView" method="_on_body_entered"]
 [connection signal="body_exited" from="MouseKnight/FieldofView" to="MouseKnight/FieldofView" method="_on_body_exited"]
 [connection signal="target_acquired" from="MouseKnight/FieldofView" to="MouseKnight/Aggression" method="resume"]
