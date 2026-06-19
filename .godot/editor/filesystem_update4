@@ -1,15 +1,5 @@
-res://Scenes/Enemies/mouse_knight.tscn
 res://theme.tres
 res://Scenes/Characters/locomotion.tres
 res://Scenes/Characters/movement.tres
 res://Scenes/Characters/actions.tres
-res://Scripts/character.gd
-res://Scripts/hurt_box.gd
-res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
-res://Scripts/Enemies/pace.gd
-res://Scripts/Enemies/aggression.gd
-res://Scenes/Characters/kitty.tscn
-res://Scripts/Managers/game_manager.gd
-res://Scenes/game.tscn
-res://Scripts/player_character.gd
-res://Scripts/camera_follow.gd
+res://Scenes/Enemies/mech_mouse.tscn

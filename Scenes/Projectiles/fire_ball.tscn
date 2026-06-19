@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c18dww6l6vrad"]
+
+[ext_resource type="Script" uid="uid://bv05oxwvec7wp" path="res://Scripts/hit_box.gd" id="1_kf850"]
+[ext_resource type="Texture2D" uid="uid://b6mbl3ofkr78q" path="res://Assets/Sprites/Enemies/Boss/FireBall.png" id="2_08hio"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khyqm"]
+atlas = ExtResource("2_08hio")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyxpr"]
+atlas = ExtResource("2_08hio")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tl1sr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khyqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyxpr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trc7p"]
+radius = 6.0
+
+[node name="FireBall" type="Area2D" unique_id=1113866971]
+collision_layer = 0
+collision_mask = 512
+monitorable = false
+script = ExtResource("1_kf850")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=941930598]
+sprite_frames = SubResource("SpriteFrames_tl1sr")
+autoplay = "default"
+frame_progress = 0.53419167
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=573467696]
+shape = SubResource("CircleShape2D_trc7p")

@@ -1,0 +1,292 @@
+[gd_scene format=3 uid="uid://gdil7h760cq5"]
+
+[ext_resource type="Texture2D" uid="uid://c6k6tbrjo6eao" path="res://Assets/Sprites/Enemies/Boss/MechMouse.png" id="1_benrp"]
+[ext_resource type="Texture2D" uid="uid://ddi3be283mf38" path="res://Assets/Sprites/Enemies/Boss/MechMouse-mouthpipe.png" id="1_fshwb"]
+[ext_resource type="Texture2D" uid="uid://bbmntuhasymj1" path="res://Assets/Sprites/Enemies/Boss/MechMouse-turnkey.png" id="2_ldvql"]
+[ext_resource type="Texture2D" uid="uid://cltla123fktyv" path="res://Assets/Sprites/Enemies/Boss/rock-particle.png" id="2_m1pt1"]
+[ext_resource type="Texture2D" uid="uid://b86ript40cxbj" path="res://Assets/Sprites/Effects/circles-16x16.png" id="3_dg5qq"]
+[ext_resource type="Texture2D" uid="uid://l48nqqi2a3ob" path="res://Assets/Sprites/Enemies/Boss/MechMouse-wheel.png" id="3_ldvql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldvql"]
+atlas = ExtResource("3_ldvql")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7w4b"]
+atlas = ExtResource("3_ldvql")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q3q0"]
+atlas = ExtResource("3_ldvql")
+region = Rect2(0, 20, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn765"]
+atlas = ExtResource("3_ldvql")
+region = Rect2(20, 20, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eip0j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldvql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7w4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q3q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn765")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c7w4b"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 32.0
+initial_velocity_max = 64.0
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tbst2"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_gt7a1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wh8sm"]
+curve = SubResource("Curve_gt7a1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bymdo"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 32.0
+initial_velocity_max = 64.0
+gravity = Vector3(0, 0, 0)
+damping_min = 32.0
+damping_max = 64.0
+alpha_curve = SubResource("CurveTexture_wh8sm")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fshwb"]
+atlas = ExtResource("1_benrp")
+region = Rect2(0, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjd0p"]
+atlas = ExtResource("1_benrp")
+region = Rect2(0, 96, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1pt1"]
+atlas = ExtResource("1_benrp")
+region = Rect2(128, 96, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg5qq"]
+atlas = ExtResource("1_benrp")
+region = Rect2(256, 96, 128, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c7w4b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjd0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1pt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg5qq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbst2"]
+atlas = ExtResource("1_benrp")
+region = Rect2(128, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt7a1"]
+atlas = ExtResource("2_ldvql")
+region = Rect2(0, 0, 23, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh8sm"]
+atlas = ExtResource("2_ldvql")
+region = Rect2(23, 0, 23, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bymdo"]
+atlas = ExtResource("2_ldvql")
+region = Rect2(46, 0, 23, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ab5s"]
+atlas = ExtResource("2_ldvql")
+region = Rect2(69, 0, 23, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ery6"]
+atlas = ExtResource("2_ldvql")
+region = Rect2(0, 24, 23, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hemb"]
+atlas = ExtResource("2_ldvql")
+region = Rect2(23, 24, 23, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kng38"]
+atlas = ExtResource("2_ldvql")
+region = Rect2(46, 24, 23, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4q3q0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt7a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh8sm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bymdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ab5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ery6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hemb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kng38")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m1pt1"]
+radius = 18.0
+height = 102.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dg5qq"]
+radius = 5.0
+height = 62.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c7w4b"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbst2"]
+radius = 28.0
+height = 94.0
+
+[node name="MechMouse" type="CharacterBody2D" unique_id=1253798]
+collision_layer = 65537
+
+[node name="Flip" type="Node2D" parent="." unique_id=230052642]
+
+[node name="FrontWheel" type="AnimatedSprite2D" parent="Flip" unique_id=2018035235]
+position = Vector2(-32, 0)
+sprite_frames = SubResource("SpriteFrames_eip0j")
+offset = Vector2(0, -10)
+
+[node name="Rocks" type="GPUParticles2D" parent="Flip/FrontWheel" unique_id=1709952252]
+emitting = false
+texture = ExtResource("2_m1pt1")
+process_material = SubResource("ParticleProcessMaterial_c7w4b")
+
+[node name="Dust" type="GPUParticles2D" parent="Flip/FrontWheel" unique_id=402509666]
+z_index = 1
+material = SubResource("CanvasItemMaterial_tbst2")
+emitting = false
+texture = ExtResource("3_dg5qq")
+process_material = SubResource("ParticleProcessMaterial_bymdo")
+
+[node name="RearWheel" type="AnimatedSprite2D" parent="Flip" unique_id=1957678883]
+position = Vector2(32, 0)
+sprite_frames = SubResource("SpriteFrames_eip0j")
+offset = Vector2(0, -10)
+
+[node name="Rocks" type="GPUParticles2D" parent="Flip/RearWheel" unique_id=86045551]
+emitting = false
+texture = ExtResource("2_m1pt1")
+process_material = SubResource("ParticleProcessMaterial_c7w4b")
+
+[node name="Dust" type="GPUParticles2D" parent="Flip/RearWheel" unique_id=1541694311]
+z_index = 1
+material = SubResource("CanvasItemMaterial_tbst2")
+emitting = false
+texture = ExtResource("3_dg5qq")
+process_material = SubResource("ParticleProcessMaterial_bymdo")
+
+[node name="Body" type="Node2D" parent="Flip" unique_id=658383402]
+
+[node name="Barrel" type="Sprite2D" parent="Flip/Body" unique_id=91406712]
+position = Vector2(-34.5, -18)
+texture = ExtResource("1_fshwb")
+
+[node name="FireBallSpawn" type="Marker2D" parent="Flip/Body/Barrel" unique_id=37807383]
+position = Vector2(-25.5, 0)
+
+[node name="Background" type="Sprite2D" parent="Flip/Body" unique_id=445464501]
+clip_children = 2
+texture = SubResource("AtlasTexture_fshwb")
+offset = Vector2(0, -48)
+
+[node name="Gears" type="AnimatedSprite2D" parent="Flip/Body/Background" unique_id=711333600]
+sprite_frames = SubResource("SpriteFrames_c7w4b")
+frame_progress = 0.88436097
+offset = Vector2(0, -48)
+
+[node name="Armor" type="Sprite2D" parent="Flip/Body" unique_id=1276686505]
+texture = SubResource("AtlasTexture_tbst2")
+offset = Vector2(0, -48)
+
+[node name="Key" type="AnimatedSprite2D" parent="Flip/Body" unique_id=594978652]
+position = Vector2(43.5, -62)
+sprite_frames = SubResource("SpriteFrames_4q3q0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=831377545]
+polygon = PackedVector2Array(-33, 0, -50, -26, -27, -53, 27, -53, 50, -26, 33, 0, -33, 0)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=431981585]
+collision_layer = 131072
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1850188011]
+position = Vector2(0, -26)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_m1pt1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox" unique_id=1579043214]
+position = Vector2(0, -48)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_dg5qq")
+
+[node name="KeyHurtBox" type="Area2D" parent="." unique_id=55550538]
+position = Vector2(43, -64)
+collision_layer = 131072
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyHurtBox" unique_id=2035973488]
+rotation = 1.5707964
+shape = SubResource("CircleShape2D_c7w4b")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=86642757]
+position = Vector2(-5, -28)
+collision_layer = 0
+collision_mask = 512
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1922773248]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_tbst2")
+debug_color = Color(0.95974773, 0, 0.52259445, 0.41960785)
