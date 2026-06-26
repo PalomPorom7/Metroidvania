@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://gdil7h760cq5"]
 
 [ext_resource type="Texture2D" uid="uid://c6k6tbrjo6eao" path="res://Assets/Sprites/Enemies/Boss/MechMouse.png" id="1_benrp"]
+[ext_resource type="Script" uid="uid://bkw8r8yrcjofj" path="res://Scripts/Enemies/mech_mouse.gd" id="1_dg5qq"]
 [ext_resource type="Texture2D" uid="uid://ddi3be283mf38" path="res://Assets/Sprites/Enemies/Boss/MechMouse-mouthpipe.png" id="1_fshwb"]
 [ext_resource type="Texture2D" uid="uid://bbmntuhasymj1" path="res://Assets/Sprites/Enemies/Boss/MechMouse-turnkey.png" id="2_ldvql"]
 [ext_resource type="Texture2D" uid="uid://cltla123fktyv" path="res://Assets/Sprites/Enemies/Boss/rock-particle.png" id="2_m1pt1"]
@@ -185,6 +186,7 @@ height = 94.0
 
 [node name="MechMouse" type="CharacterBody2D" unique_id=1253798]
 collision_layer = 65537
+script = ExtResource("1_dg5qq")
 
 [node name="Flip" type="Node2D" parent="." unique_id=230052642]
 

@@ -1,5 +1,9 @@
+res://Scenes/Rooms/Forest/Contents/start_room_contents.tscn
 res://theme.tres
 res://Scenes/Characters/locomotion.tres
 res://Scenes/Characters/movement.tres
 res://Scenes/Characters/actions.tres
+res://Scripts/boss_encoutner.gd
+res://Scripts/Enemies/mech_mouse_encounter.gd
 res://Scenes/Enemies/mech_mouse.tscn
+res://Scripts/Enemies/mech_mouse.gd
