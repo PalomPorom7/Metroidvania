@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://c18dww6l6vrad"]
 
-[ext_resource type="Script" uid="uid://bv05oxwvec7wp" path="res://Scripts/hit_box.gd" id="1_kf850"]
+[ext_resource type="Script" uid="uid://cgb44diyjphu5" path="res://Scripts/projectile.gd" id="1_08hio"]
 [ext_resource type="Texture2D" uid="uid://b6mbl3ofkr78q" path="res://Assets/Sprites/Enemies/Boss/FireBall.png" id="2_08hio"]
+[ext_resource type="Texture2D" uid="uid://b4cv6g1bxl466" path="res://Assets/Sprites/Magic/magic-impact-64x64.png" id="3_khyqm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_khyqm"]
 atlas = ExtResource("2_08hio")
@@ -10,6 +11,22 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tyxpr"]
 atlas = ExtResource("2_08hio")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eip0j"]
+atlas = ExtResource("3_khyqm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehd2d"]
+atlas = ExtResource("3_khyqm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujplv"]
+atlas = ExtResource("3_khyqm")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smhel"]
+atlas = ExtResource("3_khyqm")
+region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tl1sr"]
 animations = [{
@@ -23,21 +40,43 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eip0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehd2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujplv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smhel")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"impact",
+"speed": 12.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_trc7p"]
 radius = 6.0
 
-[node name="FireBall" type="Area2D" unique_id=1113866971]
+[node name="FireBall" type="Area2D" unique_id=268036767]
 collision_layer = 0
-collision_mask = 512
+collision_mask = 513
 monitorable = false
-script = ExtResource("1_kf850")
+script = ExtResource("1_08hio")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=941930598]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1669917093]
 sprite_frames = SubResource("SpriteFrames_tl1sr")
 autoplay = "default"
-frame_progress = 0.53419167
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=573467696]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=647750116]
 shape = SubResource("CircleShape2D_trc7p")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
