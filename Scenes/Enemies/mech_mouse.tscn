@@ -3,10 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://c6k6tbrjo6eao" path="res://Assets/Sprites/Enemies/Boss/MechMouse.png" id="1_benrp"]
 [ext_resource type="Script" uid="uid://bkw8r8yrcjofj" path="res://Scripts/Enemies/mech_mouse.gd" id="1_dg5qq"]
 [ext_resource type="Texture2D" uid="uid://ddi3be283mf38" path="res://Assets/Sprites/Enemies/Boss/MechMouse-mouthpipe.png" id="1_fshwb"]
+[ext_resource type="PackedScene" uid="uid://c18dww6l6vrad" path="res://Scenes/Projectiles/fire_ball.tscn" id="2_gt7a1"]
 [ext_resource type="Texture2D" uid="uid://bbmntuhasymj1" path="res://Assets/Sprites/Enemies/Boss/MechMouse-turnkey.png" id="2_ldvql"]
 [ext_resource type="Texture2D" uid="uid://cltla123fktyv" path="res://Assets/Sprites/Enemies/Boss/rock-particle.png" id="2_yjd0p"]
 [ext_resource type="Texture2D" uid="uid://l48nqqi2a3ob" path="res://Assets/Sprites/Enemies/Boss/MechMouse-wheel.png" id="3_ldvql"]
 [ext_resource type="Texture2D" uid="uid://b86ript40cxbj" path="res://Assets/Sprites/Effects/circles-16x16.png" id="3_m1pt1"]
+[ext_resource type="Script" uid="uid://dl7rh5imgcgw7" path="res://Scripts/hurt_box.gd" id="8_tbst2"]
+[ext_resource type="Script" uid="uid://bv05oxwvec7wp" path="res://Scripts/hit_box.gd" id="9_gt7a1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldvql"]
 atlas = ExtResource("3_ldvql")
@@ -187,10 +190,13 @@ height = 94.0
 [node name="MechMouse" type="CharacterBody2D" unique_id=1253798]
 collision_layer = 65537
 script = ExtResource("1_dg5qq")
+_fireball_scene = ExtResource("2_gt7a1")
 
 [node name="Flip" type="Node2D" parent="." unique_id=230052642]
+unique_name_in_owner = true
 
 [node name="FrontWheel" type="AnimatedSprite2D" parent="Flip" unique_id=2018035235]
+unique_name_in_owner = true
 position = Vector2(-32, 0)
 sprite_frames = SubResource("SpriteFrames_eip0j")
 offset = Vector2(0, -10)
@@ -208,6 +214,7 @@ texture = ExtResource("3_m1pt1")
 process_material = SubResource("ParticleProcessMaterial_gt7a1")
 
 [node name="RearWheel" type="AnimatedSprite2D" parent="Flip" unique_id=1957678883]
+unique_name_in_owner = true
 position = Vector2(32, 0)
 sprite_frames = SubResource("SpriteFrames_eip0j")
 offset = Vector2(0, -10)
@@ -225,13 +232,15 @@ texture = ExtResource("3_m1pt1")
 process_material = SubResource("ParticleProcessMaterial_gt7a1")
 
 [node name="Body" type="Node2D" parent="Flip" unique_id=180921959]
+unique_name_in_owner = true
 
 [node name="Barrel" type="Sprite2D" parent="Flip/Body" unique_id=91406712]
+unique_name_in_owner = true
 position = Vector2(-34.5, -18)
 texture = ExtResource("1_fshwb")
-offset = Vector2(-16, 0)
 
 [node name="FireBallSpawn" type="Marker2D" parent="Flip/Body/Barrel" unique_id=429922271]
+unique_name_in_owner = true
 position = Vector2(-25.5, 0)
 
 [node name="Background" type="Sprite2D" parent="Flip/Body" unique_id=445464501]
@@ -240,26 +249,33 @@ texture = SubResource("AtlasTexture_fshwb")
 offset = Vector2(0, -48)
 
 [node name="Gears" type="AnimatedSprite2D" parent="Flip/Body/Background" unique_id=711333600]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_c7w4b")
 frame_progress = 0.88436097
 offset = Vector2(0, -48)
 
 [node name="Armor" type="Sprite2D" parent="Flip/Body" unique_id=1276686505]
+unique_name_in_owner = true
 texture = SubResource("AtlasTexture_tbst2")
 offset = Vector2(0, -48)
 
 [node name="Key" type="AnimatedSprite2D" parent="Flip/Body" unique_id=594978652]
+unique_name_in_owner = true
 position = Vector2(43.5, -62)
 sprite_frames = SubResource("SpriteFrames_4q3q0")
+autoplay = "default"
+speed_scale = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=219783782]
 polygon = PackedVector2Array(-33, 0, -50, -26, -27, -53, 27, -53, 50, -26, 33, 0)
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1780971977]
+unique_name_in_owner = true
 collision_layer = 131072
 collision_mask = 0
 monitoring = false
 monitorable = false
+script = ExtResource("8_tbst2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=39229015]
 position = Vector2(0, -26)
@@ -272,10 +288,12 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_dg5qq")
 
 [node name="KeyHurtBox" type="Area2D" parent="." unique_id=17600800]
+unique_name_in_owner = true
 collision_layer = 131072
 collision_mask = 0
 monitoring = false
-monitorable = false
+script = ExtResource("8_tbst2")
+_is_behind_character = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KeyHurtBox" unique_id=183949000]
 position = Vector2(43, -65)
@@ -283,13 +301,26 @@ rotation = 1.5707964
 shape = SubResource("CircleShape2D_c7w4b")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=220758602]
+unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 512
 monitoring = false
 monitorable = false
+script = ExtResource("9_gt7a1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=411542273]
 position = Vector2(-5, -28)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_c7w4b")
 debug_color = Color(0.95791644, 2.117753e-06, 0.53261024, 0.41960785)
+
+[node name="Rumble" type="Timer" parent="." unique_id=853209]
+unique_name_in_owner = true
+wait_time = 0.083
+
+[connection signal="changed_direction" from="." to="KeyHurtBox" method="_on_character_changed_direction"]
+[connection signal="changed_direction" from="." to="HitBox" method="_on_character_changed_direction"]
+[connection signal="died" from="HurtBox" to="." method="_die"]
+[connection signal="damage_received" from="KeyHurtBox" to="." method="_on_key_attacked" unbinds=1]
+[connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]
+[connection signal="timeout" from="Rumble" to="." method="_on_rumble_timeout"]

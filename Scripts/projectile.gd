@@ -31,7 +31,7 @@ func _on_impact() -> void:
 # Colliding with hurt box
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):
-		area.take_damage(_damage)
+		area.take_damage(_damage, (area.global_position - global_position).normalized())
 		_on_impact()
 
 

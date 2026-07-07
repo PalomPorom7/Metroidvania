@@ -23,10 +23,9 @@ func _decide_what_to_do_next() -> void:
 	pass
 
 
-
 func _on_body_entered(body: Node2D) -> void:
 	set_deferred("monitoring", false)
 	# Close the arena
 	# Do any initialization
 	_target = body
-	start()
+	#start()

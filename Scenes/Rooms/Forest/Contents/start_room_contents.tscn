@@ -612,4 +612,7 @@ shape = SubResource("RectangleShape2D_ba4y6")
 position = Vector2(-171, -2)
 
 [connection signal="body_entered" from="BossEncounter" to="BossEncounter" method="_on_body_entered"]
+[connection signal="armor_damaged" from="BossEncounter/MechMouse" to="BossEncounter" method="set_phase" binds= [2]]
+[connection signal="died" from="BossEncounter/MechMouse" to="BossEncounter" method="end"]
+[connection signal="engine_started" from="BossEncounter/MechMouse" to="BossEncounter" method="start"]
 [connection signal="finished" from="BossEncounter/MechMouse" to="BossEncounter" method="_decide_what_to_do_next"]

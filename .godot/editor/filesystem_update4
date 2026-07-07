@@ -1,5 +1,1 @@
-res://Scenes/Enemies/mech_mouse.tscn
-res://theme.tres
-res://Scenes/Characters/locomotion.tres
-res://Scenes/Characters/movement.tres
-res://Scenes/Characters/actions.tres
+res://Scripts/Enemies/mech_mouse.gd
