@@ -22,21 +22,23 @@ func _ready() -> void:
 	_kitty_hurt_box.initialize(File.data.max_health)
 	_kitty_hurt_box.set_counter(_health_counter)
 	_kitty.update_sprite_visibility()
+	_position_player_character()
+
+
+func _position_player_character() -> bool:
+	if File.data.last_saved_at:
+		var region: Node2D = $WorldEnvironment.get_node(File.data.last_saved_at[0])
+		var room: Room = region.get_node(File.data.last_saved_at[1])
+		_kitty.global_position = room.get_node("SavePoint").global_position
+		return room == _current_room
+	else:
+		_kitty.global_position = Vector2.ZERO
+		return false
 
 
 func unlock_ability(ability: int) -> void:
 	File.data.abilities_unlocked[ability] = true
 	ability_unlocked.emit(ability)
-
-
-#var next_ability: int
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("quit"):
-		#get_tree().quit()
-		#print("Unlock " + Enums.Abilities.keys()[next_ability])
-		#unlock_ability(next_ability)
-		#next_ability = clampi(next_ability + 1, 0, Enums.Abilities.size() - 1)
-		#File.save_game()
 
 
 func on_player_entered_room(room_entered: Room) -> void:
@@ -63,16 +65,17 @@ func _on_player_died() -> void:
 	tween.tween_property(%GameOver, "modulate:a", 1, 1)
 	await _fade.to_black()
 	# Reposition the player character
-	# TODO: respawn at the last saved checkpoint
-	_kitty.position = Vector2.ZERO
-	await get_tree().create_timer(1).timeout
+	var same_room: bool = _position_player_character()
 	tween = create_tween()
 	tween.tween_property(%GameOver, "modulate:a", 0, 0.5)
 	await tween.finished
 	_kitty.revive()
 	tween = create_tween()
 	tween.tween_property(%Revive, "modulate:a", 1, 0.5)
-	await _fade.to_clear()
+	if same_room:
+		await _fade.to_clear()
+	else:
+		await get_tree().create_timer(1).timeout
 	tween = create_tween()
 	tween.tween_property(%Revive, "modulate:a", 0, 0.5)
 	_player.enable()

@@ -51,6 +51,11 @@ func _ready() -> void:
 	current_magic_changed.emit(_current_magic)
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		die()
+
+
 func die() -> void:
 	super.die()
 	_particles.one_shot = false

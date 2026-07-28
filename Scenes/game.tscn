@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dlff4r3edrjnh" path="res://Scenes/Dust/jump_dust.tscn" id="3_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dljnglf8hoe0r" path="res://Scenes/Dust/land_dust.tscn" id="4_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://caxyh1supbwlf" path="res://Scenes/Rooms/forest.tscn" id="6_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://gk6rhqvk76p" path="res://Scenes/Rooms/volcano.tscn" id="7_ewbju"]
 [ext_resource type="Script" uid="uid://c14oilynetvb3" path="res://Scripts/camera_follow.gd" id="8_j5wjh"]
 [ext_resource type="Theme" uid="uid://cys2x0ycpvfk0" path="res://theme.tres" id="10_1phco"]
 [ext_resource type="Script" uid="uid://ogbhovye72b4" path="res://Scripts/fade.gd" id="10_ldgsr"]
@@ -19,11 +20,6 @@
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ldgsr"]
 viewport_path = NodePath("MapViewport")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nnt18"]
-resource_local_to_scene = true
-atlas = ExtResource("12_nb51f")
-region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ewbju"]
 resource_local_to_scene = true
@@ -65,6 +61,11 @@ resource_local_to_scene = true
 atlas = ExtResource("12_nb51f")
 region = Rect2(192, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_22asu"]
+resource_local_to_scene = true
+atlas = ExtResource("12_nb51f")
+region = Rect2(192, 0, 32, 32)
+
 [node name="Game" type="Node2D" unique_id=2091927422]
 process_mode = 3
 visibility_layer = 3
@@ -78,6 +79,9 @@ _jump_dust = ExtResource("3_eow3j")
 _land_dust = ExtResource("4_j5wjh")
 
 [node name="Forest" parent="WorldEnvironment" unique_id=584330548 instance=ExtResource("6_h4fw4")]
+
+[node name="Volcano" parent="WorldEnvironment" unique_id=2089373726 instance=ExtResource("7_ewbju")]
+position = Vector2(2112, 0)
 
 [node name="Kitty" parent="WorldEnvironment" unique_id=408623218 instance=ExtResource("1_80nbo")]
 unique_name_in_owner = true
@@ -170,39 +174,39 @@ _icon_scene = ExtResource("13_1phco")
 
 [node name="HealthIcon1" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=1585766523 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_nnt18")
+texture = SubResource("AtlasTexture_ewbju")
 
 [node name="HealthIcon2" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=308534979 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_ewbju")
+texture = SubResource("AtlasTexture_85qyi")
 
 [node name="HealthIcon3" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=535387212 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_85qyi")
+texture = SubResource("AtlasTexture_iivbl")
 
 [node name="HealthIcon4" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=38168909 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_iivbl")
+texture = SubResource("AtlasTexture_7nbq1")
 
 [node name="HealthIcon5" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=326093497 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_7nbq1")
+texture = SubResource("AtlasTexture_exi56")
 
 [node name="HealthIcon6" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=34202027 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_exi56")
+texture = SubResource("AtlasTexture_7t8sx")
 
 [node name="HealthIcon7" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=1737950826 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_7t8sx")
+texture = SubResource("AtlasTexture_mg4q0")
 
 [node name="HealthIcon8" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=298415098 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_mg4q0")
+texture = SubResource("AtlasTexture_vm72l")
 
 [node name="HealthIcon9" parent="CanvasLayer/HUD/Vitals/HealthCounter" unique_id=632355684 instance=ExtResource("13_1phco")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_vm72l")
+texture = SubResource("AtlasTexture_22asu")
 
 [node name="MagicGauge" type="ProgressBar" parent="CanvasLayer/HUD/Vitals" unique_id=415712282]
 layout_mode = 0

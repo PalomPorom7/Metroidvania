@@ -1,6 +1,9 @@
 class_name Data extends Resource
 
 
+@export var last_saved_at: Array[String] # EX: ["Forest", "SaveRoom"]
+
+
 @export var max_health: int = 5
 var current_health: int
 

@@ -1,1 +1,14 @@
-res://Scripts/Enemies/mech_mouse.gd
+res://Scripts/camera_follow.gd
+res://Scripts/Managers/game_manager.gd
+res://Scenes/Rooms/Forest/start_room.tscn
+res://theme.tres
+res://Scenes/Characters/locomotion.tres
+res://Scenes/Characters/movement.tres
+res://Scenes/Characters/actions.tres
+res://Scenes/game.tscn
+res://Scripts/fade.gd
+res://Scenes/save_point.tscn
+res://Scripts/Resources/data.gd
+res://Scenes/Rooms/Forest/save_room.tscn
+res://Scenes/Rooms/forest.tscn
+res://Scripts/save_point.gd

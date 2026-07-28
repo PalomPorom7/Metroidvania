@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://gk6rhqvk76p"]
+
+[ext_resource type="PackedScene" uid="uid://dv4n7fyl4gw4b" path="res://Scenes/Rooms/Volcano/boss_room.tscn" id="1_qj5e6"]
+
+[node name="Volcano" type="Node2D" unique_id=1981588988]
+visibility_layer = 3
+
+[node name="BossRoom" parent="." unique_id=639118513 instance=ExtResource("1_qj5e6")]
