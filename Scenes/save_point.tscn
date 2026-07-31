@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cnvnecfqmesab" path="res://Assets/Sprites/Effects/powerup-halo.png" id="2_hxhin"]
 [ext_resource type="Texture2D" uid="uid://c75qa8n1pv5rw" path="res://Assets/Sprites/Kitty/book-save.png" id="3_u6je2"]
 [ext_resource type="Script" uid="uid://caea04o20e6hw" path="res://Scripts/map_icon.gd" id="4_37gic"]
+[ext_resource type="Script" uid="uid://ce302ns3gmaxc" path="res://Scripts/float.gd" id="4_hxhin"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uo8vs"]
 atlas = ExtResource("3_u6je2")
@@ -287,6 +288,9 @@ frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=737310831]
 shape = SubResource("CircleShape2D_wv4je")
+
+[node name="Float" type="Node" parent="Area2D" unique_id=1387598176]
+script = ExtResource("4_hxhin")
 
 [node name="MapIcon" type="Sprite2D" parent="." unique_id=276152865]
 visible = false

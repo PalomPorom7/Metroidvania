@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://bmck45jxl71gt"]
+
+[ext_resource type="Script" uid="uid://74tleiobqaph" path="res://Scripts/upgrade.gd" id="1_c6ki8"]
+[ext_resource type="Texture2D" uid="uid://cnvnecfqmesab" path="res://Assets/Sprites/Effects/powerup-halo.png" id="2_8sm5a"]
+[ext_resource type="Texture2D" uid="uid://bnij0vplb4pu2" path="res://Assets/Sprites/Kitty/Powerup-Items.png" id="3_ti8hp"]
+[ext_resource type="Script" uid="uid://ce302ns3gmaxc" path="res://Scripts/float.gd" id="4_ti8hp"]
+[ext_resource type="Texture2D" uid="uid://b86ript40cxbj" path="res://Assets/Sprites/Effects/circles-16x16.png" id="5_fqprt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqprt"]
+atlas = ExtResource("3_ti8hp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ga48"]
+atlas = ExtResource("3_ti8hp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spt5w"]
+atlas = ExtResource("3_ti8hp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmacw"]
+atlas = ExtResource("3_ti8hp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow2bk"]
+atlas = ExtResource("3_ti8hp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31bdk"]
+atlas = ExtResource("3_ti8hp")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ukjc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqprt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ga48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spt5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmacw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow2bk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31bdk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wv4je"]
+radius = 32.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3ga48"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_3ga48"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_spt5w"]
+curve = SubResource("Curve_3ga48")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_spt5w"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 32.0
+radial_velocity_min = -64.00002
+radial_velocity_max = -32.000023
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_spt5w")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="Curve" id="Curve_fqprt"]
+_data = [Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3ga48"]
+curve = SubResource("Curve_fqprt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tmacw"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 32.0
+initial_velocity_max = 64.0
+gravity = Vector3(0, 0, 0)
+damping_min = 32.0
+damping_max = 64.0
+alpha_curve = SubResource("CurveTexture_3ga48")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="Gem" type="Area2D" unique_id=343964197]
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+script = ExtResource("1_c6ki8")
+_ability = 4
+
+[node name="PowerupHalo" type="Sprite2D" parent="." unique_id=41389684]
+unique_name_in_owner = true
+texture = ExtResource("2_8sm5a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2092965338]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_5ukjc")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=737310831]
+shape = SubResource("CircleShape2D_wv4je")
+
+[node name="Float" type="Node" parent="." unique_id=1399321840]
+script = ExtResource("4_ti8hp")
+
+[node name="ParticlesIn" type="GPUParticles2D" parent="." unique_id=20751239]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_3ga48")
+emitting = false
+amount = 32
+texture = ExtResource("5_fqprt")
+process_material = SubResource("ParticleProcessMaterial_spt5w")
+
+[node name="ParticlesOut" type="GPUParticles2D" parent="." unique_id=427333190]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_3ga48")
+emitting = false
+amount = 32
+texture = ExtResource("5_fqprt")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_tmacw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
