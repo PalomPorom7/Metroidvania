@@ -1533,7 +1533,7 @@ debug_color = Color(0.18923053, 0.6424029, 0, 0.41960785)
 [node name="HitBox" type="Area2D" parent="." unique_id=1328104373]
 visible = false
 collision_layer = 0
-collision_mask = 131073
+collision_mask = 131075
 monitoring = false
 monitorable = false
 script = ExtResource("4_jkbpd")
@@ -1543,6 +1543,13 @@ position = Vector2(32, -16)
 scale = Vector2(2, 1)
 shape = SubResource("CircleShape2D_lqg5k")
 debug_color = Color(0.9754819, 0, 0.42259383, 0.41960785)
+
+[node name="RayCast2D" type="RayCast2D" parent="HitBox" unique_id=1347616421]
+unique_name_in_owner = true
+position = Vector2(0, -16)
+collision_mask = 131075
+hit_from_inside = true
+collide_with_areas = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=581382877]
 position = Vector2(0, -18)

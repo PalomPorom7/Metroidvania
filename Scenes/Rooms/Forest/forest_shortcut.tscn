@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://cxitoua8vm3af"]
+
+[ext_resource type="Texture2D" uid="uid://diy3j65gj7kyg" path="res://Assets/Sprites/Forest/Forest-Terrain-32x32.png" id="1_8elww"]
+[ext_resource type="Script" uid="uid://dtyoq2rg57qjm" path="res://Scripts/shortcut.gd" id="1_frvv8"]
+[ext_resource type="Texture2D" uid="uid://ph351c8s0rjt" path="res://Assets/Sprites/Forest/brace.png" id="2_ei7in"]
+[ext_resource type="Script" uid="uid://dl7rh5imgcgw7" path="res://Scripts/hurt_box.gd" id="4_e6lrq"]
+[ext_resource type="Texture2D" uid="uid://b86ript40cxbj" path="res://Assets/Sprites/Effects/circles-16x16.png" id="5_e6lrq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c67u"]
+atlas = ExtResource("1_8elww")
+region = Rect2(96, 0, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnumu"]
+atlas = ExtResource("2_ei7in")
+region = Rect2(0, 0, 32, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pxee"]
+size = Vector2(32, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_be0sj"]
+size = Vector2(32, 96)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lpkdj"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_86gat"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xvvr8"]
+curve = SubResource("Curve_86gat")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bwxex"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(16, 48, 1)
+spread = 180.0
+initial_velocity_min = 32.0
+initial_velocity_max = 64.0
+gravity = Vector3(0, 0, 0)
+damping_min = 32.0
+damping_max = 64.0
+alpha_curve = SubResource("CurveTexture_xvvr8")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6lrq"]
+size = Vector2(5, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6lrq"]
+atlas = ExtResource("2_ei7in")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpkdj"]
+size = Vector2(11, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpkdj"]
+atlas = ExtResource("2_ei7in")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86gat"]
+size = Vector2(15, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86gat"]
+atlas = ExtResource("2_ei7in")
+region = Rect2(64, 64, 32, 32)
+
+[node name="Shortcut" type="StaticBody2D" unique_id=2004754555]
+script = ExtResource("1_frvv8")
+
+[node name="Wall" type="Sprite2D" parent="." unique_id=569669458]
+position = Vector2(16, -48)
+texture = SubResource("AtlasTexture_7c67u")
+
+[node name="Brace" type="Sprite2D" parent="." unique_id=1447245583]
+position = Vector2(45, -48)
+texture = SubResource("AtlasTexture_gnumu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=534511946]
+position = Vector2(16, -48)
+shape = SubResource("RectangleShape2D_3pxee")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1607815935]
+position = Vector2(48, -48)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_e6lrq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=562255681]
+shape = SubResource("RectangleShape2D_be0sj")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2101850207]
+material = SubResource("CanvasItemMaterial_lpkdj")
+position = Vector2(15, -48)
+emitting = false
+amount = 64
+texture = ExtResource("5_e6lrq")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_bwxex")
+
+[node name="Debris" type="Node2D" parent="." unique_id=491894505]
+visible = false
+
+[node name="Piece0" type="RigidBody2D" parent="Debris" unique_id=1186596538]
+position = Vector2(32, -87)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/Piece0" unique_id=1025069620]
+shape = SubResource("RectangleShape2D_e6lrq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/Piece0" unique_id=2002031817]
+position = Vector2(2, 3)
+texture = SubResource("AtlasTexture_e6lrq")
+
+[node name="Piece1" type="RigidBody2D" parent="Debris" unique_id=522404482]
+position = Vector2(35, -57)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/Piece1" unique_id=1244644604]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_lpkdj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/Piece1" unique_id=719471562]
+texture = SubResource("AtlasTexture_lpkdj")
+
+[node name="Piece2" type="RigidBody2D" parent="Debris" unique_id=443117462]
+position = Vector2(46, -4)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/Piece2" unique_id=1032918429]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_86gat")
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/Piece2" unique_id=1303780777]
+texture = SubResource("AtlasTexture_86gat")
+
+[node name="Shake" type="Timer" parent="." unique_id=1671869156]
+wait_time = 0.083
+
+[connection signal="damage_received" from="HurtBox" to="." method="_on_damage_received" unbinds=1]
+[connection signal="timeout" from="Shake" to="." method="_shake"]

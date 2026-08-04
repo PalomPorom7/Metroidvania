@@ -123,6 +123,7 @@ attack={
 2d_render/layer_1="World"
 2d_render/layer_2="Map"
 2d_physics/layer_1="Terrain"
+2d_physics/layer_2="Shortcuts"
 2d_physics/layer_5="Invisible Walls"
 2d_physics/layer_9="Player"
 2d_physics/layer_10="Player Hurt Box"

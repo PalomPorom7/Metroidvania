@@ -1,4 +1,5 @@
 res://Scripts/
+res://Scenes/Rooms/Forest/
 res://Assets/Sprites/Kitty/
 res://Scenes/
 res://Assets/Sprites/
@@ -16,5 +17,4 @@ res://Assets/Sprites/UI/
 res://Scenes/Rooms/
 res://Scenes/Rooms/Forest/Contents/
 res://Scripts/Managers/
-res://Scenes/Rooms/Forest/
 res://Scenes/Dust/

@@ -80,6 +80,7 @@ animations = [{
 }]
 
 [node name="Projectile" type="Area2D" unique_id=697921894]
+collision_mask = 3
 script = ExtResource("1_c3q3r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=443068865]

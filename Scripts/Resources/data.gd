@@ -12,6 +12,8 @@ var current_magic: float
 
 
 @export var abilities_unlocked: Array[bool]
+@export var flags: Dictionary[String, bool]
+
 
 
 func _init() -> void:
