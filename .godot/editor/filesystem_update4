@@ -1,15 +1,6 @@
-res://Scenes/Rooms/Forest/Contents/second_room_contents.tscn
+res://Scenes/Rooms/Forest/forest_shortcut.tscn
 res://theme.tres
 res://Scenes/Characters/locomotion.tres
 res://Scenes/Characters/movement.tres
 res://Scenes/Characters/actions.tres
-res://Scenes/Rooms/Forest/save_room.tscn
-res://Scenes/Projectiles/projectile.tscn
-res://Scenes/Characters/kitty.tscn
-res://Scenes/Rooms/Forest/forest_shortcut.tscn
 res://Scripts/shortcut.gd
-res://Scripts/Resources/data.gd
-res://Scenes/Rooms/forest.tscn
-res://Scripts/hit_box.gd
-res://Scenes/Rooms/Forest/second_room.tscn
-res://Scenes/game.tscn

@@ -11,26 +11,20 @@ func _ready() -> void:
 
 
 func _on_damage_received() -> void:
-	$Shake.start()
 	$GPUParticles2D.restart()
 	if _damaged:
+		$HurtBox.set_deferred("monitorable", false)
 		destroy()
 	else:
 		_damaged = true
 		$Brace.texture.region.position.x = 32
+		$Shake.start()
 		await get_tree().create_timer(1).timeout
 		$Shake.stop()
 
 
 func _shake(intensity: float = 1) -> void:
 	$Wall.offset = Vector2.RIGHT.rotated(randf_range(0, TAU)) * intensity
-
-
-func _scatter_debris() -> void:
-	$Debris.visible = true
-	for piece: RigidBody2D in $Debris.get_children():
-		piece.set_deferred("freeze", false)
-		piece.call_deferred("apply_impulse", piece.position)
 
 
 func destroy() -> void:
@@ -41,3 +35,10 @@ func destroy() -> void:
 	$Brace.visible = false
 	await $GPUParticles2D.finished
 	queue_free()
+
+
+func _scatter_debris() -> void:
+	$Debris.visible = true
+	for piece: RigidBody2D in $Debris.get_children():
+		piece.set_deferred("freeze", false)
+		piece.call_deferred("apply_impulse", piece.position)
