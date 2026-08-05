@@ -13,6 +13,7 @@ var current_magic: float
 
 @export var abilities_unlocked: Array[bool]
 @export var flags: Dictionary[String, bool]
+@export var map: Dictionary[String, Dictionary] # EX: ["Forest"]["SaveRoom"] = true
 
 
 

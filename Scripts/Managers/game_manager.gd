@@ -51,6 +51,7 @@ func on_player_entered_room(room_entered: Room) -> void:
 		_current_room.unload_contents()
 	_current_room = room_entered
 	_current_room.call_deferred("load_contents")
+	_current_room.discover(true)
 	_camera.set_bounds(_current_room.get_top_left(), _current_room.get_bottom_right())
 	_kitty.process_mode = Node.PROCESS_MODE_INHERIT
 	await _fade.to_clear()

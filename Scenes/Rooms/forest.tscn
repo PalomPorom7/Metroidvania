@@ -1,16 +1,54 @@
 [gd_scene format=3 uid="uid://caxyh1supbwlf"]
 
 [ext_resource type="PackedScene" uid="uid://cwpwh3s01ijwl" path="res://Scenes/Rooms/Forest/start_room.tscn" id="1_f47cm"]
+[ext_resource type="Script" uid="uid://cp3v3iblv01m5" path="res://Scripts/region.gd" id="1_m87oq"]
 [ext_resource type="PackedScene" uid="uid://bjrbmkydvtclo" path="res://Scenes/Rooms/Forest/second_room.tscn" id="2_wj5m4"]
 [ext_resource type="PackedScene" uid="uid://60vg16oq0jdx" path="res://Scenes/Rooms/Forest/save_room.tscn" id="3_wj5m4"]
 
 [node name="Forest" type="Node2D" unique_id=897666882]
 visibility_layer = 3
+script = ExtResource("1_m87oq")
 
 [node name="StartRoom" parent="." unique_id=423248164 instance=ExtResource("1_f47cm")]
 
 [node name="SecondRoom" parent="." unique_id=26037397 instance=ExtResource("2_wj5m4")]
-position = Vector2(-2112, 0)
+position = Vector2(1056, 0)
 
 [node name="SaveRoom" parent="." unique_id=444847475 instance=ExtResource("3_wj5m4")]
 position = Vector2(-1056, 0)
+
+[node name="Label" type="Label" parent="." unique_id=116676915]
+visibility_layer = 2
+offset_left = -448.0
+offset_top = -704.0
+offset_right = 482.0
+offset_bottom = -355.0
+theme_override_colors/font_color = Color(0, 0.5019608, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 32
+theme_override_constants/shadow_offset_y = 32
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 256
+text = "FOREST"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1939128712]
+
+[node name="Title" type="Label" parent="CanvasLayer" unique_id=1651144502]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -369.0
+offset_top = -87.5
+offset_right = 369.0
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "THE FOREST"

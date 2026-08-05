@@ -4,3 +4,12 @@ res://Scenes/Characters/locomotion.tres
 res://Scenes/Characters/movement.tres
 res://Scenes/Characters/actions.tres
 res://Scripts/shortcut.gd
+res://Scenes/Rooms/forest.tscn
+res://Scenes/game.tscn
+res://Scenes/Rooms/Forest/start_room.tscn
+res://Scripts/Resources/data.gd
+res://Scripts/room.gd
+res://Scripts/Managers/game_manager.gd
+res://Scripts/region.gd
+res://Scenes/Rooms/volcano.tscn
+res://Scenes/Rooms/Forest/Contents/second_room_contents.tscn
