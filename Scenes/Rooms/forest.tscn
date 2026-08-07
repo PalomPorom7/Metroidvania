@@ -2,12 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://cwpwh3s01ijwl" path="res://Scenes/Rooms/Forest/start_room.tscn" id="1_f47cm"]
 [ext_resource type="Script" uid="uid://cp3v3iblv01m5" path="res://Scripts/region.gd" id="1_m87oq"]
+[ext_resource type="AudioStream" uid="uid://bhjxil1ksms0c" path="res://Assets/Music/Forest Theme - Building Momentum.wav" id="2_pasxs"]
 [ext_resource type="PackedScene" uid="uid://bjrbmkydvtclo" path="res://Scenes/Rooms/Forest/second_room.tscn" id="2_wj5m4"]
 [ext_resource type="PackedScene" uid="uid://60vg16oq0jdx" path="res://Scenes/Rooms/Forest/save_room.tscn" id="3_wj5m4"]
 
 [node name="Forest" type="Node2D" unique_id=897666882]
 visibility_layer = 3
 script = ExtResource("1_m87oq")
+music = ExtResource("2_pasxs")
 
 [node name="StartRoom" parent="." unique_id=423248164 instance=ExtResource("1_f47cm")]
 

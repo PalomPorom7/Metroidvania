@@ -1,6 +1,7 @@
 extends Node2D
 
 
+@export var music: AudioStream
 @onready var _title: Label = %Title
 var _tween: Tween
 

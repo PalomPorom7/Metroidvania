@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 File="*uid://djoyq74qokoab"
+BGMusic="*uid://duttyhphgu4kq"
 
 [display]
 

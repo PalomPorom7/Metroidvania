@@ -1,3 +1,4 @@
+res://Scripts/Globals/
 res://Scripts/
 res://Scenes/Rooms/Forest/
 res://Assets/Sprites/Kitty/
@@ -10,7 +11,6 @@ res://Assets/Sprites/Enemies/Boss/
 res://Scenes/Characters/
 res://Assets/Sprites/Effects/
 res://Assets/Sprites/Dust/
-res://Scripts/Globals/
 res://
 res://Scripts/UI/
 res://Assets/Sprites/UI/

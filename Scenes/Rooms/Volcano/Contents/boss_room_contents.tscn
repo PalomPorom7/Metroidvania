@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dn4amnnqd7qc3"]
 
+[ext_resource type="AudioStream" uid="uid://bkoivekmvb7aa" path="res://Assets/Music/Forgotten Toy Sentinel.wav" id="4_76a33"]
 [ext_resource type="Texture2D" uid="uid://diy3j65gj7kyg" path="res://Assets/Sprites/Forest/Forest-Terrain-32x32.png" id="4_glkqf"]
 [ext_resource type="Texture2D" uid="uid://nyanutw5drcx" path="res://Assets/Sprites/blank.png" id="5_2x1dl"]
 [ext_resource type="Script" uid="uid://dpmot1psa1v3x" path="res://Scripts/Enemies/mech_mouse_encounter.gd" id="12_hrxhi"]
@@ -503,6 +504,7 @@ tile_set = SubResource("TileSet_pfkxn")
 collision_layer = 0
 collision_mask = 256
 script = ExtResource("12_hrxhi")
+_music = ExtResource("4_76a33")
 _boss = NodePath("MechMouse")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossEncounter" unique_id=229919039]

@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://diy3j65gj7kyg" path="res://Assets/Sprites/Forest/Forest-Terrain-32x32.png" id="4_svqak"]
 [ext_resource type="Texture2D" uid="uid://b66tampyd4pap" path="res://Assets/Sprites/Forest/Foreground-Bottom-Back.png" id="5_hf3jx"]
 [ext_resource type="Texture2D" uid="uid://cld5xs1nxk1am" path="res://Assets/Sprites/Forest/Foreground-Bottom-Front.png" id="6_jay8k"]
-[ext_resource type="PackedScene" uid="uid://cxitoua8vm3af" path="res://Scenes/Rooms/Forest/forest_shortcut.tscn" id="8_3pxee"]
 
 [sub_resource type="Gradient" id="Gradient_tl3a5"]
 colors = PackedColorArray(0.32156864, 0.5058824, 0.827451, 1, 0.827451, 0.92941177, 1, 1)
@@ -530,6 +529,3 @@ region_enabled = true
 region_rect = Rect2(0, 0, 2048, 72)
 script = ExtResource("3_7c67u")
 _scroll_scale = Vector2(-0.667, 0)
-
-[node name="Shortcut" parent="." unique_id=2004754555 instance=ExtResource("8_3pxee")]
-_flag_name = "Forest Second Room Shortcut"

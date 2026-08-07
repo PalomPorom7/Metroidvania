@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://dv4n7fyl4gw4b" path="res://Scenes/Rooms/Volcano/boss_room.tscn" id="1_qj5e6"]
 [ext_resource type="Script" uid="uid://cp3v3iblv01m5" path="res://Scripts/region.gd" id="1_rwume"]
+[ext_resource type="AudioStream" uid="uid://0r30d6xhrsic" path="res://Assets/Music/Volcano Theme - Embers in Still Water.wav" id="2_3b4wl"]
 
 [node name="Volcano" type="Node2D" unique_id=1981588988]
 visibility_layer = 3
 script = ExtResource("1_rwume")
+music = ExtResource("2_3b4wl")
 
 [node name="BossRoom" parent="." unique_id=639118513 instance=ExtResource("1_qj5e6")]
 
