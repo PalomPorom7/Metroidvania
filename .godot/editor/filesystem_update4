@@ -1,9 +1,8 @@
-res://Scenes/game.tscn
+res://Scenes/Rooms/forest.tscn
 res://theme.tres
 res://Scenes/Characters/locomotion.tres
 res://Scenes/Characters/movement.tres
 res://Scenes/Characters/actions.tres
 res://Scripts/Globals/music.gd
-res://Scenes/Rooms/forest.tscn
-res://Scenes/Rooms/Volcano/Contents/boss_room_contents.tscn
+res://Scripts/room.gd
 res://Scripts/boss_encounter.gd

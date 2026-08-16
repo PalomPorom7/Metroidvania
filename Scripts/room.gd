@@ -47,7 +47,7 @@ func discover(entered: bool) -> void:
 
 
 func load_contents() -> void:
-	BGMusic.play_track(get_parent().music)
+	Music.play_track(get_parent().music)
 	if not _contents_node:
 		_contents_node = _contents_scene.instantiate()
 		add_child(_contents_node)

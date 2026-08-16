@@ -1,4 +1,4 @@
-class_name Music extends AudioStreamPlayer
+extends AudioStreamPlayer
 
 
 var _region_music: AudioStream

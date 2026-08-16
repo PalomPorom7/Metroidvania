@@ -8,13 +8,13 @@ var _phase: int
 
 
 func start() -> void:
-	BGMusic.override_music(_music)
+	Music.override_music(_music)
 	_phase = 1
 	_decide_what_to_do_next()
 
 
 func end() -> void:
-	BGMusic.revert_music()
+	Music.revert_music()
 
 
 func set_phase(phase: int) -> void:
