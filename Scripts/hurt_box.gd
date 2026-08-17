@@ -8,7 +8,7 @@ signal died
 
 
 @export var _is_behind_character: bool
-@onready var _shape: CollisionShape2D = $CollisionShape2D
+#@onready var _shape: CollisionShape2D = $CollisionShape2D
 var _max_health: int = 5
 @onready var _current_health: int = _max_health
 
@@ -47,7 +47,7 @@ func recover(amount: int = 0) -> void:
 func _on_character_changed_direction(direction: int) -> void:
 	if _is_behind_character:
 		direction *= -1
-	_shape.position.x = abs(_shape.position.x) * (-1 if direction < 0 else 1)
+	position.x = abs(position.x) * (-1 if direction < 0 else 1)
 
 
 # TEST

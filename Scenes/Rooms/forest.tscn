@@ -17,7 +17,7 @@ music = ExtResource("2_pasxs")
 position = Vector2(1056, 0)
 
 [node name="SaveRoom" parent="." unique_id=444847475 instance=ExtResource("3_wj5m4")]
-position = Vector2(-1056, 0)
+position = Vector2(2112, 0)
 
 [node name="Label" type="Label" parent="." unique_id=116676915]
 visibility_layer = 2

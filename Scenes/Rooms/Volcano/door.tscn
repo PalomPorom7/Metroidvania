@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://72sfkbydjdpe"]
+
+[ext_resource type="Script" uid="uid://pbbybn725f7j" path="res://Scripts/door.gd" id="1_5876t"]
+[ext_resource type="Texture2D" uid="uid://bjxbw5jg8mh3x" path="res://Assets/Sprites/Volcano/Cave-Terrain-32x32.png" id="2_ku2oi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jc6r"]
+size = Vector2(32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwn6k"]
+atlas = ExtResource("2_ku2oi")
+region = Rect2(96, 0, 32, 96)
+
+[node name="Door" type="StaticBody2D" unique_id=636815176]
+script = ExtResource("1_5876t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1154233624]
+position = Vector2(0, -144)
+shape = SubResource("RectangleShape2D_2jc6r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1815441560]
+position = Vector2(0, -144)
+texture = SubResource("AtlasTexture_gwn6k")

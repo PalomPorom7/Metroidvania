@@ -289,6 +289,7 @@ shape = SubResource("CapsuleShape2D_dg5qq")
 
 [node name="KeyHurtBox" type="Area2D" parent="." unique_id=17600800]
 unique_name_in_owner = true
+position = Vector2(43, -64)
 collision_layer = 131072
 collision_mask = 0
 monitoring = false
@@ -296,7 +297,6 @@ script = ExtResource("8_tbst2")
 _is_behind_character = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KeyHurtBox" unique_id=183949000]
-position = Vector2(43, -65)
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_c7w4b")
 

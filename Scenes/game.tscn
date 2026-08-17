@@ -79,9 +79,10 @@ _jump_dust = ExtResource("3_eow3j")
 _land_dust = ExtResource("4_j5wjh")
 
 [node name="Forest" parent="WorldEnvironment" unique_id=584330548 instance=ExtResource("6_h4fw4")]
+position = Vector2(-2112, 0)
 
 [node name="Volcano" parent="WorldEnvironment" unique_id=2089373726 instance=ExtResource("7_ewbju")]
-position = Vector2(2112, 0)
+position = Vector2(1056, 0)
 
 [node name="Kitty" parent="WorldEnvironment" unique_id=408623218 instance=ExtResource("1_80nbo")]
 unique_name_in_owner = true
